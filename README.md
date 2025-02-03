@@ -1,6 +1,6 @@
 # Think Spark 💡
 
-### 🚀 Reflecting on an Incredible Journey with Think Spark! 🌟 
+🚀 Reflecting on an Incredible Journey with Think Spark! 🌟 
 
 ### 💡 This project has been more than just a development challenge it’s been a journey of learning, collaboration, and impact. 🌍 
 

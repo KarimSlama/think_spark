@@ -1,8 +1,9 @@
 # Think Spark 💡
+The Society of New Ideas! 💡
 
 🚀 Reflecting on an Incredible Journey with Think Spark! 🌟 
 
-### 💡 This project has been more than just a development challenge it’s been a journey of learning, collaboration, and impact. 🌍 
+💡 This project has been more than just a development challenge it’s been a journey of learning, collaboration, and impact. 🌍 
 
 ## What is Think Spark? 🤔 
 Think Spark is a community-driven platform where creators share their ideas, investors find groundbreaking projects, and collaborations flourish. 🤝

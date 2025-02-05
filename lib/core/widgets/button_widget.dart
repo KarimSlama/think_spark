@@ -6,12 +6,16 @@ class ButtonWidget extends StatelessWidget {
   final VoidCallback onBackPressed;
   final String btnText;
   final double width;
+  final Color? color;
+  final Color? textColor;
 
   const ButtonWidget(
       {super.key,
       required this.onBackPressed,
       required this.btnText,
-      required this.width});
+      required this.width,
+      this.color,
+      this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +24,19 @@ class ButtonWidget extends StatelessWidget {
         onBackPressed();
       },
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(AppColors.blue),
+        backgroundColor: WidgetStateProperty.all(color ?? AppColors.darkBlue),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: WidgetStatePropertyAll(Size(width, 55.h)),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(14),
           ),
         ),
       ),
       child: Text(
         btnText,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: AppColors.white,
+              color: textColor ?? AppColors.white,
               fontWeight: FontWeight.w600,
             ),
       ),

@@ -9,6 +9,16 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/google.svg
+  String get google => 'assets/icons/google.svg';
+
+  /// List of all assets
+  List<String> get values => [google];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -31,17 +41,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/idea4.json
   String get idea4 => 'assets/images/idea4.json';
 
-  /// File path: assets/images/idea_implementation_img1.png
-  AssetGenImage get ideaImplementationImg1 =>
-      const AssetGenImage('assets/images/idea_implementation_img1.png');
-
-  /// File path: assets/images/idea_implementation_img2.png
-  AssetGenImage get ideaImplementationImg2 =>
-      const AssetGenImage('assets/images/idea_implementation_img2.png');
-
-  /// File path: assets/images/idea_implementation_img3.png
-  AssetGenImage get ideaImplementationImg3 =>
-      const AssetGenImage('assets/images/idea_implementation_img3.png');
+  /// File path: assets/images/idea_bg.png
+  AssetGenImage get ideaBg => const AssetGenImage('assets/images/idea_bg.png');
 
   /// File path: assets/images/light_bulb.png
   AssetGenImage get lightBulbPng =>
@@ -55,6 +56,13 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// File path: assets/images/sign_adjust.png
+  AssetGenImage get signAdjust =>
+      const AssetGenImage('assets/images/sign_adjust.png');
+
+  /// File path: assets/images/sign_welcome.json
+  String get signWelcome => 'assets/images/sign_welcome.json';
 
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
@@ -76,13 +84,13 @@ class $AssetsImagesGen {
         idea2,
         idea3,
         idea4,
-        ideaImplementationImg1,
-        ideaImplementationImg2,
-        ideaImplementationImg3,
+        ideaBg,
         lightBulbPng,
         lightBulbSvg,
         lightCircle,
         logo,
+        signAdjust,
+        signWelcome,
         splash,
         thinkSpark
         lightBulbPng,
@@ -97,6 +105,7 @@ class $AssetsImagesGen {
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

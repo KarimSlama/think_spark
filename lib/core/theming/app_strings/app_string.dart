@@ -12,4 +12,10 @@ class AppString {
   static const String bePartOfTheChange = 'Be Part of the Change';
   static const String joinAGlobalCommunityOfThinkersCreatorsAndInvestorsShapingTheFuture = 'Join a global community of thinkers, creators, and investors shaping the future.';
   static const String letsStart = 'Let’s Start';
+  static const String stayInTheKnow = 'Stay in the know';
+  static const String aSafeSpaceToShareCollaborateAndGrowYourVision = 'A safe space to share, collaborate, and grow your vision.\n';
+  static const String getInTouchByRegister = 'Get in touch by register!';
+  static const String signUp = 'Sign Up';
+  static const String login = 'Login';
+  static const String orContinueWith = 'Or continue with';
 }

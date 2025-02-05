@@ -61,6 +61,12 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/think_spark.svg
   String get thinkSpark => 'assets/images/think_spark.svg';
+  /// File path: assets/images/think_spark.png
+  AssetGenImage get thinkSparkPng =>
+      const AssetGenImage('assets/images/think_spark.png');
+
+  /// File path: assets/images/think_spark.svg
+  String get thinkSparkSvg => 'assets/images/think_spark.svg';
 
   /// List of all assets
   List<dynamic> get values => [
@@ -79,6 +85,12 @@ class $AssetsImagesGen {
         logo,
         splash,
         thinkSpark
+        lightBulbPng,
+        lightBulbSvg,
+        logo,
+        splash,
+        thinkSparkPng,
+        thinkSparkSvg
       ];
 }
 

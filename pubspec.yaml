@@ -41,6 +41,8 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   # Toast Library for Flutter, Easily create toast messages in single line of code
   fluttertoast: ^8.2.10
+  # Customizable animated page indicator with a set of built-in effects.
+  smooth_page_indicator: ^1.2.0+3
   icon_broken: ^1.1.0
   lottie: ^3.3.0
 

@@ -36,6 +36,13 @@ class _SplashScreenState extends State<SplashScreen> {
                   Image(
                       width: 220.w,
                       image: AssetImage(Assets.images.lightBulbPng.path)),
+                  SvgPicture.asset(Assets.images.thinkSpark, width: 260.w),
+                  Text(
+                    AppString.theSocietyOfNewIdeas,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppColors.white,
+                        ),
+                  ),
                   SvgPicture.asset(Assets.images.thinkSparkSvg, width: 260.w),
                   Text(AppString.theSocietyOfNewIdeas),
                 ],

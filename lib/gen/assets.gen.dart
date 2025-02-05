@@ -61,6 +61,9 @@ class $AssetsImagesGen {
   AssetGenImage get signAdjust =>
       const AssetGenImage('assets/images/sign_adjust.png');
 
+  /// File path: assets/images/sign_welcome.json
+  String get signWelcome => 'assets/images/sign_welcome.json';
+
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
@@ -81,6 +84,7 @@ class $AssetsImagesGen {
         lightCircle,
         logo,
         signAdjust,
+        signWelcome,
         splash,
         thinkSpark
       ];

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 import 'package:think_spark/core/theming/app_colors/app_colors.dart';
 import 'package:think_spark/core/theming/app_strings/app_string.dart';
 import 'package:think_spark/core/widgets/button_widget.dart';
@@ -68,7 +69,7 @@ class SignOptionsScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Image.asset(Assets.images.signAdjust.path),
+      body: Lottie.asset(Assets.images.signWelcome),
     );
   }
 }

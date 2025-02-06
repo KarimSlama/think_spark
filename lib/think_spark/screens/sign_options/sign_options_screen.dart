@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:think_spark/core/helpers/extensions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/theming/app_colors/app_colors.dart';
 import 'package:think_spark/core/theming/app_strings/app_string.dart';
 import 'package:think_spark/core/widgets/button_widget.dart';
+import 'package:think_spark/core/widgets/continue_with_widget.dart';
 import 'package:think_spark/gen/assets.gen.dart';
-import 'package:think_spark/think_spark/screens/sign_options/widget/continue_with_widget.dart';
 import 'package:think_spark/think_spark/screens/sign_options/widget/social_register.dart';
 
 class SignOptionsScreen extends StatelessWidget {
@@ -59,7 +61,9 @@ class SignOptionsScreen extends StatelessWidget {
                 btnText: AppString.signUp,
                 width: double.infinity),
             ButtonWidget(
-              onBackPressed: () {},
+              onBackPressed: () {
+                context.pushNamed(Routes.loginScreen);
+              },
               btnText: AppString.login,
               width: double.infinity,
               color: AppColors.black,

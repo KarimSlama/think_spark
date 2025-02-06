@@ -15,8 +15,11 @@ class $AssetsIconsGen {
   /// File path: assets/icons/google.svg
   String get google => 'assets/icons/google.svg';
 
+  /// File path: assets/icons/icons.ttf
+  String get icons => 'assets/icons/icons.ttf';
+
   /// List of all assets
-  List<String> get values => [google];
+  List<String> get values => [google, icons];
 }
 
 class $AssetsImagesGen {
@@ -57,6 +60,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/message.svg
+  String get message => 'assets/images/message.svg';
+
   /// File path: assets/images/sign_adjust.png
   AssetGenImage get signAdjust =>
       const AssetGenImage('assets/images/sign_adjust.png');
@@ -83,6 +89,7 @@ class $AssetsImagesGen {
         lightBulbSvg,
         lightCircle,
         logo,
+        message,
         signAdjust,
         signWelcome,
         splash,

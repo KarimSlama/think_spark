@@ -5,4 +5,8 @@ class Routes {
   static const String loginScreen = '/loginScreen';
   static const String signUpScreen = '/signUpScreen';
   static const String forgotPasswordScreen = '/forgotPasswordScreen';
+  static const String verifyCodeScreen = '/verifyCodeScreen';
+  static const String resetPasswordScreen = '/resetPasswordScreen';
+  static const String confirmationScreen = '/confirmationScreen';
+  static const String splashConfirmScreen = '/splashConfirmScreen';
 }

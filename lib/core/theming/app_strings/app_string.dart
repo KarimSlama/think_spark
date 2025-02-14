@@ -1,5 +1,6 @@
 class AppString {
   static const String appTitle = 'Think Spark App';
+  static const String welcomeToThinkSpark = 'Welcome to Think Spark👋';
   static const String routesError = 'No Routes Define for';
   static const String theSocietyOfNewIdeas = 'The Society of new Ideas !';
   static const String continue_ = 'continue';
@@ -33,6 +34,7 @@ class AppString {
   static const String email = 'Email';
   static const String phone = 'Phone';
   static const String password = 'password';
+  static const String confirmPassword = 'confirm password';
   static const String forgotPassword = 'forgot password';
   static const String enterYourEmailOrPhoneToResetNewOne =
       'Enter your email or phone to reset new one.';
@@ -42,4 +44,10 @@ class AppString {
   static const String enterYourPhoneAndWeWillSendYouVerificationCode =
       'Enter your phone, and we will send you verification code';
   static const String reset = 'Reset';
+  static const String verify = 'Verify';
+  static const String save = 'Save';
+  static const String verifyCode = 'Verify Code';
+  static const String resetYourPassword  = 'Reset your password ';
+  static const String enterYourVerificationCodeFromYourEmailOrPhoneNumberThatWeHaveSent = 'Enter your verification code from your email or phone number that we’ve sent';
+  static const String thanksForYourTimeTookForConfirmAndResetYourAccount = 'Thanks for your time took for confirm and reset your account.';
 }

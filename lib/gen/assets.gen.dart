@@ -32,6 +32,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/circle_bg.svg
   String get circleBg => 'assets/images/circle_bg.svg';
 
+  /// File path: assets/images/confirmation.svg
+  String get confirmation => 'assets/images/confirmation.svg';
+
   /// File path: assets/images/idea.json
   String get idea => 'assets/images/idea.json';
 
@@ -60,9 +63,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
-  /// File path: assets/images/message.svg
-  String get message => 'assets/images/message.svg';
-
   /// File path: assets/images/sign_adjust.png
   AssetGenImage get signAdjust =>
       const AssetGenImage('assets/images/sign_adjust.png');
@@ -86,6 +86,7 @@ class $AssetsImagesGen {
   List<dynamic> get values => [
         background,
         circleBg,
+        confirmation,
         idea,
         idea2,
         idea3,
@@ -95,7 +96,6 @@ class $AssetsImagesGen {
         lightBulbSvg,
         lightCircle,
         logo,
-        message,
         signAdjust,
         signWelcome,
         splash,

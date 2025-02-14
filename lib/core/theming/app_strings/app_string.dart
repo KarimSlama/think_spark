@@ -30,7 +30,16 @@ class AppString {
   static const String letsRegisterInvestInYourMind =
       'Let’s Register. Invest in your mind!';
   static const String email_address = 'email address';
+  static const String email = 'Email';
+  static const String phone = 'Phone';
   static const String password = 'password';
   static const String forgotPassword = 'forgot password';
+  static const String enterYourEmailOrPhoneToResetNewOne =
+      'Enter your email or phone to reset new one.';
   static const String haveNotAnAccount = 'Haven’t an account? ';
+  static const String enterYourEmailAndWeWillSendYouVerificationCode =
+      'Enter your email, and we will send you verification code';
+  static const String enterYourPhoneAndWeWillSendYouVerificationCode =
+      'Enter your phone, and we will send you verification code';
+  static const String reset = 'Reset';
 }

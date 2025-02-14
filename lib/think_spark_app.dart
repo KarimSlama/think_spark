@@ -20,7 +20,7 @@ class ThinkSparkApp extends StatelessWidget {
         theme: themeLight,
         darkTheme: themeDark,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.signOptionScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

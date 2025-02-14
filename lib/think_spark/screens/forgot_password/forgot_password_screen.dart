@@ -3,11 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/core/theming/app_colors/app_colors.dart';
 import 'package:think_spark/core/theming/app_strings/app_string.dart';
+import 'package:think_spark/core/widgets/button_tabs_bar.dart';
 import 'package:think_spark/core/widgets/button_widget.dart';
 import 'package:think_spark/core/widgets/custom_header_widget.dart';
-import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:think_spark/core/widgets/text_form_widget.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
@@ -34,34 +33,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                 CustomHeaderWidget(
                     title: AppString.forgotPassword,
                     subTitl: AppString.enterYourEmailOrPhoneToResetNewOne),
-                ButtonsTabBar(
-                  width: 150.w,
-                  height: 55.h,
-                  unselectedDecoration: BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.only(
-                        topStart: Radius.circular(20),
-                        bottomEnd: Radius.circular(20)),
-                    color: Theme.of(context).colorScheme.surface,
-                  ),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadiusDirectional.only(
-                          topStart: Radius.circular(20),
-                          bottomEnd: Radius.circular(20)),
-                      gradient: LinearGradient(colors: AppColors.linear)),
-                  unselectedLabelStyle: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16.sp),
-                  contentCenter: true,
-                  tabs: [
-                    Tab(
-                      text: AppString.phone,
-                    ),
-                    Tab(
-                      text: AppString.email,
-                    ),
-                  ],
-                ),
+                ButtonTabsBar(
+                    tabTitle1: AppString.email, tabTitle2: AppString.phone),
                 SizedBox(
                   height: 200.h,
                   child: TabBarView(

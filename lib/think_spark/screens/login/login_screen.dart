@@ -62,7 +62,9 @@ class LoginScreen extends StatelessWidget {
               Align(
                 alignment: AlignmentDirectional.center,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(Routes.signUpScreen);
+                  },
                   child: Text(
                     AppString.haveNotAnAccount,
                     style: Theme.of(context)

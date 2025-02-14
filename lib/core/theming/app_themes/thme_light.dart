@@ -7,6 +7,7 @@ ThemeData themeLight = ThemeData(
   brightness: Brightness.light,
   colorScheme: const ColorScheme.light(
     primary: AppColors.black,
+    primary: AppColors.blue,
     secondary: AppColors.black,
     error: AppColors.red,
     onPrimary: AppColors.darkGrey,

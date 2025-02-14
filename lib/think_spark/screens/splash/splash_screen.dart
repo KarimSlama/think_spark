@@ -43,6 +43,8 @@ class _SplashScreenState extends State<SplashScreen> {
                           color: AppColors.white,
                         ),
                   ),
+                  SvgPicture.asset(Assets.images.thinkSparkSvg, width: 260.w),
+                  Text(AppString.theSocietyOfNewIdeas),
                 ],
               ),
               SvgPicture.asset(Assets.images.circleBg),

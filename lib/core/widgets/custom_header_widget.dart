@@ -6,7 +6,8 @@ import 'package:think_spark/gen/assets.gen.dart';
 class CustomHeaderWidget extends StatelessWidget {
   final String title;
   final String subTitl;
-  const CustomHeaderWidget({super.key, required this.title, required this.subTitl});
+  const CustomHeaderWidget(
+      {super.key, required this.title, required this.subTitl});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class CustomHeaderWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       spacing: 12.h,
       children: [
-        SvgPicture.asset(Assets.images.thinkSpark, width: 220.w),
+        SvgPicture.asset(Assets.images.thinkSpark, width: 200.w),
         Text(
           title,
           style:

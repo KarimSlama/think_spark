@@ -57,7 +57,9 @@ class SignOptionsScreen extends StatelessWidget {
               ),
             ),
             ButtonWidget(
-                onBackPressed: () {},
+                onBackPressed: () {
+                  context.pushNamed(Routes.signUpScreen);
+                },
                 btnText: AppString.signUp,
                 width: double.infinity),
             ButtonWidget(

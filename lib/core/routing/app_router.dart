@@ -7,6 +7,7 @@ import 'package:think_spark/think_spark/screens/splash/splash_screen.dart';
 import 'package:think_spark/think_spark/screens/on_boarding/on_boarding_screen.dart';
 import 'package:think_spark/think_spark/screens/reset_password/reset_password_screen.dart';
 import 'package:think_spark/think_spark/screens/sign_options/sign_options_screen.dart';
+import 'package:think_spark/think_spark/screens/sign_up/sign_up_screen.dart';
 import 'package:think_spark/think_spark/screens/splash/splash_screen.dart';
 import 'package:think_spark/think_spark/screens/splash_confirm/splash_confirm_screen.dart';
 import 'package:think_spark/think_spark/screens/verify_code/verify_code_screen.dart';
@@ -31,6 +32,11 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
+        );
+
+         case Routes.signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => SignUpScreen(),
         );
 
       case Routes.forgotPasswordScreen:

@@ -12,6 +12,7 @@ ThemeData themeDark = ThemeData(
     onPrimary: AppColors.darkGrey,
     onSecondary: AppColors.darkGrey,
     onSurface: AppColors.darkGrey,
+    surface: AppColors.black,
     onError: AppColors.white,
     brightness: Brightness.dark,
   ),

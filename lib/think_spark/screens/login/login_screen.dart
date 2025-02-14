@@ -27,49 +27,52 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
-          child: Expanded(
-            child: Column(
-              spacing: 30.h,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomHeaderWidget(),
-                LoginTextFormWidget(),
-                ButtonWidget(
-                  onBackPressed: () {
-                    context.pushNamed(Routes.forgotPassword);
-                  },
-                  btnText: AppString.login,
-                  width: double.infinity,
-                ),
-                Align(
-                  alignment: AlignmentDirectional.center,
-                  child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        AppString.forgotPassword,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: AppColors.doggerBlue,
-                            ),
-                      )),
-                ),
-                ContinueWithWidget(),
-                SocialRegister(),
-                Align(
-                  alignment: AlignmentDirectional.center,
-                  child: TextButton(
-                    onPressed: () {},
+          child: Column(
+            spacing: 30.h,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomHeaderWidget(
+                title: AppString.welcomeBack,
+                subTitl: AppString.letsRegisterInvestInYourMind,
+              ),
+              LoginTextFormWidget(),
+              ButtonWidget(
+                onBackPressed: () {
+                  context.pushNamed(Routes.loginScreen);
+                },
+                btnText: AppString.login,
+                width: double.infinity,
+              ),
+              Align(
+                alignment: AlignmentDirectional.center,
+                child: TextButton(
+                    onPressed: () {
+                      context.pushNamed(Routes.forgotPasswordScreen);
+                    },
                     child: Text(
-                      AppString.haveNotAnAccount,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(decoration: TextDecoration.underline),
-                    ),
+                      AppString.forgotPassword,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: AppColors.doggerBlue,
+                          ),
+                    )),
+              ),
+              ContinueWithWidget(),
+              SocialRegister(),
+              Align(
+                alignment: AlignmentDirectional.center,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    AppString.haveNotAnAccount,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(decoration: TextDecoration.underline),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

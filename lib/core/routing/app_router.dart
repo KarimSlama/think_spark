@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/routing/routes.dart';
+import 'package:think_spark/core/service_locator/dependency_injection.dart';
 import 'package:think_spark/think_spark/screens/confirmation/confirmation_screen.dart';
 import 'package:think_spark/think_spark/screens/forgot_password/forgot_password_screen.dart';
 import 'package:think_spark/think_spark/screens/login/login_screen.dart';
 import 'package:think_spark/think_spark/screens/on_boarding/on_boarding_screen.dart';
 import 'package:think_spark/think_spark/screens/reset_password/reset_password_screen.dart';
 import 'package:think_spark/think_spark/screens/sign_options/sign_options_screen.dart';
+import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_cubit.dart';
 import 'package:think_spark/think_spark/screens/sign_up/sign_up_screen.dart';
 import 'package:think_spark/think_spark/screens/splash/splash_screen.dart';
 import 'package:think_spark/think_spark/screens/splash_confirm/splash_confirm_screen.dart';
@@ -33,9 +36,12 @@ class AppRouter {
           builder: (_) => LoginScreen(),
         );
 
-         case Routes.signUpScreen:
+      case Routes.signUpScreen:
         return MaterialPageRoute(
-          builder: (_) => SignUpScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
+            child: SignUpScreen(),
+          ),
         );
 
       case Routes.forgotPasswordScreen:
@@ -58,7 +64,7 @@ class AppRouter {
           builder: (_) => ConfirmationScreen(),
         );
 
-        case Routes.splashConfirmScreen:
+      case Routes.splashConfirmScreen:
         return MaterialPageRoute(
           builder: (_) => SplashConfirmScreen(),
         );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 
 class CustomHeaderWidget extends StatelessWidget {
@@ -11,18 +12,20 @@ class CustomHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = SparkHelperFunctions.isDark(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       spacing: 12.h,
       children: [
-        SvgPicture.asset(Assets.images.thinkSpark, width: 200.w),
+        SvgPicture.asset(dark
+            ? Assets.images.darkThinkSpark
+            : Assets.images.lightThinkSpark),
         Text(
           title,
-          style:
-              Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 24.sp),
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
-        Text(subTitl),
+        Text(subTitl, style: Theme.of(context).textTheme.bodyLarge),
       ],
     );
   }

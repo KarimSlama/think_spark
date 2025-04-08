@@ -35,6 +35,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/confirmation.svg
   String get confirmation => 'assets/images/confirmation.svg';
 
+  /// File path: assets/images/dark_think_spark.svg
+  String get darkThinkSpark => 'assets/images/dark_think_spark.svg';
+
   /// File path: assets/images/idea.json
   String get idea => 'assets/images/idea.json';
 
@@ -60,6 +63,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/light_circle.svg
   String get lightCircle => 'assets/images/light_circle.svg';
 
+  /// File path: assets/images/light_think_spark.svg
+  String get lightThinkSpark => 'assets/images/light_think_spark.svg';
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -73,14 +79,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
-  /// File path: assets/images/think_spark.svg
-  String get thinkSpark => 'assets/images/think_spark.svg';
-
   /// List of all assets
   List<dynamic> get values => [
         background,
         circleBg,
         confirmation,
+        darkThinkSpark,
         idea,
         idea2,
         idea3,
@@ -89,11 +93,11 @@ class $AssetsImagesGen {
         lightBulbPng,
         lightBulbSvg,
         lightCircle,
+        lightThinkSpark,
         logo,
         signAdjust,
         signWelcome,
-        splash,
-        thinkSpark
+        splash
       ];
 }
 

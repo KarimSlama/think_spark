@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:think_spark/core/theming/app_colors/app_colors.dart';
+import 'package:think_spark/core/constants/spark_colors.dart';
 
 class ButtonWidget extends StatelessWidget {
   final VoidCallback onBackPressed;
@@ -24,7 +24,7 @@ class ButtonWidget extends StatelessWidget {
         onBackPressed();
       },
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(color ?? AppColors.darkBlue),
+        backgroundColor: WidgetStateProperty.all(color ?? SparkColors.darkBlue),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: WidgetStatePropertyAll(Size(width, 55.h)),
         shape: WidgetStateProperty.all(
@@ -36,7 +36,7 @@ class ButtonWidget extends StatelessWidget {
       child: Text(
         btnText,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: textColor ?? AppColors.white,
+              color: textColor ?? SparkColors.white,
               fontWeight: FontWeight.w600,
             ),
       ),

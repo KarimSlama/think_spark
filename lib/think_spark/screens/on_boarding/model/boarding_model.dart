@@ -1,4 +1,4 @@
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 
 class BoardingModel {
@@ -16,26 +16,26 @@ class BoardingModel {
 List<BoardingModel> boarding = [
   BoardingModel(
     image: Assets.images.idea,
-    title: AppString.unleashGreatIdeas,
-    body: AppString
+    title: SparkString.unleashGreatIdeas,
+    body: SparkString
         .exploreInnovativeIdeasFromPeopleAroundTheWorldAndTurnDreamsIntoReality,
   ),
   BoardingModel(
     image: Assets.images.idea2,
-    title: AppString.unleashGreatIdeas,
-    body: AppString
+    title: SparkString.unleashGreatIdeas,
+    body: SparkString
         .exploreInnovativeIdeasFromPeopleAroundTheWorldAndTurnDreamsIntoReality,
   ),
   BoardingModel(
     image: Assets.images.idea3,
-    title: AppString.unleashGreatIdeas,
-    body: AppString
+    title: SparkString.unleashGreatIdeas,
+    body: SparkString
         .exploreInnovativeIdeasFromPeopleAroundTheWorldAndTurnDreamsIntoReality,
   ),
   BoardingModel(
     image: Assets.images.idea4,
-    title: AppString.unleashGreatIdeas,
-    body: AppString
+    title: SparkString.unleashGreatIdeas,
+    body: SparkString
         .exploreInnovativeIdeasFromPeopleAroundTheWorldAndTurnDreamsIntoReality,
   ),
 ];

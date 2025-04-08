@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:think_spark/core/common/widgets/spark_app_bar.dart';
+import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
+import 'package:think_spark/core/constants/spacing.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
-import 'package:think_spark/core/helpers/spacing.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
-import 'package:think_spark/core/widgets/button_widget.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 
 class ConfirmationScreen extends StatelessWidget {
@@ -15,30 +15,28 @@ class ConfirmationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(IconBroken.Arrow___Left_2),
-          onPressed: () => context.pop(),
-        ),
-      ),
+      appBar: SparkAppBar(showBackArrow: true),
       body: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
+        padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: SparkSizes.defaultSpace),
         child: Column(
           spacing: 20.h,
           children: [
             SvgPicture.asset(Assets.images.confirmation),
-            SvgPicture.asset(Assets.images.thinkSpark),
+            SvgPicture.asset(Assets.images.lightThinkSpark, width: 200.w),
             Text(
-              AppString.thanksForYourTimeTookForConfirmAndResetYourAccount,
+              SparkString.thanksForYourTimeTookForConfirmAndResetYourAccount,
               textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             verticalSpace(20),
-            ButtonWidget(
-                onBackPressed: () {
-                  context.pushNamed(Routes.splashConfirmScreen);
-                },
-                btnText: AppString.continue_,
-                width: double.infinity)
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  onPressed: () =>
+                      context.pushNamed(Routes.splashConfirmScreen),
+                  child: const Text(SparkString.continue_)),
+            ),
           ],
         ),
       ),

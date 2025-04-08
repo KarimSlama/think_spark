@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icon_broken/icon_broken.dart';
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
-import 'package:think_spark/core/widgets/text_form_widget.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:think_spark/core/common/widgets/spark_text_form_field.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
+import 'package:think_spark/core/validation/validator.dart';
 
 class LoginTextFormWidget extends StatelessWidget {
   const LoginTextFormWidget({super.key});
@@ -13,23 +14,25 @@ class LoginTextFormWidget extends StatelessWidget {
     TextEditingController passwordController = TextEditingController();
 
     return Column(
-      spacing: 20.h,
+      spacing: 16.h,
       children: [
-        AppTextForm(
-          inputType: TextInputType.text,
+        SparkTextFormField(
+          inputType: TextInputType.emailAddress,
           controller: emailController,
-          label: AppString.email_address,
-          prefixIcon: IconBroken.Message,
-
+          prefixIcon: Iconsax.message,
+          label: SparkString.email,
+          validator: (value) => Validator.validateEmail(value),
         ),
-        AppTextForm(
-            inputType: TextInputType.visiblePassword,
-            controller: passwordController,
-            label: AppString.password,
-            suffixIcon: IconBroken.Show,
-            prefixIcon: IconBroken.Lock,
-            isObscureText: true,
-            suffixPressed: () {}),
+        SparkTextFormField(
+          inputType: TextInputType.visiblePassword,
+          controller: passwordController,
+          prefixIcon: Iconsax.password_check,
+          suffixPressed: () => print('pressed'),
+          suffixIcon: Iconsax.eye3,
+          isObscureText: true,
+          label: SparkString.password,
+          validator: (value) => Validator.validatePassword(value),
+        ),
       ],
     );
   }

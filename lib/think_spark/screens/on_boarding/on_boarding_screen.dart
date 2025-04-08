@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:think_spark/core/constants/spark_colors.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/core/theming/app_colors/app_colors.dart';
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 import 'package:think_spark/think_spark/screens/on_boarding/model/boarding_model.dart';
 import 'package:think_spark/think_spark/screens/on_boarding/widget/on_boarding_item.dart';
@@ -58,12 +58,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 effect: CustomizableEffect(
                   activeDotDecoration: DotDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: AppColors.doggerBlue,
+                      color: SparkColors.doggerBlue,
                       height: 35.h,
                       width: 2.w),
                   dotDecoration: DotDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: AppColors.onahau,
+                      color: SparkColors.onahau,
                       height: 22.h,
                       width: 2.w),
                 ),
@@ -75,17 +75,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   decoration: BoxDecoration(
                     border: BorderDirectional(
                       start: _currentPage >= 0
-                          ? BorderSide(color: AppColors.darkBlue, width: 2.w)
-                          : BorderSide(color: AppColors.orange),
+                          ? BorderSide(color: SparkColors.darkBlue, width: 2.w)
+                          : BorderSide(color: SparkColors.orange),
                       top: _currentPage >= 1
-                          ? BorderSide(color: AppColors.darkBlue, width: 2.w)
-                          : BorderSide(color: AppColors.orange),
+                          ? BorderSide(color: SparkColors.darkBlue, width: 2.w)
+                          : BorderSide(color: SparkColors.orange),
                       end: _currentPage >= 2
-                          ? BorderSide(color: AppColors.darkBlue, width: 2.w)
-                          : BorderSide(color: AppColors.orange),
+                          ? BorderSide(color: SparkColors.darkBlue, width: 2.w)
+                          : BorderSide(color: SparkColors.orange),
                       bottom: _currentPage >= 3
-                          ? BorderSide(color: AppColors.darkBlue, width: 2.w)
-                          : BorderSide(color: AppColors.orange),
+                          ? BorderSide(color: SparkColors.darkBlue, width: 2.w)
+                          : BorderSide(color: SparkColors.orange),
                     ),
                     // borderRadius: BorderRadius.circular(12),
                   ),
@@ -108,7 +108,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                     ),
                     child: Text(
-                        isLast ? AppString.letsStart : AppString.continue_),
+                        isLast ? SparkString.letsStart : SparkString.continue_),
                   ),
                 ),
               ),

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:think_spark/core/common/widgets/spark_app_bar.dart';
+import 'package:think_spark/core/common/widgets/texts/span_text.dart';
+import 'package:think_spark/core/constants/spark_colors.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
+import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
-import 'package:think_spark/core/theming/app_colors/app_colors.dart';
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/widgets/button_tabs_bar.dart';
 import 'package:think_spark/core/widgets/custom_header_widget.dart';
-import 'package:think_spark/think_spark/screens/sign_up/widget/creative_sign_up_fields.dart';
-import 'package:think_spark/think_spark/screens/sign_up/widget/investor_sign_up_fields%20copy.dart';
+import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_cubit.dart';
+import 'package:think_spark/think_spark/screens/sign_up/widget/register_bloc_listener.dart';
+import 'package:think_spark/think_spark/screens/sign_up/widget/sign_up_form_fields.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -15,77 +20,92 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              context.pop();
-            },
-            icon: Icon(IconBroken.Arrow___Left_2)),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
+      appBar: SparkAppBar(showBackArrow: true),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            horizontal: SparkSizes.defaultSpace.w,
+          ),
           child: DefaultTabController(
             length: 2,
-            child: SingleChildScrollView(
-              child: Column(
-                spacing: 16.h,
-                children: [
-                  CustomHeaderWidget(
-                      title: AppString.registration,
-                      subTitl: AppString.letsRegisterInvestWithCreative),
-                  ButtonTabsBar(
-                      tabTitle1: AppString.creative,
-                      tabTitle2: AppString.investor),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxHeight: MediaQuery.of(context).size.height * 0.45,
-                    ),
-                    child: TabBarView(
-                      children: [
-                        CreativeSignUpFields(),
-                        InvestorSignUpFields(),
-                      ],
+            child: Column(
+              spacing: 16.h,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomHeaderWidget(
+                  title: SparkString.registration,
+                  subTitl: SparkString.letsRegisterInvestWithCreative,
+                ),
+                ButtonTabsBar(
+                  tabTitle1: SparkString.creative,
+                  tabTitle2: SparkString.investor,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .43,
+                  child: TabBarView(
+                    children: [
+                      SignUpFormFields(isInvestor: false),
+                      SignUpFormFields(isInvestor: true),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: Builder(
+                    builder: (tabContext) => ElevatedButton(
+                      onPressed: () {
+                        final tabIndex =
+                            DefaultTabController.of(tabContext)?.index ?? 0;
+                        validateThenDoRegister(tabContext, tabIndex);
+                      },
+                      child: Text(
+                        SparkString.save,
+                        style: Theme.of(context).textTheme.bodyLarge?.apply(
+                              color: SparkColors.light,
+                            ),
+                      ),
                     ),
                   ),
-                  TextButton(
-                    child: Text(
-                      AppString.haveAnAccount,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(decoration: TextDecoration.underline),
+                ),
+                SizedBox(height: SparkSizes.spaceBtwItems.h / 3),
+                Column(
+                  spacing: 8.h,
+                  children: [
+                    SpanText(
+                      text: SparkString.haveAnAccount,
+                      actionText: SparkString.login,
+                      actionTextOnTap: () =>
+                          context.pushNamed(Routes.loginScreen),
                     ),
-                    onPressed: () {},
-                  ),
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium
-                              ?.copyWith(fontSize: 12.sp),
-                          text: 'By continuing you agree',
-                        ),
-                        TextSpan(
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium
-                              ?.copyWith(
-                                  fontSize: 12.sp, color: AppColors.blue),
-                          text: ' Terms of Services & Privacy Policy ',
-                        ),
-                      ],
+                    SpanText(
+                      text: SparkString.byContinuingYouAgree,
+                      actionText: SparkString.termsOfServicesPrivacyPolicy,
+                      actionTextOnTap: () =>
+                          context.pushNamed(Routes.loginScreen),
+                      isSmall: true,
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+                RegisterBlocListener(),
+              ],
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+void validateThenDoRegister(BuildContext context, int index) {
+  final cubit = context.read<RegisterCubit>();
+
+  final isValid = index == 0
+      ? cubit.creativeFormKey.currentState!.validate()
+      : cubit.investorFormKey.currentState!.validate();
+
+  print('index for user type is ${index}');
+  if (isValid) {
+    cubit.createNewUser(index);
   }
 }

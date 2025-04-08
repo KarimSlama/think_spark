@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/routing/app_router.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
-import 'package:think_spark/core/theming/app_themes/theme_dark.dart';
-import 'package:think_spark/core/theming/app_themes/thme_light.dart';
+import 'package:think_spark/core/theme/theme.dart';
 
 class ThinkSparkApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -16,9 +15,10 @@ class ThinkSparkApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
-        title: AppString.appTitle,
-        theme: themeLight,
-        darkTheme: themeDark,
+        title: SparkString.appTitle,
+        theme: SparkTheme.lightTheme,
+        darkTheme: SparkTheme.darkTheme,
+        themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.signOptionScreen,
         onGenerateRoute: appRouter.generateRoute,

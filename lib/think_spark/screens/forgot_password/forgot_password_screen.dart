@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:think_spark/core/common/widgets/spark_app_bar.dart';
+import 'package:think_spark/core/common/widgets/spark_text_form_field.dart';
+import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
+import 'package:think_spark/core/validation/validator.dart';
 import 'package:think_spark/core/widgets/button_tabs_bar.dart';
-import 'package:think_spark/core/widgets/button_widget.dart';
 import 'package:think_spark/core/widgets/custom_header_widget.dart';
-import 'package:think_spark/core/widgets/text_form_widget.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -15,26 +17,23 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              context.pop();
-            },
-            icon: Icon(IconBroken.Arrow___Left_2)),
-      ),
+      appBar: SparkAppBar(showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
+          padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SparkSizes.defaultSpace),
           child: DefaultTabController(
             length: 2,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 20.h,
               children: [
                 CustomHeaderWidget(
-                    title: AppString.forgotPassword,
-                    subTitl: AppString.enterYourEmailOrPhoneToResetNewOne),
+                    title: SparkString.forgotPassword,
+                    subTitl: SparkString.enterYourEmailOrPhoneToResetNewOne),
                 ButtonTabsBar(
-                    tabTitle1: AppString.email, tabTitle2: AppString.phone),
+                    tabTitle1: SparkString.phone, tabTitle2: SparkString.email),
                 SizedBox(
                   height: 200.h,
                   child: TabBarView(
@@ -44,15 +43,19 @@ class ForgotPasswordScreen extends StatelessWidget {
                           spacing: 40.h,
                           children: [
                             Text(
-                              AppString
+                              SparkString
                                   .enterYourPhoneAndWeWillSendYouVerificationCode,
+                              style: Theme.of(context).textTheme.bodyLarge,
                               textAlign: TextAlign.center,
                             ),
-                            AppTextForm(
-                                inputType: TextInputType.numberWithOptions(),
-                                controller: TextEditingController(),
-                                prefixIcon: IconBroken.Call,
-                                label: AppString.phone)
+                            SparkTextFormField(
+                              inputType: TextInputType.phone,
+                              controller: TextEditingController(),
+                              prefixIcon: Iconsax.call,
+                              label: SparkString.phone,
+                              validator: (value) =>
+                                  Validator.validatePhone(value),
+                            ),
                           ],
                         ),
                       ),
@@ -61,27 +64,32 @@ class ForgotPasswordScreen extends StatelessWidget {
                           spacing: 30.h,
                           children: [
                             Text(
-                              AppString
+                              SparkString
                                   .enterYourEmailAndWeWillSendYouVerificationCode,
+                              style: Theme.of(context).textTheme.bodyLarge,
                               textAlign: TextAlign.center,
                             ),
-                            AppTextForm(
-                                inputType: TextInputType.emailAddress,
-                                controller: TextEditingController(),
-                                prefixIcon: IconBroken.Message,
-                                label: AppString.email)
+                            SparkTextFormField(
+                              inputType: TextInputType.emailAddress,
+                              controller: TextEditingController(),
+                              prefixIcon: Iconsax.sms_tracking,
+                              label: SparkString.email,
+                              validator: (value) =>
+                                  Validator.validateEmail(value),
+                            ),
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                ButtonWidget(
-                    onBackPressed: () {
-                      context.pushNamed(Routes.verifyCodeScreen);
-                    },
-                    btnText: AppString.reset,
-                    width: double.infinity)
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () =>
+                          context.pushNamed(Routes.verifyCodeScreen),
+                      child: const Text(SparkString.reset)),
+                ),
               ],
             ),
           ),

@@ -1,7 +1,8 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:think_spark/core/theming/app_colors/app_colors.dart';
+import 'package:think_spark/core/constants/spark_colors.dart';
+import 'package:think_spark/core/helpers/helper_functions.dart';
 
 class ButtonTabsBar extends StatelessWidget {
   final String tabTitle1;
@@ -16,17 +17,18 @@ class ButtonTabsBar extends StatelessWidget {
       width: 160.w,
       height: 55.h,
       unselectedDecoration: BoxDecoration(
-        borderRadius: BorderRadiusDirectional.only(
-            topStart: Radius.circular(20), bottomEnd: Radius.circular(20)),
-        color: Theme.of(context).colorScheme.surface,
-      ),
+          borderRadius: BorderRadiusDirectional.only(
+              topStart: Radius.circular(20), bottomEnd: Radius.circular(20)),
+          color: Colors.transparent),
       decoration: BoxDecoration(
           borderRadius: BorderRadiusDirectional.only(
               topStart: Radius.circular(20), bottomEnd: Radius.circular(20)),
-          gradient: LinearGradient(colors: AppColors.linear)),
+          gradient: LinearGradient(colors: SparkColors.linear)),
       unselectedLabelStyle: TextStyle(
-          color: Theme.of(context).colorScheme.primary,
-          fontWeight: FontWeight.w600,
+          color: SparkHelperFunctions.isDark(context)
+              ? SparkColors.light
+              : SparkColors.black,
+          fontWeight: FontWeight.w500,
           fontSize: 16.sp),
       contentCenter: true,
       tabs: [

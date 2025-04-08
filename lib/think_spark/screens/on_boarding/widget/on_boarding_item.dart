@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:think_spark/core/helpers/spacing.dart';
-import 'package:think_spark/core/theming/app_colors/app_colors.dart';
+import 'package:think_spark/core/constants/spacing.dart';
 import 'package:think_spark/think_spark/screens/on_boarding/model/boarding_model.dart';
 import 'package:lottie/lottie.dart';
 
@@ -30,11 +29,11 @@ class OnBoardingItems extends StatelessWidget {
           Text(
             textAlign: TextAlign.center,
             boardingModel.body,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppColors.light,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 16.sp,
-                ),
+            // style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            //       color: AppColors.light,
+            //       fontWeight: FontWeight.normal,
+            //       fontSize: 16.sp,
+            //     ),
           ),
         ],
       ),

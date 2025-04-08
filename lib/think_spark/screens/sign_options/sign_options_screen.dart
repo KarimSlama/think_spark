@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:think_spark/core/common/widgets/social_register/social_register.dart';
+import 'package:think_spark/core/common/widgets/texts/divider_text.dart';
+import 'package:think_spark/core/constants/spark_colors.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
+import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/core/theming/app_colors/app_colors.dart';
-import 'package:think_spark/core/theming/app_strings/app_string.dart';
-import 'package:think_spark/core/widgets/button_widget.dart';
-import 'package:think_spark/core/widgets/continue_with_widget.dart';
 import 'package:think_spark/gen/assets.gen.dart';
-import 'package:think_spark/think_spark/screens/sign_options/widget/social_register.dart';
 
 class SignOptionsScreen extends StatelessWidget {
   const SignOptionsScreen({super.key});
@@ -28,7 +28,7 @@ class SignOptionsScreen extends StatelessWidget {
           spacing: 18.h,
           children: [
             Text(
-              AppString.stayInTheKnow,
+              SparkString.stayInTheKnow,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
@@ -43,34 +43,40 @@ class SignOptionsScreen extends StatelessWidget {
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 15.sp),
-                    text:
-                        AppString.aSafeSpaceToShareCollaborateAndGrowYourVision,
+                    text: SparkString
+                        .aSafeSpaceToShareCollaborateAndGrowYourVision,
                   ),
                   TextSpan(
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontSize: 15.sp,
                           decoration: TextDecoration.underline,
                         ),
-                    text: AppString.getInTouchByRegister,
+                    text: SparkString.getInTouchByRegister,
                   ),
                 ],
               ),
             ),
-            ButtonWidget(
-                onBackPressed: () {
-                  context.pushNamed(Routes.signUpScreen);
-                },
-                btnText: AppString.signUp,
-                width: double.infinity),
-            ButtonWidget(
-              onBackPressed: () {
-                context.pushNamed(Routes.loginScreen);
-              },
-              btnText: AppString.login,
+            SizedBox(
               width: double.infinity,
-              color: AppColors.black,
+              child: ElevatedButton(
+                onPressed: () => context.pushNamed(Routes.signUpScreen),
+                child: Text(SparkString.signUp),
+              ),
             ),
-            ContinueWithWidget(),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  foregroundColor: SparkHelperFunctions.isDark(context)
+                      ? SparkColors.white
+                      : SparkColors.black,
+                ),
+                onPressed: () => context.pushNamed(Routes.loginScreen),
+                child: Text(SparkString.login),
+              ),
+            ),
+            const SparkDividerWidget(dividerText: SparkString.orContinueWith),
             SocialRegister(),
           ],
         ),

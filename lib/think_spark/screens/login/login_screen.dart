@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:think_spark/core/common/widgets/social_register/social_register.dart';
 import 'package:think_spark/core/common/widgets/spark_app_bar.dart';
@@ -11,6 +12,8 @@ import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/widgets/custom_header_widget.dart';
+import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
+import 'package:think_spark/think_spark/screens/login/widget/login_bloc_listener.dart';
 import 'package:think_spark/think_spark/screens/login/widget/login_text_form_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -18,53 +21,64 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loginCubit = context.read<LoginCubit>();
     return Scaffold(
       appBar: SparkAppBar(showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsetsDirectional.symmetric(
               horizontal: SparkSizes.defaultSpace),
-          child: Column(
-            spacing: 30.h,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CustomHeaderWidget(
-                title: SparkString.welcomeBack,
-                subTitl: SparkString.letsRegisterInvestInYourMind,
-              ),
-              LoginTextFormWidget(),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                    onPressed: () {}, child: const Text(SparkString.login)),
-              ),
-              Align(
-                alignment: AlignmentDirectional.center,
-                child: TextButton(
-                  onPressed: () {
-                    context.pushNamed(Routes.forgotPasswordScreen);
-                  },
-                  child: Text(
-                    SparkString.forgotPassword,
-                    style: Theme.of(context).textTheme.titleLarge!.apply(
-                        color: SparkHelperFunctions.isDark(context)
-                            ? SparkColors.white
-                            : SparkColors.darkBlue,
-                        decoration: TextDecoration.underline),
+          child: Form(
+            key: loginCubit.loginFormKey,
+            child: Column(
+              spacing: 30.h,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                CustomHeaderWidget(
+                  title: SparkString.welcomeBack,
+                  subTitl: SparkString.letsRegisterInvestInYourMind,
+                ),
+                LoginTextFormWidget(),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        if (!loginCubit.loginFormKey.currentState!.validate()) {
+                          return;
+                        } else {
+                          loginCubit.loginUser();
+                        }
+                      },
+                      child: const Text(SparkString.login)),
+                ),
+                Align(
+                  alignment: AlignmentDirectional.center,
+                  child: TextButton(
+                    onPressed: () => context.pushNamed(Routes.forgotPasswordScreen),
+                    child: Text(
+                      SparkString.forgotPassword,
+                      style: Theme.of(context).textTheme.titleLarge!.apply(
+                          color: SparkHelperFunctions.isDark(context)
+                              ? SparkColors.white
+                              : SparkColors.darkBlue,
+                          decoration: TextDecoration.underline),
+                    ),
                   ),
                 ),
-              ),
-              SparkDividerWidget(dividerText: SparkString.orContinueWith),
-              SocialRegister(),
-              Center(
-                child: SpanText(
-                  text: SparkString.haveNotAnAccount,
-                  actionText: SparkString.signUp,
-                  actionTextOnTap: () => context.pushNamed(Routes.signUpScreen),
+                SparkDividerWidget(dividerText: SparkString.orContinueWith),
+                SocialRegister(),
+                Center(
+                  child: SpanText(
+                    text: SparkString.haveNotAnAccount,
+                    actionText: SparkString.signUp,
+                    actionTextOnTap: () =>
+                        context.pushNamed(Routes.signUpScreen),
+                  ),
                 ),
-              ),
-            ],
+                LoginBlocListener(),
+              ],
+            ),
           ),
         ),
       ),

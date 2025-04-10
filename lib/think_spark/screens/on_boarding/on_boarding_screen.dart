@@ -11,6 +11,8 @@ import 'package:think_spark/think_spark/screens/on_boarding/model/boarding_model
 import 'package:think_spark/think_spark/screens/on_boarding/widget/on_boarding_item.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
@@ -41,10 +43,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onPageChanged: (int page) {
                     setState(() {
                       _currentPage = page;
-                      if (page == boarding.length - 1)
+                      if (page == boarding.length - 1) {
                         isLast = true;
-                      else
+                      } else {
                         isLast = false;
+                      }
                     });
                   },
                   itemBuilder: (context, index) =>

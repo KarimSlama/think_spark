@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:think_spark/core/common/widgets/spark_text_form_field.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/validation/validator.dart';
@@ -37,16 +38,25 @@ class SignUpFormFields extends StatelessWidget {
             label: SparkString.email,
             validator: (value) => Validator.validateEmail(value),
           ),
-          SparkTextFormField(
-            autofillHints: [AutofillHints.telephoneNumber],
-            inputType: TextInputType.phone,
+          IntlPhoneField(
             controller: cubit.phoneController,
-            prefixIcon: Iconsax.call,
-            label: SparkString.phone,
-            validator: (value) => Validator.validatePhone(value),
+            validator: (value) => Validator.validatePhone(value.toString()),
+            decoration: InputDecoration(
+              labelText: SparkString.phone,
+              border: OutlineInputBorder(
+                borderSide: BorderSide(),
+              ),
+            ),
+            initialCountryCode: 'EG',
+            onChanged: (phone) {
+              cubit.countryCode = phone.countryCode;
+              cubit.phoneController.text = phone.number;
+            },
+            onCountryChanged: (country) {
+              cubit.countryCode = '+${country.dialCode}';
+            },
           ),
           SparkTextFormField(
-            
             inputType: TextInputType.visiblePassword,
             controller: cubit.passwordController,
             prefixIcon: Iconsax.password_check,
@@ -56,20 +66,8 @@ class SignUpFormFields extends StatelessWidget {
             label: SparkString.password,
             validator: (value) => Validator.validatePassword(value),
           ),
-          // SparkTextFormField(
-          //   inputType: TextInputType.visiblePassword,
-          //   controller: cubit.confirmPasswordController,
-          //   prefixIcon: Iconsax.password_check,
-          //   suffixPressed: () => print('pressed'),
-          //   suffixIcon: Iconsax.eye3,
-          //   isObscureText: true,
-          //   label: SparkString.confirmPassword,
-          //   validator: (value) => Validator.validatePassword(value),
-          // ),
         ],
       ),
     );
   }
-
-  
 }

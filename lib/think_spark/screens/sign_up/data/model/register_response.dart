@@ -25,8 +25,10 @@ class UserData {
   final String email;
   final String phone;
   final String token;
-  @JsonKey(name: 'user_type')
+  @JsonKey(name: 'user_type') 
   final String userType;
+  @JsonKey(name: 'is_verified')
+  final bool isVerified;
 
   UserData({
     required this.username,
@@ -34,6 +36,7 @@ class UserData {
     required this.phone,
     required this.token,
     required this.userType,
+    required this.isVerified,
   });
 
   factory UserData.fromJson(Map<String, dynamic> json) =>

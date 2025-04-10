@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:think_spark/core/common/widgets/spark_app_bar.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
-import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
-import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/gen/assets.gen.dart';
+import 'package:think_spark/think_spark/screens/reset_password/controller/reset_password_cubit.dart';
+import 'package:think_spark/think_spark/screens/reset_password/reset_password_bloc_listener.dart';
 import 'package:think_spark/think_spark/screens/reset_password/widget/password_form_fields.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
@@ -43,10 +44,17 @@ class ResetPasswordScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () =>
-                          context.pushNamed(Routes.confirmationScreen),
+                      onPressed: () {
+                        final resetCubit = context.read<ResetPasswordCubit>();
+                        if (resetCubit.resetFormKey.currentState!.validate()) {
+                          resetCubit.resetPassword();
+                        } else {
+                          return;
+                        }
+                      },
                       child: const Text(SparkString.save)),
                 ),
+                ResetPasswordBlocListener(),
               ],
             ),
           ),

@@ -33,6 +33,7 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       phone: json['phone'] as String,
       token: json['token'] as String,
       userType: json['user_type'] as String,
+      isVerified: json['is_verified'] as bool,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
@@ -41,4 +42,5 @@ Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'phone': instance.phone,
       'token': instance.token,
       'user_type': instance.userType,
+      'is_verified': instance.isVerified,
     };

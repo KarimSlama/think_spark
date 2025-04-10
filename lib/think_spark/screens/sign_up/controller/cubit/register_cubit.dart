@@ -13,16 +13,18 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+  String countryCode = '+20';
 
   final GlobalKey<FormState> creativeFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> investorFormKey = GlobalKey<FormState>();
+  
   void createNewUser(int tabIndex) async {
     emit(RegisterState.loading());
     final response = await _registerRepository.register(RegisterRequestBody(
       name: nameController.text,
       userType: tabIndex == 0 ? 'creative' : 'investor',
       email: emailController.text,
-      phone: phoneController.text,
+      phone: '$countryCode${phoneController.text}',
       password: passwordController.text,
     ));
     response.when(

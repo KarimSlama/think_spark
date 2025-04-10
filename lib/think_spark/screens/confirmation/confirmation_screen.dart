@@ -15,7 +15,7 @@ class ConfirmationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SparkAppBar(showBackArrow: true),
+      appBar: SparkAppBar(showBackArrow: true, leadingOnPressed: () => context.pushNamed(Routes.loginScreen)),
       body: Padding(
         padding: const EdgeInsetsDirectional.symmetric(
             horizontal: SparkSizes.defaultSpace),

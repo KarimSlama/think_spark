@@ -6,32 +6,36 @@ class SparkCheckBoxTheme {
   static final CheckboxThemeData lightCheckBoxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
     checkColor: WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.values))
+      if (states.contains(WidgetState.values)) {
         return Colors.white;
-      else
+      } else {
         return Colors.black;
+      }
     }),
     fillColor: WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.selected))
+      if (states.contains(WidgetState.selected)) {
         return Colors.blue;
-      else
+      } else {
         return Colors.transparent;
+      }
     }),
   );
 
   static final CheckboxThemeData darkCheckBoxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
     checkColor: WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.values))
+      if (states.contains(WidgetState.values)) {
         return Colors.black;
-      else
+      } else {
         return Colors.white;
+      }
     }),
     fillColor: WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.selected))
+      if (states.contains(WidgetState.selected)) {
         return Colors.blue;
-      else
+      } else {
         return Colors.transparent;
+      }
     }),
   );
 }

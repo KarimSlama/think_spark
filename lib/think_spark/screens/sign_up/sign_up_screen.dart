@@ -56,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
                     builder: (tabContext) => ElevatedButton(
                       onPressed: () {
                         final tabIndex =
-                            DefaultTabController.of(tabContext)?.index ?? 0;
+                            DefaultTabController.of(tabContext).index;
                         validateThenDoRegister(tabContext, tabIndex);
                       },
                       child: Text(
@@ -104,7 +104,6 @@ void validateThenDoRegister(BuildContext context, int index) {
       ? cubit.creativeFormKey.currentState!.validate()
       : cubit.investorFormKey.currentState!.validate();
 
-  print('index for user type is ${index}');
   if (isValid) {
     cubit.createNewUser(index);
   }

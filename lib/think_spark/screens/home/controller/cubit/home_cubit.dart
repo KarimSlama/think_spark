@@ -12,10 +12,8 @@ class HomeCubit extends Cubit<HomeState> {
     final result = await _ideaRepository.fetchIdeas();
 
     result.when(success: (ideas) {
-      print('ideas are ${ideas.length}');
       emit(HomeState.success(ideas));
     }, failure: (error) {
-      print('error with fetching ideas: ${error.apiErrorModel.message}');
       emit(HomeState.error(error: error.apiErrorModel.message.toString()));
     });
   }

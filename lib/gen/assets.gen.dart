@@ -15,11 +15,27 @@ class $AssetsIconsGen {
   /// File path: assets/icons/google.svg
   String get google => 'assets/icons/google.svg';
 
+  /// File path: assets/icons/home.svg
+  String get home => 'assets/icons/home.svg';
+
   /// File path: assets/icons/icons.ttf
   String get icons => 'assets/icons/icons.ttf';
 
+  /// File path: assets/icons/send.svg
+  String get send => 'assets/icons/send.svg';
+
+  /// File path: assets/icons/shape_bg.svg
+  String get shapeBg => 'assets/icons/shape_bg.svg';
+
+  /// File path: assets/icons/shapes.svg
+  String get shapes => 'assets/icons/shapes.svg';
+
+  /// File path: assets/icons/voice.svg
+  String get voice => 'assets/icons/voice.svg';
+
   /// List of all assets
-  List<String> get values => [google, icons];
+  List<String> get values =>
+      [google, home, icons, send, shapeBg, shapes, voice];
 }
 
 class $AssetsImagesGen {

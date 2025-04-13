@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:think_spark/core/constants/constants.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/routing/app_router.dart';
 import 'package:think_spark/core/routing/routes.dart';
@@ -20,7 +21,8 @@ class ThinkSparkApp extends StatelessWidget {
         darkTheme: SparkTheme.darkTheme,
         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.signOptionScreen,
+
+        initialRoute: isLoggedUser ? Routes.navigationMenu : Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

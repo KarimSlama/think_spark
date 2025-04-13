@@ -20,6 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
     result.when(success: (response) {
       emit(LoginState.success(response));
     }, failure: (errorHandler) {
+      print('login error ${errorHandler.apiErrorModel.message}');
       emit(LoginState.error(errors: errorHandler.apiErrorModel.errors));
     });
   }

@@ -8,7 +8,7 @@ import 'package:think_spark/core/helpers/helper_functions.dart';
 class SparkAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final bool showBackArrow;
-  final IconData? leadingIcon;
+  final Widget? leadingIcon;
   final List<Widget>? actions;
   final VoidCallback? leadingOnPressed;
 
@@ -36,12 +36,8 @@ class SparkAppBar extends StatelessWidget implements PreferredSizeWidget {
           : leadingIcon != null
               ? IconButton(
                   onPressed: leadingOnPressed,
-                  icon: Icon(
-                    leadingIcon,
-                    color: SparkHelperFunctions.isDark(context)
-                        ? SparkColors.white
-                        : SparkColors.black,
-                  ))
+                  icon: leadingIcon ?? Icon(Iconsax.arrow_left_24),
+                )
               : null,
       actions: actions,
       title: title,

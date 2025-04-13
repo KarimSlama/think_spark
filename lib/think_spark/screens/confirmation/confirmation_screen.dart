@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:think_spark/core/common/widgets/spark_app_bar.dart';
+import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/constants/spacing.dart';
@@ -15,7 +15,9 @@ class ConfirmationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SparkAppBar(showBackArrow: true, leadingOnPressed: () => context.pushNamed(Routes.loginScreen)),
+      appBar: SparkAppBar(
+          showBackArrow: true,
+          leadingOnPressed: () => context.pushNamed(Routes.loginScreen)),
       body: Padding(
         padding: const EdgeInsetsDirectional.symmetric(
             horizontal: SparkSizes.defaultSpace),

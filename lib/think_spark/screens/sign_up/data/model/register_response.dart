@@ -25,6 +25,7 @@ class UserData {
   final String email;
   final String phone;
   final String token;
+  final String refresh;
   @JsonKey(name: 'user_type') 
   final String userType;
   @JsonKey(name: 'is_verified')
@@ -35,6 +36,7 @@ class UserData {
     required this.email,
     required this.phone,
     required this.token,
+    required this.refresh,
     required this.userType,
     required this.isVerified,
   });

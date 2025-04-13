@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SparkSizes {
   SparkSizes._();
 
-   // Padding and margin sizes
+  // Padding and margin sizes
   static const double xs = 4;
   static const double sm = 8;
+  static const double ms = 12;
   static const double md = 16;
   static const double lg = 24;
   static const double xl = 32;
@@ -41,6 +42,7 @@ class SparkSizes {
   static double borderRadiusSm = 4.r;
   static double borderRadiusMd = 8.r;
   static const double borderRadiusLg = 12;
+  static const double borderRadiusXl = 20;
 
   /// Product Item Dimensions
   static double productImageSize = 120;

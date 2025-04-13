@@ -46,7 +46,8 @@ class SparkString {
   static const String haveAnAccount = 'Have an account? ';
   static const String haveNotAnAccount = 'Haven’t an account? ';
   static const String byContinuingYouAgree = 'By continuing you agree';
-  static const String termsOfServicesPrivacyPolicy = ' Terms of Services & Privacy Policy ';
+  static const String termsOfServicesPrivacyPolicy =
+      ' Terms of Services & Privacy Policy ';
   static const String enterYourEmailAndWeWillSendYouVerificationCode =
       'Enter your email, and we will send you verification code';
   static const String enterYourPhoneAndWeWillSendYouVerificationCode =
@@ -64,4 +65,19 @@ class SparkString {
   static const String investor = 'Investor';
   static const String creative = 'Creative';
   static const String incorrectInputs = 'Incorrect Inputs';
+
+  static const String preferences = 'Preferences';
+  static const String popular = 'Popular';
+  static const String seeAll = 'See all';
+  static const String filter = 'Filter';
+  static const String location = 'Location';
+  static const String next = 'Next';
+
+  static const String hey = 'Hey,';
+  static const String creativityEffortlesslyCommunication =
+      'Creativity, Effortlessly\ncommunication.';
+  static const String searchForCreativeIdea = 'search for creative idea....';
+
+  static const String popularClue = 'Popular Clue';
+  static const String popularUsers = 'Popular Users';
 }

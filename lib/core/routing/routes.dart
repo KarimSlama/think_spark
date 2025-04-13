@@ -9,4 +9,7 @@ class Routes {
   static const String resetPasswordScreen = '/resetPasswordScreen';
   static const String confirmationScreen = '/confirmationScreen';
   static const String splashConfirmScreen = '/splashConfirmScreen';
+  static const String categoryPreferencesScreen = '/categoryPreferencesScreen';
+  static const String homeScreen = '/homeScreen';
+  static const String navigationMenu = '/navigationMenu';
 }

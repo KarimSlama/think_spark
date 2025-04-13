@@ -1,46 +1,88 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:think_spark/core/common/local/shared_preferences.dart';
+import 'package:think_spark/core/constants/constants.dart';
+import 'package:think_spark/core/networking/api_constants.dart';
 
 class DioFactory {
   DioFactory._();
 
-  static Dio? dio;
+  static Dio? _dio;
+  static final _timeout = const Duration(seconds: 30);
 
   static Dio getDio() {
-    Duration timeOut = const Duration(seconds: 30);
+    _dio ??= Dio(BaseOptions(
+      connectTimeout: _timeout, 
+      receiveTimeout: _timeout,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    ));
 
-    if (dio == null) {
-      dio = Dio();
-      dio!
-        ..options.connectTimeout = timeOut
-        ..options.receiveTimeout = timeOut;
-      addDioHeaders();
-      addDioInterceptor();
-      return dio!;
-    } else {
-      return dio!;
-    }
+    _dio!.interceptors.clear();
+
+    _dio!.interceptors.add(QueuedInterceptorsWrapper(
+      onRequest: (options, handler) async {
+        if (_requiresToken(options.path)) {
+          final token = await SharedPreference.getSecureString(Constants.userTokenKey);
+          if (token != null) {
+            options.headers['Authorization'] = 'Bearer $token';
+          }
+        }
+        return handler.next(options);
+      },
+      onError: (error, handler) async {
+        if (error.response?.statusCode == 401) {
+          final refreshToken = await SharedPreference.getSecureString(Constants.refreshTokenKey);
+
+          if (refreshToken != null) {
+            try {
+              final response = await _dio!.post(
+                '${ApiConstants.apiBaseUrl}api/token/refresh/', // Replace with your API URL
+                data: {
+                  'refresh': refreshToken,
+                },
+              );
+
+              final newAccessToken = response.data['access'];
+
+          await SharedPreference.setSecureString(Constants.userTokenKey, newAccessToken);
+
+              error.requestOptions.headers['Authorization'] = 'Bearer $newAccessToken';
+              final clonedRequest = await _dio!.fetch(error.requestOptions);
+              return handler.resolve(clonedRequest);
+
+            } catch (e) {
+              return handler.reject(error);
+            }
+          } else {
+            return handler.reject(error);
+          }
+        }
+
+        return handler.next(error);
+      },
+    ));
+
+    _dio!.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseHeader: true,
+    ));
+
+    return _dio!;
   }
 
-  static void addDioHeaders() {
-    dio?.options.headers = {
-      'Content-Type': 'application/json',
-    };
+  static bool _requiresToken(String path) {
+    final publicPaths = [
+      '/auth/login/',
+      '/auth/register/',
+    ];
+    return !publicPaths.contains(path);
   }
 
-  // static void setTokenIntoHeaderAfterLogin(String token) {
-  //   dio?.options.headers = {
-  //     'Authorization': "Bearer ${token}",
-  //   };
-  // }
-
-  static void addDioInterceptor() {
-    dio?.interceptors.add(
-      PrettyDioLogger(
-        requestBody: true,
-        requestHeader: true,
-        responseHeader: true,
-      ),
-    );
+  static Future<void> updateToken(String newToken) async {
+    await SharedPreference.setSecureString(Constants.userTokenKey, newToken);
   }
 }

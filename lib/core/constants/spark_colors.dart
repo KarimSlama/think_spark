@@ -4,6 +4,7 @@ class SparkColors {
   static const Color blue = Color(0xff254EDB);
   static const Color darkBlue = Color(0xff356899);
   static const Color doggerBlue = Color(0xff448EFC);
+  static const Color anakiwa = Color(0xff9BCAFE);
   static const Color onahau = Color(0xffCDE6FF);
   static const Color orange = Color(0xffFFA947);
   static const Color olive = Color(0xff8FA60B);

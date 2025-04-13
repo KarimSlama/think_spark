@@ -11,8 +11,8 @@ class CircularContainer extends StatelessWidget {
 
   const CircularContainer({
     super.key,
-    this.width = 30,
-    this.height = 30,
+    this.width,
+    this.height,
     this.radius = 50,
     this.padding = 0,
     this.child,

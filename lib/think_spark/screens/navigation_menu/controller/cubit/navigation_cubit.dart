@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:think_spark/core/service_locator/dependency_injection.dart';
+import 'package:think_spark/think_spark/screens/categories/categories_screen.dart';
+import 'package:think_spark/think_spark/screens/home/controller/cubit/home_cubit.dart';
+import 'package:think_spark/think_spark/screens/home/home_screen.dart';
+import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_state.dart';
+import 'package:think_spark/think_spark/screens/settings/settings_screen.dart';
+import 'package:think_spark/think_spark/screens/upload_clue/upload_clue_screen.dart';
+import 'package:think_spark/think_spark/screens/wishlist/wishlist_screen.dart';
+
+class NavigationCubit extends Cubit<NavigationState> {
+  NavigationCubit() : super(NavigationState.initial());
+
+  int currentIndex = 0;
+
+  final List<Widget> _screens = [
+    BlocProvider(
+      create: (context) => getIt<HomeCubit>()..fetchAllIdeas(),
+      child: const HomeScreen(),
+    ),
+    const CategoriesScreen(),
+    const UploadClueScreen(),
+    const WishlistScreen(),
+    const SettingsScreen(),
+  ];
+
+  List<Widget> get screens => _screens;
+
+  void changeNavigationScreen(int index) {
+    if (currentIndex != index) {
+      currentIndex = index;
+      emit(NavigationState.changed(currentIndex));
+    }
+  }
+}

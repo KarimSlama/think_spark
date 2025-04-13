@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:think_spark/core/common/local/shared_preferences.dart';
 import 'package:think_spark/core/common/widgets/loaders/popus.dart';
+import 'package:think_spark/core/constants/constants.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_state.dart';
 
@@ -27,19 +30,31 @@ class LoginBlocListener extends StatelessWidget {
               ),
             ),
           ),
-          success: (registerResponse) {
+          success: (registerResponse) async {
             context.pop();
             Loaders.successSnackBar(
               context: context,
               title: 'Success',
               message: registerResponse.message,
             );
-            ///TODO: NAVIGATE TO HOME SCREEN 
+            await SharedPreference.setSecureString(
+              Constants.userTokenKey,
+              registerResponse.user.token,
+            ).then((_) async {
+              await SharedPreference.setSecureString(
+                Constants.refreshTokenKey,
+                registerResponse.user.refresh,
+              );
+              context.pushNamedAndRemoveUntil(Routes.navigationMenu,
+                  predicate: (Route<dynamic> route) {
+                return false;
+              });
+            });
           },
           error: (error) {
             context.pop();
             Loaders.showBlurredErrorDialog(
-              context: context,              
+              context: context,
               message: error?.entries
                       .map((e) => '${e.key}: ${e.value?.join(', ')}')
                       .join('\n') ??

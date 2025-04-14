@@ -90,7 +90,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ? BorderSide(color: SparkColors.darkBlue, width: 2.w)
                           : BorderSide(color: SparkColors.orange),
                     ),
-                    // borderRadius: BorderRadius.circular(12),
                   ),
                   child: TextButton(
                     onPressed: () {

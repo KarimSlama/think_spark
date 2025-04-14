@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/service_locator/dependency_injection.dart';
-import 'package:think_spark/think_spark/screens/home/controller/cubit/home_cubit.dart';
+import 'package:think_spark/think_spark/screens/all_ideas/all_ideas_screen.dart';
+import 'package:think_spark/think_spark/screens/all_ideas/controller/ideas_cubit.dart';
+import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/navigation_menu.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/category_preferences_screen.dart';
@@ -10,7 +12,6 @@ import 'package:think_spark/think_spark/screens/category_preferences/controller/
 import 'package:think_spark/think_spark/screens/confirmation/confirmation_screen.dart';
 import 'package:think_spark/think_spark/screens/forgot_password/controller/forgot_password_cubit.dart';
 import 'package:think_spark/think_spark/screens/forgot_password/forgot_password_screen.dart';
-import 'package:think_spark/think_spark/screens/home/home_screen.dart';
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
 import 'package:think_spark/think_spark/screens/login/login_screen.dart';
 import 'package:think_spark/think_spark/screens/reset_password/controller/reset_password_cubit.dart';
@@ -101,19 +102,20 @@ class AppRouter {
               child: CategoryPreferencesScreen()),
         );
 
-      // case Routes.homeScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<HomeCubit>()..fetchAllIdeas(),
-      //       child: HomeScreen(),
-      //     ),
-      //   );
-
       case Routes.navigationMenu:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<NavigationCubit>(),
             child: NavigationMenu(),
+          ),
+        );
+
+      case Routes.allIdeasScreen:
+        final ideas = settings.arguments as List<IdeaResponse>;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<IdeasCubit>(),
+            child: AllIdeasScreen(ideas: ideas),
           ),
         );
 

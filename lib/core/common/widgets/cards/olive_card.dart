@@ -12,14 +12,15 @@ import 'package:think_spark/think_spark/screens/home/data/model/idea_response.da
 
 class OliveCard extends StatelessWidget {
   final IdeaResponse ideaResponse;
-  const OliveCard({super.key, required this.ideaResponse});
+  final double? width;
+  const OliveCard({super.key, required this.ideaResponse, this.width});
 
   @override
   Widget build(BuildContext context) {
     return FadeIn(
       duration: const Duration(milliseconds: 800),
       child: Container(
-        width: 145.w,
+        width: width,
         height: 200.h,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
@@ -69,7 +70,7 @@ class OliveCard extends StatelessWidget {
                 child: Column(
                   spacing: SparkSizes.sm,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       child: Text(ideaResponse.title,
@@ -91,7 +92,8 @@ class OliveCard extends StatelessWidget {
             PositionedDirectional(
               bottom: 10,
               child: Padding(
-                  padding: const EdgeInsetsDirectional.only(start: SparkSizes.sm),
+                  padding:
+                      const EdgeInsetsDirectional.only(start: SparkSizes.sm),
                   child: IconWithTextInRow(
                       spacing: SparkSizes.sm,
                       title: 'Karim Slama',

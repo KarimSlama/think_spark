@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:think_spark/core/networking/dio_factory.dart';
 import 'package:think_spark/core/networking/register/register_service.dart';
+import 'package:think_spark/think_spark/screens/all_ideas/controller/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/controller/preferences_cubit.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/data/network/service/preferences_service.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/data/repository/categories_repository.dart';
@@ -74,4 +75,7 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<IdeaRepository>(
       () => IdeaRepository(getIt()));
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+
+
+  getIt.registerFactory<IdeasCubit>(() => IdeasCubit());
 }

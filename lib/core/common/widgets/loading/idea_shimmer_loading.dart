@@ -7,7 +7,7 @@ class IdeaShimmerLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Column(spacing: 14.h,
       children: List.generate(2, (rowIndex) {
         return Row(
           spacing: 14.w,

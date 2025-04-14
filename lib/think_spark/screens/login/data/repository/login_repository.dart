@@ -15,7 +15,6 @@ class LoginRepository {
       final response = await _registerService.login(loginRequestBody);
       return ApiResult.success(response);
     } catch (error) {
-      print('repository login error ${ErrorHandler.handle(error)}');
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

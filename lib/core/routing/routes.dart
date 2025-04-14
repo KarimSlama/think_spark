@@ -12,4 +12,5 @@ class Routes {
   static const String categoryPreferencesScreen = '/categoryPreferencesScreen';
   static const String homeScreen = '/homeScreen';
   static const String navigationMenu = '/navigationMenu';
+  static const String allIdeasScreen = '/allIdeasScreen';
 }

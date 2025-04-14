@@ -7,19 +7,20 @@ class IconWithTextInRow extends StatelessWidget {
   final IconData icon;
   final double? spacing;
   final bool isBlue;
-  const IconWithTextInRow(
-      {super.key,
-      required this.title,
-      required this.icon,
-      this.spacing,
-      this.isBlue = true});
+  const IconWithTextInRow({
+    super.key,
+    required this.title,
+    required this.icon,
+    this.spacing,
+    this.isBlue = true,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       spacing: spacing ?? 0,
       mainAxisAlignment:
-          isBlue ? MainAxisAlignment.center : MainAxisAlignment.start,
+          isBlue ? MainAxisAlignment.center : MainAxisAlignment.center,
       children: [
         Icon(icon, color: SparkColors.white),
         SizedBox(

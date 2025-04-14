@@ -29,11 +29,6 @@ class OnBoardingItems extends StatelessWidget {
           Text(
             textAlign: TextAlign.center,
             boardingModel.body,
-            // style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            //       color: AppColors.light,
-            //       fontWeight: FontWeight.normal,
-            //       fontSize: 16.sp,
-            //     ),
           ),
         ],
       ),

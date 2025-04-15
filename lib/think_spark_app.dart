@@ -21,8 +21,8 @@ class ThinkSparkApp extends StatelessWidget {
         darkTheme: SparkTheme.darkTheme,
         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
-
-        initialRoute: isLoggedUser ? Routes.navigationMenu : Routes.onBoardingScreen,
+        initialRoute:
+            isLoggedUser ? Routes.navigationMenu : Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

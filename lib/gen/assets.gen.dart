@@ -24,6 +24,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/send.svg
   String get send => 'assets/icons/send.svg';
 
+  /// File path: assets/icons/shape.png
+  AssetGenImage get shape => const AssetGenImage('assets/icons/shape.png');
+
   /// File path: assets/icons/shape_bg.svg
   String get shapeBg => 'assets/icons/shape_bg.svg';
 
@@ -34,8 +37,8 @@ class $AssetsIconsGen {
   String get voice => 'assets/icons/voice.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [google, home, icons, send, shapeBg, shapes, voice];
+  List<dynamic> get values =>
+      [google, home, icons, send, shape, shapeBg, shapes, voice];
 }
 
 class $AssetsImagesGen {

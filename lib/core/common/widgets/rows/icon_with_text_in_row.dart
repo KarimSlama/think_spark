@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 
 class IconWithTextInRow extends StatelessWidget {
   final String title;
   final IconData icon;
-  final double? spacing;
+  final double? spacing, width;
   final bool isBlue;
   const IconWithTextInRow({
     super.key,
@@ -13,6 +12,7 @@ class IconWithTextInRow extends StatelessWidget {
     required this.icon,
     this.spacing,
     this.isBlue = true,
+    this.width = 80,
   });
 
   @override
@@ -24,10 +24,11 @@ class IconWithTextInRow extends StatelessWidget {
       children: [
         Icon(icon, color: SparkColors.white),
         SizedBox(
-          width: 80.w,
+          width: width,
           child: Text(title,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
+              textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!

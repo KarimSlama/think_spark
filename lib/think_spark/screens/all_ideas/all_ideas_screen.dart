@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
 import 'package:think_spark/core/common/widgets/circulars/circular_container_shadow.dart';
+import 'package:think_spark/core/common/widgets/floating_widget.dart';
 import 'package:think_spark/core/common/widgets/search_box/spark_search_bar_field.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
@@ -16,7 +17,6 @@ class AllIdeasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
         appBar: SparkAppBar(
           showBackArrow: true,
@@ -45,24 +45,26 @@ class AllIdeasScreen extends StatelessWidget {
             )
           ],
         ),
-        body: Column(
-          spacing: SparkSizes.spaceBtwSections,
-          children: [
-            Flexible(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(SparkSizes.ms),
-                  child: Column(
-                    spacing: 14.h,
-                    children: [
-                      SparkSearchBarField(),
-                      AllIdeasCardsBlocBuilder(ideas: ideas),
-                    ],
+        body: FloatingWidget(
+          mainScreenWidget: Column(
+            spacing: SparkSizes.spaceBtwSections,
+            children: [
+              Flexible(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(SparkSizes.ms),
+                    child: Column(
+                      spacing: 14.h,
+                      children: [
+                        SparkSearchBarField(),
+                        AllIdeasCardsBlocBuilder(ideas: ideas),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }

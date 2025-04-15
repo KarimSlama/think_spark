@@ -7,18 +7,21 @@ import 'package:think_spark/core/common/widgets/circulars/circular_container.dar
 import 'package:think_spark/core/common/widgets/rows/icon_with_text_in_row.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/helpers/extensions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 
 class BlueCard extends StatelessWidget {
   final IdeaResponse ideaResponse;
   final double? width;
-  const BlueCard({super.key, required this.ideaResponse, this.width});
+  const BlueCard(
+      {super.key, required this.ideaResponse, this.width});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => context.pushNamed(Routes.ideaDetailsScreen, arguments: ideaResponse),
       child: FadeIn(
         duration: const Duration(milliseconds: 800),
         child: Container(
@@ -105,7 +108,7 @@ class BlueCard extends StatelessWidget {
                         const EdgeInsetsDirectional.only(start: SparkSizes.sm),
                     child: IconWithTextInRow(
                         spacing: SparkSizes.sm,
-                        title: 'Karim Slama',
+                        title:ideaResponse.publisher,
                         icon: Iconsax.profile_2user)),
               )
             ],

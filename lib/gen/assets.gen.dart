@@ -44,6 +44,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/Animation - 1744759242249.json
+  String get animation1744759242249 =>
+      'assets/images/Animation - 1744759242249.json';
+
   /// File path: assets/images/background.png
   AssetGenImage get background =>
       const AssetGenImage('assets/images/background.png');
@@ -100,6 +104,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        animation1744759242249,
         background,
         circleBg,
         confirmation,

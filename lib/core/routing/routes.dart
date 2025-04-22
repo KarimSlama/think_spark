@@ -14,4 +14,5 @@ class Routes {
   static const String navigationMenu = '/navigationMenu';
   static const String allIdeasScreen = '/allIdeasScreen';
   static const String ideaDetailsScreen = '/ideaDetailsScreen';
+  static const String ideasRelatedToCategoryScreen = '/ideasRelatedToCategoryScreen';
 }

@@ -8,14 +8,15 @@ import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 
-class CustomSparkAppBar extends StatelessWidget {
-  const CustomSparkAppBar({super.key});
+class CustomSparkAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final VoidCallback? onPressed;
+  const CustomSparkAppBar({super.key, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return SparkAppBar(
       leadingIcon: Image.asset(Assets.images.logo.path),
-      leadingOnPressed: () {},
+      leadingOnPressed: onPressed,
       title: SvgPicture.asset(
         SparkHelperFunctions.isDark(context)
             ? Assets.images.darkThinkSpark
@@ -43,4 +44,7 @@ class CustomSparkAppBar extends StatelessWidget {
       ],
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(SparkSizes.appBarHeight);
 }

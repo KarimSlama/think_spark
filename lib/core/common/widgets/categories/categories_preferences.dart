@@ -6,13 +6,13 @@ import 'package:think_spark/core/helpers/helper_functions.dart';
 
 class CategoriesPreferences extends StatelessWidget {
   final List<String> titles;
-  final bool Function(int index) isSelected;
+  final bool Function(int index)? isSelected;
   final Function(int index)? onTap;
 
   const CategoriesPreferences({
     super.key,
     required this.titles,
-    required this.isSelected,
+    this.isSelected,
     this.onTap,
   });
 
@@ -26,7 +26,7 @@ class CategoriesPreferences extends StatelessWidget {
       children: List.generate(titles.length, (index) {
         return CategoryContainer(
           title: titles[index],
-          isSelected: isSelected(index),
+          isSelected: isSelected != null ? isSelected!(index) : false,
           textColor: dark ? SparkColors.white : SparkColors.black,
           onTap: () => onTap?.call(index),
         );

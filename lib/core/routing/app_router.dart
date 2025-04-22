@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/service_locator/dependency_injection.dart';
 import 'package:think_spark/think_spark/screens/all_ideas/all_ideas_screen.dart';
-import 'package:think_spark/think_spark/screens/all_ideas/controller/ideas_cubit.dart';
+import 'package:think_spark/think_spark/screens/categories/data/model/categoreis_with_ideas_response.dart';
+import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/idea_details_screen.dart';
+import 'package:think_spark/think_spark/screens/ideas_related_to_category/ideas_related_to_category_screen.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/navigation_menu.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/category_preferences_screen.dart';
@@ -114,15 +116,23 @@ class AppRouter {
       case Routes.allIdeasScreen:
         final ideas = settings.arguments as List<IdeaResponse>;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<IdeasCubit>(),
-            child: AllIdeasScreen(ideas: ideas),
-          ),
+          builder: (_) =>  AllIdeasScreen(ideas: ideas),
         );
 
       case Routes.ideaDetailsScreen:
-      final idea = settings.arguments as IdeaResponse;
-        return MaterialPageRoute(builder: (_) => IdeaDetailsScreen(ideaResponse: idea));
+        final idea = settings.arguments as IdeaResponse;
+        return MaterialPageRoute(
+            builder: (_) => IdeaDetailsScreen(ideaResponse: idea));
+
+      case Routes.ideasRelatedToCategoryScreen:
+        final categoriesRelatedIdeas =
+            settings.arguments as CategoreisWithIdeasResponse;
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider.value(
+                  value: getIt<IdeasCubit>(),
+                  child: IdeasRelatedToCategoryScreen(
+                      categoreisWithIdeasResponse: categoriesRelatedIdeas),
+                ));
 
       default:
         return null;

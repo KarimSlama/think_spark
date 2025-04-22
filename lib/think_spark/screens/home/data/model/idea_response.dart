@@ -17,23 +17,48 @@ class IdeaResponse {
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
 
-  IdeaResponse(
-      {required this.id,
-      required this.title,
-      required this.categories,
-      required this.publisher,
-      required this.location,
-      required this.problems,
-      required this.solutions,
-      required this.whyItWorks,
-      required this.benifits,
-      required this.image,
-      required this.createdAt});
+  bool isFavorite;
+  bool isBeingRemoved;
 
-      factory IdeaResponse.fromJson(Map<String, dynamic> json) =>
-          _$IdeaResponseFromJson(json);
+
+  IdeaResponse( {
+    required this.id,
+    required this.title,
+    required this.categories,
+    required this.publisher,
+    required this.location,
+    required this.problems,
+    required this.solutions,
+    required this.whyItWorks,
+    required this.benifits,
+    required this.image,
+    required this.createdAt,
+    this.isFavorite = false,
+    this.isBeingRemoved = false,
+  });
+
+  factory IdeaResponse.fromJson(Map<String, dynamic> json) =>
+      _$IdeaResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$IdeaResponseToJson(this);
+
+  IdeaResponse copyWith({bool? isFavorite, bool? isBeingRemoved}) {
+    return IdeaResponse(
+      id: id,
+      title: title,
+      categories: categories,
+      publisher: publisher,
+      location: location,
+      problems: problems,
+      solutions: solutions,
+      whyItWorks: whyItWorks,
+      benifits: benifits,
+      image: image,
+      createdAt: createdAt,
+      isFavorite: isFavorite ?? this.isFavorite,
+      isBeingRemoved: isBeingRemoved ?? this.isBeingRemoved,
+    );
+  }
 }
 
 @JsonSerializable()

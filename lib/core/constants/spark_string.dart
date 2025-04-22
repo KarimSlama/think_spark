@@ -80,4 +80,6 @@ class SparkString {
 
   static const String popularClue = 'Popular Clue';
   static const String popularUsers = 'Popular Users';
+  static const String popularCategories = 'Popular Categories';
+  static const String noIdeasInThisCategory = 'No Ideas in this category';
 }

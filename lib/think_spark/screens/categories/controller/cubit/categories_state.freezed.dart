@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'home_state.dart';
+part of 'categories_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,29 +15,30 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$HomeState {
+mixin _$CategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<IdeaResponse> data) success,
-    required TResult Function(String error) error,
+    required TResult Function(List<CategoreisWithIdeasResponse> categories)
+        loaded,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<IdeaResponse> data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<IdeaResponse> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,7 +46,7 @@ mixin _$HomeState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(Loaded value) loaded,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +54,7 @@ mixin _$HomeState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loaded value)? loaded,
     TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +62,7 @@ mixin _$HomeState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(Loaded value)? loaded,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -69,22 +70,23 @@ mixin _$HomeState {
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res, HomeState>;
+abstract class $CategoriesStateCopyWith<$Res> {
+  factory $CategoriesStateCopyWith(
+          CategoriesState value, $Res Function(CategoriesState) then) =
+      _$CategoriesStateCopyWithImpl<$Res, CategoriesState>;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
-    implements $HomeStateCopyWith<$Res> {
-  _$HomeStateCopyWithImpl(this._value, this._then);
+class _$CategoriesStateCopyWithImpl<$Res, $Val extends CategoriesState>
+    implements $CategoriesStateCopyWith<$Res> {
+  _$CategoriesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -97,13 +99,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -114,7 +116,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'HomeState.initial()';
+    return 'CategoriesState.initial()';
   }
 
   @override
@@ -131,8 +133,9 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<IdeaResponse> data) success,
-    required TResult Function(String error) error,
+    required TResult Function(List<CategoreisWithIdeasResponse> categories)
+        loaded,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -142,8 +145,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<IdeaResponse> data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -153,8 +156,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<IdeaResponse> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -168,7 +171,7 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(Loaded value) loaded,
     required TResult Function(Error value) error,
   }) {
     return initial(this);
@@ -179,7 +182,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loaded value)? loaded,
     TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
@@ -190,7 +193,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(Loaded value)? loaded,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -201,7 +204,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements HomeState {
+abstract class _Initial implements CategoriesState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -214,13 +217,13 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -231,7 +234,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'HomeState.loading()';
+    return 'CategoriesState.loading()';
   }
 
   @override
@@ -248,8 +251,9 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<IdeaResponse> data) success,
-    required TResult Function(String error) error,
+    required TResult Function(List<CategoreisWithIdeasResponse> categories)
+        loaded,
+    required TResult Function(String message) error,
   }) {
     return loading();
   }
@@ -259,8 +263,8 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<IdeaResponse> data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult? Function(String message)? error,
   }) {
     return loading?.call();
   }
@@ -270,8 +274,8 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<IdeaResponse> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -285,7 +289,7 @@ class _$LoadingImpl implements Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(Loaded value) loaded,
     required TResult Function(Error value) error,
   }) {
     return loading(this);
@@ -296,7 +300,7 @@ class _$LoadingImpl implements Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loaded value)? loaded,
     TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
@@ -307,7 +311,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(Loaded value)? loaded,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -318,90 +322,93 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements HomeState {
+abstract class Loading implements CategoriesState {
   const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<IdeaResponse> data});
+  $Res call({List<CategoreisWithIdeasResponse> categories});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? categories = null,
   }) {
-    return _then(_$SuccessImpl(
-      null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as List<IdeaResponse>,
+    return _then(_$LoadedImpl(
+      null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoreisWithIdeasResponse>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SuccessImpl implements Success {
-  const _$SuccessImpl(final List<IdeaResponse> data) : _data = data;
+class _$LoadedImpl implements Loaded {
+  const _$LoadedImpl(final List<CategoreisWithIdeasResponse> categories)
+      : _categories = categories;
 
-  final List<IdeaResponse> _data;
+  final List<CategoreisWithIdeasResponse> _categories;
   @override
-  List<IdeaResponse> get data {
-    if (_data is EqualUnmodifiableListView) return _data;
+  List<CategoreisWithIdeasResponse> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_data);
+    return EqualUnmodifiableListView(_categories);
   }
 
   @override
   String toString() {
-    return 'HomeState.success(data: $data)';
+    return 'CategoriesState.loaded(categories: $categories)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            other is _$LoadedImpl &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_categories));
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<IdeaResponse> data) success,
-    required TResult Function(String error) error,
+    required TResult Function(List<CategoreisWithIdeasResponse> categories)
+        loaded,
+    required TResult Function(String message) error,
   }) {
-    return success(data);
+    return loaded(categories);
   }
 
   @override
@@ -409,10 +416,10 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<IdeaResponse> data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult? Function(String message)? error,
   }) {
-    return success?.call(data);
+    return loaded?.call(categories);
   }
 
   @override
@@ -420,12 +427,12 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<IdeaResponse> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(data);
+    if (loaded != null) {
+      return loaded(categories);
     }
     return orElse();
   }
@@ -435,10 +442,10 @@ class _$SuccessImpl implements Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(Loaded value) loaded,
     required TResult Function(Error value) error,
   }) {
-    return success(this);
+    return loaded(this);
   }
 
   @override
@@ -446,10 +453,10 @@ class _$SuccessImpl implements Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loaded value)? loaded,
     TResult? Function(Error value)? error,
   }) {
-    return success?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -457,26 +464,27 @@ class _$SuccessImpl implements Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(Loaded value)? loaded,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
 }
 
-abstract class Success implements HomeState {
-  const factory Success(final List<IdeaResponse> data) = _$SuccessImpl;
+abstract class Loaded implements CategoriesState {
+  const factory Loaded(final List<CategoreisWithIdeasResponse> categories) =
+      _$LoadedImpl;
 
-  List<IdeaResponse> get data;
+  List<CategoreisWithIdeasResponse> get categories;
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -486,28 +494,28 @@ abstract class _$$ErrorImplCopyWith<$Res> {
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({String message});
 }
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? message = null,
   }) {
     return _then(_$ErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -516,14 +524,14 @@ class __$$ErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorImpl implements Error {
-  const _$ErrorImpl({required this.error});
+  const _$ErrorImpl({required this.message});
 
   @override
-  final String error;
+  final String message;
 
   @override
   String toString() {
-    return 'HomeState.error(error: $error)';
+    return 'CategoriesState.error(message: $message)';
   }
 
   @override
@@ -531,13 +539,13 @@ class _$ErrorImpl implements Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -550,10 +558,11 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<IdeaResponse> data) success,
-    required TResult Function(String error) error,
+    required TResult Function(List<CategoreisWithIdeasResponse> categories)
+        loaded,
+    required TResult Function(String message) error,
   }) {
-    return error(this.error);
+    return error(message);
   }
 
   @override
@@ -561,10 +570,10 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<IdeaResponse> data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult? Function(String message)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(message);
   }
 
   @override
@@ -572,12 +581,12 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<IdeaResponse> data)? success,
-    TResult Function(String error)? error,
+    TResult Function(List<CategoreisWithIdeasResponse> categories)? loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(message);
     }
     return orElse();
   }
@@ -587,7 +596,7 @@ class _$ErrorImpl implements Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(Loaded value) loaded,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -598,7 +607,7 @@ class _$ErrorImpl implements Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loaded value)? loaded,
     TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -609,7 +618,7 @@ class _$ErrorImpl implements Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(Loaded value)? loaded,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -620,12 +629,12 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements HomeState {
-  const factory Error({required final String error}) = _$ErrorImpl;
+abstract class Error implements CategoriesState {
+  const factory Error({required final String message}) = _$ErrorImpl;
 
-  String get error;
+  String get message;
 
-  /// Create a copy of HomeState
+  /// Create a copy of CategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>

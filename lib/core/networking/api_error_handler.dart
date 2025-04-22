@@ -3,7 +3,6 @@ import 'package:think_spark/core/networking/api_error.dart';
 
 import 'api_error_model.dart';
 
-
 enum DataSource {
   NO_CONTENT,
   BAD_REQUEST,
@@ -13,7 +12,7 @@ enum DataSource {
   INTERNAL_SERVER_ERROR,
   CONNECT_TIMEOUT,
   CANCEL,
-  RECIEVE_TIMEOUT,
+  RECIEIVE_TIMEOUT,
   SEND_TIMEOUT,
   CACHE_ERROR,
   NO_INTERNET_CONNECTION,
@@ -34,7 +33,7 @@ class ResponseCode {
   // local status code
   static const int CONNECT_TIMEOUT = -1;
   static const int CANCEL = -2;
-  static const int RECIEVE_TIMEOUT = -3;
+  static const int RECIEIVE_TIMEOUT = -3;
   static const int SEND_TIMEOUT = -4;
   static const int CACHE_ERROR = -5;
   static const int NO_INTERNET_CONNECTION = -6;
@@ -58,7 +57,7 @@ class ResponseMessage {
   // local status code
   static String CONNECT_TIMEOUT = ApiErrors.timeoutError;
   static String CANCEL = ApiErrors.defaultError;
-  static String RECIEVE_TIMEOUT = ApiErrors.timeoutError;
+  static String RECIEIVE_TIMEOUT = ApiErrors.timeoutError;
   static String SEND_TIMEOUT = ApiErrors.timeoutError;
   static String CACHE_ERROR = ApiErrors.cacheError;
   static String NO_INTERNET_CONNECTION = ApiErrors.noInternetError;
@@ -96,10 +95,10 @@ extension DataSourceExtension on DataSource {
       case DataSource.CANCEL:
         return ApiErrorModel(
             code: ResponseCode.CANCEL, message: ResponseMessage.CANCEL);
-      case DataSource.RECIEVE_TIMEOUT:
+      case DataSource.RECIEIVE_TIMEOUT:
         return ApiErrorModel(
-            code: ResponseCode.RECIEVE_TIMEOUT,
-            message: ResponseMessage.RECIEVE_TIMEOUT);
+            code: ResponseCode.RECIEIVE_TIMEOUT,
+            message: ResponseMessage.RECIEIVE_TIMEOUT);
       case DataSource.SEND_TIMEOUT:
         return ApiErrorModel(
             code: ResponseCode.SEND_TIMEOUT,
@@ -140,11 +139,12 @@ ApiErrorModel _handleError(DioException error) {
     case DioExceptionType.sendTimeout:
       return DataSource.SEND_TIMEOUT.getFailure();
     case DioExceptionType.receiveTimeout:
-      return DataSource.RECIEVE_TIMEOUT.getFailure();
+      return DataSource.RECIEIVE_TIMEOUT.getFailure();
     case DioExceptionType.badResponse:
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
+
         return ApiErrorModel.fromJson(error.response!.data);
       } else {
         return DataSource.DEFAULT.getFailure();

@@ -8,9 +8,22 @@ class IdeaRepository {
 
   IdeaRepository(this._ideaService);
 
-  Future<ApiResult<List<IdeaResponse>>> fetchIdeas() async {
+  Future<ApiResult<List<IdeaResponse>>> fetchIdeasAndFavorites(
+      {List<String>? ids}) async {
     try {
-      final response = await _ideaService.fetchAllIdeas();
+      final response = ids != null && ids.isNotEmpty
+          ? await _ideaService.fetchFavoriteIdeas(ids)
+          : await _ideaService.fetchAllIdeas();
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<List<IdeaResponse>>> searchIdeas(String? query) async {
+    try {
+      final response = await _ideaService.searchIdeas(query);
+
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

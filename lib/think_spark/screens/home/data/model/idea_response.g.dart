@@ -20,6 +20,8 @@ IdeaResponse _$IdeaResponseFromJson(Map<String, dynamic> json) => IdeaResponse(
       benifits: json['benifits'] as String,
       image: json['image'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
+      isFavorite: json['isFavorite'] as bool? ?? false,
+      isBeingRemoved: json['isBeingRemoved'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$IdeaResponseToJson(IdeaResponse instance) =>
@@ -35,6 +37,8 @@ Map<String, dynamic> _$IdeaResponseToJson(IdeaResponse instance) =>
       'benifits': instance.benifits,
       'image': instance.image,
       'created_at': instance.createdAt.toIso8601String(),
+      'isFavorite': instance.isFavorite,
+      'isBeingRemoved': instance.isBeingRemoved,
     };
 
 Categories _$CategoriesFromJson(Map<String, dynamic> json) => Categories(

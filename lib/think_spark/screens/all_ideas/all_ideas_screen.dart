@@ -42,7 +42,7 @@ class AllIdeasScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
         body: FloatingWidget(

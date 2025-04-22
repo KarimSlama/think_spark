@@ -73,17 +73,17 @@ class IdeaDetailsScreen extends StatelessWidget {
                               IconWithTextInRow(
                                 spacing: SparkSizes.sm,
                                 title: ideaResponse.publisher,
-                                width: 100.w,
                                 icon: Iconsax.profile_2user,
                               ),
                               RelatedCategories(
                                   category: ideaResponse.categories[0].name),
                               SizedBox(height: SparkSizes.spaceBtwItems / 4),
-                              ImagesCountWithLocation()
+                              ImagesCountWithLocation(
+                                  ideaResponse: ideaResponse),
                             ],
                           ),
                         ),
-                        SlideActionsIcons()
+                        SlideActionsIcons(id: ideaResponse.id.toString())
                       ],
                     ),
                   ),

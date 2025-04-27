@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 
 class CircularContainer extends StatelessWidget {
-  final double? width;
-  final double? height;
+  final double? width, height;
+  final double? borderWidth;
+  final Color? borderColor;
   final double radius;
   final double padding;
   final Widget? child;
@@ -17,6 +18,8 @@ class CircularContainer extends StatelessWidget {
     this.padding = 0,
     this.child,
     this.color = SparkColors.light,
+    this.borderWidth,
+    this.borderColor,
   });
 
   @override
@@ -27,6 +30,9 @@ class CircularContainer extends StatelessWidget {
       padding: EdgeInsetsDirectional.all(padding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
+        border: Border.all(
+            color: borderColor != null ? borderColor! : Colors.transparent,
+            width: borderWidth != null ? borderWidth! : 0),
         color: color,
       ),
       child: child,

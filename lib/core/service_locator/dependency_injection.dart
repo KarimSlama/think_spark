@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:think_spark/core/networking/dio_factory.dart';
 import 'package:think_spark/core/networking/register/register_service.dart';
+import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/controller/cubit/categories_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/data/network/categories_related_ideas_service.dart';
 import 'package:think_spark/think_spark/screens/categories/data/repository/categories_with_ideas_related_repository.dart';
@@ -19,11 +20,9 @@ import 'package:think_spark/think_spark/screens/home/data/repository/idea_reposi
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
 import 'package:think_spark/think_spark/screens/login/data/repository/login_repository.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
-import 'package:think_spark/think_spark/screens/reset_password/controller/reset_password_cubit.dart';
 import 'package:think_spark/think_spark/screens/reset_password/data/repository/reset_password_repository.dart';
 import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_cubit.dart';
 import 'package:think_spark/think_spark/screens/sign_up/data/repository/register_repository.dart';
-import 'package:think_spark/think_spark/screens/verify_code/controller/code_cubit.dart';
 import 'package:think_spark/think_spark/screens/verify_code/data/repository/code_repository.dart';
 import 'package:think_spark/think_spark/screens/favorite/controller/cubit/favorite_cubit.dart';
 
@@ -53,16 +52,14 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<ForgotPasswordRepository>(
       () => ForgotPasswordRepository(getIt()));
   getIt
-      .registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(getIt()));
+      .registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(getIt(), getIt(), getIt()));
 
   ///FORGOT PASSWORD
   getIt.registerLazySingleton<CodeRepository>(() => CodeRepository(getIt()));
-  getIt.registerFactory<CodeCubit>(() => CodeCubit(getIt()));
 
   ///RESET PASSWORD
   getIt.registerLazySingleton<ResetPasswordRepository>(
       () => ResetPasswordRepository(getIt()));
-  getIt.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(getIt()));
 
   ///PREFERENCES
   getIt.registerLazySingleton<CategoriesRepository>(
@@ -92,4 +89,7 @@ Future<void> setUpGetIt() async {
 
   ///DRAWER NAVIGATION
   getIt.registerFactory<DrawerCubit>(() => DrawerCubit());
+
+  ///BIOMETRICS
+  getIt.registerFactory<BiometricCubit>(() => BiometricCubit());
 }

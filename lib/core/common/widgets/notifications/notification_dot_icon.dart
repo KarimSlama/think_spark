@@ -5,15 +5,17 @@ import 'package:think_spark/core/constants/spark_colors.dart';
 
 class NotificationDotIcon extends StatelessWidget {
   final Color? dotBgColor;
+  final VoidCallback onPressed;
 
-  const NotificationDotIcon({super.key, this.dotBgColor});
+  const NotificationDotIcon(
+      {super.key, this.dotBgColor, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         IconButton(
-            onPressed: () {},
+            onPressed: onPressed,
             icon: Icon(Iconsax.notification, color: SparkColors.doggerBlue)),
         PositionedDirectional(
           top: 12,

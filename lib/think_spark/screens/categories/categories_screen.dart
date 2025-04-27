@@ -18,12 +18,14 @@ class CategoriesScreen extends StatelessWidget {
             mainScreenWidget: Padding(
               padding: const EdgeInsetsDirectional.symmetric(
                   horizontal: SparkSizes.ms, vertical: SparkSizes.defaultSpace),
-              child: Column(
-                spacing: SparkSizes.spaceBtwSections,
-                children: [
-                  SparkSearchBarField(),
-                  CategoriesBlocBuilder(),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  spacing: SparkSizes.spaceBtwSections,
+                  children: [
+                    SparkSearchBarField(),
+                    CategoriesBlocBuilder(),
+                  ],
+                ),
               ),
             ),
           ),

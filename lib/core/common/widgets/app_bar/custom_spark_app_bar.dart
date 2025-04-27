@@ -3,9 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
 import 'package:think_spark/core/common/widgets/circulars/circular_container_shadow.dart';
+import 'package:think_spark/core/common/widgets/circulars/profile_image_circular.dart';
 import 'package:think_spark/core/common/widgets/notifications/notification_dot_icon.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 
 class CustomSparkAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -30,14 +33,10 @@ class CustomSparkAppBar extends StatelessWidget implements PreferredSizeWidget {
             spacing: 16.w,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CircularContainerShadow(icon: NotificationDotIcon()),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: CircularContainerShadow(
-                  icon: Image.network(
-                      'https://avatars.githubusercontent.com/u/96607967?s=400&u=14a56861ed5617cba18b4ba5a644c7e08bdbde37&v=4'),
-                ),
-              ),
+              CircularContainerShadow(
+                  icon: NotificationDotIcon(
+                      onPressed: () => context.pushNamed(Routes.notificationScreen))),
+              ProfileImageCircular(),
             ],
           ),
         )

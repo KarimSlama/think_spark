@@ -82,4 +82,35 @@ class SparkString {
   static const String popularUsers = 'Popular Users';
   static const String popularCategories = 'Popular Categories';
   static const String noIdeasInThisCategory = 'No Ideas in this category';
+  static const String settings = 'Settings';
+  static const String profile = 'Profile';
+  static const String changePassword = 'Change Password';
+  static const String fingerPrintLock = 'Finger Print Lock';
+  static const String impression = 'Impression';
+  static const String logout = 'Logout';
+  static const String editProfile = 'Edit Profile';
+  static const String accounts = 'Accounts';
+  static const String manageAccount = 'Manage account';
+  static const String privacyAndSecurity = 'Privacy and Security';
+  static const String loginActivity = 'Login Activity';
+  static const String general = 'General';
+  static const String languages = 'Languages';
+  static const String darkMode = 'Dark Mode';
+  static const String notification = 'Notification';
+  static const String shareProfile = 'Share Profile';
+  static const String additional = 'Additional';
+  static const String switchAccount = 'Switch Account';
+  static const String closeAccount = 'Close Account';
+  static const String
+      enterYourEmailToEnsureAndConfirmThatYouWantToNewPasswordNow =
+      'Enter your email to ensure and confirm that you want to new password now.';
+  static const String
+      checkYourEmailThatYouveEnteredAndFillDownWithTheCodeSentToYou =
+      'Check your email that you’ve entered and fill down with the code sent to you.';
+  static const String enterNewPasswordAndMakeTwoMatchEachOther =
+      'Enter new password and make two match each other.';
+  static const String confirm = 'Confirm';
+
+
+  static const String enableFingerPrint= 'Enable Finger Print';
 }

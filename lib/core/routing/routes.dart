@@ -15,4 +15,8 @@ class Routes {
   static const String allIdeasScreen = '/allIdeasScreen';
   static const String ideaDetailsScreen = '/ideaDetailsScreen';
   static const String ideasRelatedToCategoryScreen = '/ideasRelatedToCategoryScreen';
+  static const String profileScreen = '/profileScreen';
+  static const String changePasswordScreen = '/changePasswordScreen';
+  static const String biometricsScreen = '/biometricsScreen';
+  static const String notificationScreen = '/notificationScreen';
 }

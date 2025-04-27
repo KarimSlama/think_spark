@@ -9,23 +9,24 @@ import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/think_spark/screens/forgot_password/controller/forgot_password_cubit.dart';
 import 'package:think_spark/think_spark/screens/forgot_password/controller/forgot_password_state.dart';
 
-class VerifyCodeBlocListener extends StatelessWidget {
-  const VerifyCodeBlocListener({super.key});
+class ChangePasswordBlocListener extends StatelessWidget {
+  final Function(int) onIndexChanged;
+  final int index;
+  const ChangePasswordBlocListener(
+      {super.key, required this.onIndexChanged, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
+          current is Loading || current is Success || current is Failure,
       listener: (context, state) {
         state.whenOrNull(
           loading: () => showDialog(
             context: context,
             barrierDismissible: false,
             builder: (context) => Center(
-              child: SpinKitSquareCircle(
-                color: SparkColors.blue,
-              ),
+              child: SpinKitSquareCircle(color: SparkColors.blue),
             ),
           ),
           success: (response) {
@@ -35,7 +36,14 @@ class VerifyCodeBlocListener extends StatelessWidget {
               title: 'Success',
               message: response.message,
             );
-            context.pushNamed(Routes.resetPasswordScreen);
+            if (index == 2) {
+              context.pushNamedAndRemoveUntil(
+                Routes.loginScreen,
+                predicate: (route) => route.settings.name != Routes.loginScreen,
+              );
+            } else {
+              onIndexChanged(index + 1);
+            }
           },
           failure: (error) {
             context.pop();

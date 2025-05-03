@@ -10,6 +10,7 @@ import 'package:think_spark/core/theme/theme.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/drawer_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/favorite/controller/cubit/favorite_cubit.dart';
+import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
 
 class ThinkSparkApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -23,6 +24,9 @@ class ThinkSparkApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
+            create: (context) => getIt<ProfileCubit>()..fetchProfile(),
+          ),
+          BlocProvider(
             create: (context) => getIt<IdeasCubit>()
             ..fetchAllIdeas(),
           ),
@@ -32,6 +36,7 @@ class ThinkSparkApp extends StatelessWidget {
           BlocProvider(
             create: (context) => getIt<DrawerCubit>(),
           ),
+          
         ],
         child: MaterialApp(
           title: SparkString.appTitle,

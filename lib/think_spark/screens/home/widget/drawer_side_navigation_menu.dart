@@ -5,7 +5,10 @@ import 'package:iconsax/iconsax.dart';
 import 'package:think_spark/core/common/widgets/circulars/circular_container_shadow.dart';
 import 'package:think_spark/core/common/widgets/circulars/profile_image_circular.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
+import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/drawer_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/drawer_state.dart';
 
@@ -18,14 +21,14 @@ class DrawerSideNavigationMenu extends StatelessWidget {
       builder: (context, state) {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          width: context.read<DrawerCubit>().isDrawerOpen ? 70 : 0,
+          width: context.read<DrawerCubit>().isDrawerOpen ? 70.w : 0,
           decoration: BoxDecoration(
               color: SparkHelperFunctions.isDark(context)
                   ? SparkColors.black
                   : SparkColors.light.withValues(alpha: .1),
-              borderRadius: BorderRadiusDirectional.circular(35)),
+              borderRadius: BorderRadiusDirectional.circular(35.r)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.symmetric(vertical: SparkSizes.ms),
             child: Column(
               spacing: 14.h,
               children: [
@@ -64,9 +67,13 @@ class DrawerSideNavigationMenu extends StatelessWidget {
                 Spacer(),
                 CircularContainerShadow(
                   icon: IconButton(
-                    icon: Icon(Iconsax.logout_1, color: SparkColors.red),
-                    onPressed: () {},
-                  ),
+                      icon: Icon(Iconsax.logout_1, color: SparkColors.red),
+                      onPressed: () {
+                        context.read<DrawerCubit>().logout(context);
+                        context.pushNamedAndRemoveUntil(Routes.loginScreen,
+                            predicate: (route) =>
+                                route.settings.name == Routes.loginScreen);
+                      }),
                 ),
               ],
             ),

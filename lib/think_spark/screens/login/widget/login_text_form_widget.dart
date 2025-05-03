@@ -31,6 +31,7 @@ class LoginTextFormWidget extends StatelessWidget {
           suffixPressed: () => print('pressed'),
           suffixIcon: Iconsax.eye3,
           isObscureText: true,
+          maxLines: 1,
           label: SparkString.password,
           validator: (value) => Validator.validatePassword(value),
         ),

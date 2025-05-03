@@ -111,6 +111,12 @@ class SparkString {
       'Enter new password and make two match each other.';
   static const String confirm = 'Confirm';
 
+  static const String enableFingerPrint = 'Enable Finger Print';
 
-  static const String enableFingerPrint= 'Enable Finger Print';
+  static const String
+      inOrderToEditYourProfileUpdateTheInputThatYouMightWantToChange =
+      'In order to edit your profile, update the input that you might want to change.';
+  static const String bio = 'Bio';
+
+  static const String updateEmail = 'Update Email';
 }

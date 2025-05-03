@@ -4,8 +4,11 @@ import 'package:think_spark/core/common/widgets/texts/section_heading.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
+import 'package:think_spark/core/helpers/extensions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/think_spark/screens/profile/widget/profile_image_with_edit_profile.dart';
 import 'package:think_spark/think_spark/screens/profile/widget/profile_settings_modifications.dart';
+import 'package:think_spark/think_spark/screens/profile/widget/user_name_with_phone.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -28,26 +31,35 @@ class ProfileScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsetsDirectional.only(
-                  top: MediaQuery.of(context).size.height * .09,
+                  top: MediaQuery.of(context).size.height * .07,
                   start: SparkSizes.ms,
                   end: SparkSizes.ms),
               child: Column(
-                spacing: 4,
                 children: [
-                  Text('Karim Slama',
-                      style: Theme.of(context).textTheme.headlineSmall),
-                  Text(
-                    '01095856941',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .apply(color: SparkColors.light),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    spacing: SparkSizes.defaultSpace,
+                    children: [
+                      UserNameWithPhone(),
+                      TextButton(
+                        onPressed: () =>
+                            context.pushNamed(Routes.editProfileScreen),
+                        child: Text(
+                          SparkString.editProfile,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .apply(color: SparkColors.blue),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: SparkSizes.ms),
                   SectionHeading(
                       text: SparkString.settings, isActionButton: false),
                   SizedBox(height: SparkSizes.spaceBtwItems / 2),
-                  ProfileSettingsModifications()
+                  ProfileSettingsModifications(),
                 ],
               ),
             ),

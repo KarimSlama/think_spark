@@ -20,6 +20,9 @@ import 'package:think_spark/think_spark/screens/home/data/repository/idea_reposi
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
 import 'package:think_spark/think_spark/screens/login/data/repository/login_repository.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
+import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
+import 'package:think_spark/think_spark/screens/profile/data/network/profile_service.dart';
+import 'package:think_spark/think_spark/screens/profile/data/repository/profile_repository.dart';
 import 'package:think_spark/think_spark/screens/reset_password/data/repository/reset_password_repository.dart';
 import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_cubit.dart';
 import 'package:think_spark/think_spark/screens/sign_up/data/repository/register_repository.dart';
@@ -38,6 +41,8 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<IdeaService>(() => IdeaService(dio));
   getIt.registerLazySingleton<CategoriesRelatedIdeasService>(
       () => CategoriesRelatedIdeasService(dio));
+  getIt.registerLazySingleton<ProfileService>(
+      () => ProfileService(dio));
 
   ///REGISTER
   getIt.registerLazySingleton<RegisterRepository>(
@@ -51,8 +56,8 @@ Future<void> setUpGetIt() async {
   ///FORGOT PASSWORD
   getIt.registerLazySingleton<ForgotPasswordRepository>(
       () => ForgotPasswordRepository(getIt()));
-  getIt
-      .registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(getIt(), getIt(), getIt()));
+  getIt.registerFactory<ForgotPasswordCubit>(
+      () => ForgotPasswordCubit(getIt(), getIt(), getIt()));
 
   ///FORGOT PASSWORD
   getIt.registerLazySingleton<CodeRepository>(() => CodeRepository(getIt()));
@@ -78,7 +83,6 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<IdeaRepository>(() => IdeaRepository(getIt()));
   getIt.registerFactory<IdeasCubit>(() => IdeasCubit(getIt()));
 
-
   ///CATEGORIES
   getIt.registerLazySingleton<CategoriesWithIdeasRelatedRepository>(
       () => CategoriesWithIdeasRelatedRepository(getIt()));
@@ -92,4 +96,9 @@ Future<void> setUpGetIt() async {
 
   ///BIOMETRICS
   getIt.registerFactory<BiometricCubit>(() => BiometricCubit());
+
+  ///PROFILES
+  getIt.registerLazySingleton<ProfileRepository>(
+      () => ProfileRepository(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
 }

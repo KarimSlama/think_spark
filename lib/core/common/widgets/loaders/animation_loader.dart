@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 
 class AnimationLoaderWidget extends StatelessWidget {
-  final String text, animation;
+  final String text;
+  final Widget animation;
   final String? actionText;
   final bool showAction;
   final VoidCallback? onActionPressed;
@@ -24,8 +24,7 @@ class AnimationLoaderWidget extends StatelessWidget {
         spacing: SparkSizes.defaultSpace,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(animation,
-              width: MediaQuery.of(context).size.width * .8),
+          animation,
           Text(
             text,
             style: Theme.of(context).textTheme.bodyMedium,
@@ -34,8 +33,8 @@ class AnimationLoaderWidget extends StatelessWidget {
           showAction
               ? OutlinedButton(
                   onPressed: onActionPressed,
-                  style:
-                      OutlinedButton.styleFrom(backgroundColor: SparkColors.black),
+                  style: OutlinedButton.styleFrom(
+                      backgroundColor: SparkColors.black),
                   child: Text(
                     actionText!,
                     style: Theme.of(context)

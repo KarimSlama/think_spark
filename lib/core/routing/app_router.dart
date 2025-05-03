@@ -6,6 +6,7 @@ import 'package:think_spark/think_spark/screens/all_ideas/all_ideas_screen.dart'
 import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/data/model/categoreis_with_ideas_response.dart';
 import 'package:think_spark/think_spark/screens/change_password/change_password_screen.dart';
+import 'package:think_spark/think_spark/screens/edit_profile_screen/edit_profile_screen.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/idea_details_screen.dart';
@@ -28,6 +29,7 @@ import 'package:think_spark/think_spark/screens/sign_options/sign_options_screen
 import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_cubit.dart';
 import 'package:think_spark/think_spark/screens/sign_up/sign_up_screen.dart';
 import 'package:think_spark/think_spark/screens/splash_confirm/splash_confirm_screen.dart';
+import 'package:think_spark/think_spark/screens/update_email/update_email_screen.dart';
 import 'package:think_spark/think_spark/screens/verify_code/verify_code_screen.dart';
 import 'package:think_spark/think_spark/screens/biometrics/biometrics_screen.dart';
 
@@ -154,6 +156,10 @@ class AppRouter {
                   child: BiometricsScreen(),
                 ));
 
+      case Routes.editProfileScreen:
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+      case Routes.updateEmailScreen:
+        return MaterialPageRoute(builder: (_) => UpdateEmailScreen());
       case Routes.notificationScreen:
         return MaterialPageRoute(builder: (_) => NotificationsScreen());
 

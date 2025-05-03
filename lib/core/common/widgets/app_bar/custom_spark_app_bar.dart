@@ -35,8 +35,12 @@ class CustomSparkAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
               CircularContainerShadow(
                   icon: NotificationDotIcon(
-                      onPressed: () => context.pushNamed(Routes.notificationScreen))),
-              ProfileImageCircular(),
+                      onPressed: () =>
+                          context.pushNamed(Routes.notificationScreen))),
+              ProfileImageCircular(
+                width: 45,
+                height: 45,
+              ),
             ],
           ),
         )

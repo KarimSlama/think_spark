@@ -26,7 +26,7 @@ class ProfileSettingsModifications extends StatelessWidget {
           icon: SettingsMenuTile(
             icon: Iconsax.message,
             title: SparkString.email,
-            onTap: () {},
+            onTap: () => context.pushNamed(Routes.updateEmailScreen),
           ),
         ),
         CircularContainerShadow(

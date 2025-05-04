@@ -7,6 +7,8 @@ import 'package:think_spark/core/common/widgets/texts/section_heading.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
+import 'package:think_spark/core/helpers/extensions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/controller/preferences_cubit.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/controller/preferences_state.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/data/model/preferences_response.dart';
@@ -120,7 +122,7 @@ class CategoryPreferencesScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () => context.pushNamed(Routes.navigationMenu),
             child: Text(
               SparkString.next,
               style: Theme.of(context).textTheme.titleMedium?.apply(

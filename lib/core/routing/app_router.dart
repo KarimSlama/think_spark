@@ -5,6 +5,7 @@ import 'package:think_spark/core/service_locator/dependency_injection.dart';
 import 'package:think_spark/think_spark/screens/all_ideas/all_ideas_screen.dart';
 import 'package:think_spark/think_spark/screens/all_ideas/controller/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
+import 'package:think_spark/think_spark/screens/ideas_details/idea_details_screen.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/navigation_menu.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/category_preferences_screen.dart';
@@ -118,6 +119,10 @@ class AppRouter {
             child: AllIdeasScreen(ideas: ideas),
           ),
         );
+
+      case Routes.ideaDetailsScreen:
+      final idea = settings.arguments as IdeaResponse;
+        return MaterialPageRoute(builder: (_) => IdeaDetailsScreen(ideaResponse: idea));
 
       default:
         return null;

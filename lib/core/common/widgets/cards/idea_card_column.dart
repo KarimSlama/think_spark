@@ -17,9 +17,8 @@ class IdeaCardsColumn extends StatelessWidget {
       children: List.generate(ideas.length, (index) {
         return Padding(
             padding: EdgeInsets.only(bottom: 14.h),
-            child: BlueCard(ideaResponse: ideas[index], width: double.infinity)
-
-            );
+            child:
+                BlueCard(ideaResponse: ideas[index], width: double.infinity));
       }),
     );
   }

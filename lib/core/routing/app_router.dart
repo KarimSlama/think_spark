@@ -3,14 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/service_locator/dependency_injection.dart';
 import 'package:think_spark/think_spark/screens/all_ideas/all_ideas_screen.dart';
-import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
-import 'package:think_spark/think_spark/screens/categories/data/model/categoreis_with_ideas_response.dart';
-import 'package:think_spark/think_spark/screens/change_password/change_password_screen.dart';
-import 'package:think_spark/think_spark/screens/edit_profile_screen/edit_profile_screen.dart';
-import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
+import 'package:think_spark/think_spark/screens/all_ideas/controller/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/idea_details_screen.dart';
-import 'package:think_spark/think_spark/screens/ideas_related_to_category/ideas_related_to_category_screen.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/navigation_menu.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/category_preferences_screen.dart';
@@ -20,8 +15,7 @@ import 'package:think_spark/think_spark/screens/forgot_password/controller/forgo
 import 'package:think_spark/think_spark/screens/forgot_password/forgot_password_screen.dart';
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
 import 'package:think_spark/think_spark/screens/login/login_screen.dart';
-import 'package:think_spark/think_spark/screens/notifications/notifications_screen.dart';
-import 'package:think_spark/think_spark/screens/profile/profile_screen.dart';
+import 'package:think_spark/think_spark/screens/reset_password/controller/reset_password_cubit.dart';
 import 'package:think_spark/think_spark/screens/splash/splash_screen.dart';
 import 'package:think_spark/think_spark/screens/on_boarding/on_boarding_screen.dart';
 import 'package:think_spark/think_spark/screens/reset_password/reset_password_screen.dart';
@@ -29,9 +23,8 @@ import 'package:think_spark/think_spark/screens/sign_options/sign_options_screen
 import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_cubit.dart';
 import 'package:think_spark/think_spark/screens/sign_up/sign_up_screen.dart';
 import 'package:think_spark/think_spark/screens/splash_confirm/splash_confirm_screen.dart';
-import 'package:think_spark/think_spark/screens/update_email/update_email_screen.dart';
+import 'package:think_spark/think_spark/screens/verify_code/controller/code_cubit.dart';
 import 'package:think_spark/think_spark/screens/verify_code/verify_code_screen.dart';
-import 'package:think_spark/think_spark/screens/biometrics/biometrics_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -76,16 +69,16 @@ class AppRouter {
 
       case Routes.verifyCodeScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: getIt<ForgotPasswordCubit>(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<CodeCubit>(),
             child: VerifyCodeScreen(),
           ),
         );
 
       case Routes.resetPasswordScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: getIt<ForgotPasswordCubit>(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ResetPasswordCubit>(),
             child: ResetPasswordScreen(),
           ),
         );
@@ -121,47 +114,15 @@ class AppRouter {
       case Routes.allIdeasScreen:
         final ideas = settings.arguments as List<IdeaResponse>;
         return MaterialPageRoute(
-          builder: (_) => AllIdeasScreen(ideas: ideas),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<IdeasCubit>(),
+            child: AllIdeasScreen(ideas: ideas),
+          ),
         );
 
       case Routes.ideaDetailsScreen:
-        final idea = settings.arguments as IdeaResponse;
-        return MaterialPageRoute(
-            builder: (_) => IdeaDetailsScreen(ideaResponse: idea));
-
-      case Routes.ideasRelatedToCategoryScreen:
-        final categoriesRelatedIdeas =
-            settings.arguments as CategoreisWithIdeasResponse;
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: getIt<IdeasCubit>(),
-                  child: IdeasRelatedToCategoryScreen(
-                      categoreisWithIdeasResponse: categoriesRelatedIdeas),
-                ));
-
-      case Routes.profileScreen:
-        return MaterialPageRoute(builder: (_) => ProfileScreen());
-
-      case Routes.changePasswordScreen:
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: getIt<ForgotPasswordCubit>(),
-                  child: ChangePasswordScreen(),
-                ));
-
-      case Routes.biometricsScreen:
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (_) => getIt<BiometricCubit>()..checkDeviceSupport(),
-                  child: BiometricsScreen(),
-                ));
-
-      case Routes.editProfileScreen:
-        return MaterialPageRoute(builder: (_) => EditProfileScreen());
-      case Routes.updateEmailScreen:
-        return MaterialPageRoute(builder: (_) => UpdateEmailScreen());
-      case Routes.notificationScreen:
-        return MaterialPageRoute(builder: (_) => NotificationsScreen());
+      final idea = settings.arguments as IdeaResponse;
+        return MaterialPageRoute(builder: (_) => IdeaDetailsScreen(ideaResponse: idea));
 
       default:
         return null;

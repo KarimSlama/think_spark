@@ -7,11 +7,13 @@ class IconWithTextInRow extends StatelessWidget {
   final double? spacing;
   final double? maxWidth;
   final bool flexibleText;
+  final Color? color;
 
   const IconWithTextInRow({
     super.key,
     required this.title,
     required this.icon,
+    this.color,
     this.spacing,
     this.maxWidth,
     this.flexibleText = true,
@@ -23,7 +25,7 @@ class IconWithTextInRow extends StatelessWidget {
       spacing: spacing ?? 0,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, color: SparkColors.light),
+        Icon(icon, color: color ?? SparkColors.light),
         flexibleText
             ? Flexible(
                 child: Text(
@@ -33,7 +35,7 @@ class IconWithTextInRow extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge!
-                      .apply(color: SparkColors.light),
+                      .apply(color: color ??SparkColors.light),
                 ),
               )
             : ConstrainedBox(
@@ -47,7 +49,7 @@ class IconWithTextInRow extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge!
-                      .apply(color: SparkColors.light),
+                      .apply(color: color ?? SparkColors.light),
                 ),
               ),
       ],

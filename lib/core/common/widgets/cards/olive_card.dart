@@ -92,7 +92,7 @@ class OliveCard extends StatelessWidget {
                       const EdgeInsetsDirectional.only(start: SparkSizes.sm),
                   child: IconWithTextInRow(
                       spacing: SparkSizes.sm,
-                      title: ideaResponse.publisher,
+                      title: ideaResponse.user.username,
                       icon: Iconsax.profile_2user),
                 ),
               )

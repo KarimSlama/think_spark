@@ -26,8 +26,9 @@ ProfileData _$ProfileDataFromJson(Map<String, dynamic> json) => ProfileData(
       userType: json['user_type'] as String,
       isVerified: json['is_verified'] as bool,
       createdAt: DateTime.parse(json['created_at'] as String),
-      image: json['image'] as String,
-      bio: json['bio'] as String,
+      image: json['image'] as String? ??
+          'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+      bio: json['bio'] as String? ?? '',
     );
 
 Map<String, dynamic> _$ProfileDataToJson(ProfileData instance) =>

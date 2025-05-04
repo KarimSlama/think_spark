@@ -23,6 +23,7 @@ class IdeasCubit extends Cubit<IdeasState> {
 
     result.when(success: (ideas) {
       ideasList = ideas;
+      print('ideas list ${ideas.length}');
       emit(IdeasState.success(ideas));
     }, failure: (error) {
       emit(IdeasState.error(error: error.apiErrorModel.message.toString()));

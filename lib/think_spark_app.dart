@@ -18,13 +18,14 @@ class ThinkSparkApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
+  return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => getIt<ProfileCubit>()..fetchProfile(),
+            create: (context) => getIt<ProfileCubit>()
+            ..fetchProfile(),
           ),
           BlocProvider(
             create: (context) => getIt<IdeasCubit>()

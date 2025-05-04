@@ -46,7 +46,11 @@ class HomeScreen extends StatelessWidget {
                           IdeasListCards(),
                           SectionHeading(
                               text: SparkString.popularUsers, onPressed: () {}),
-                          PopularUser(),
+                          PopularUser(
+                            name: 'Karim Slama',
+                            bio: 'Software Developer',
+                            onPressed: () {},
+                          ),
                         ],
                       ),
                     ),

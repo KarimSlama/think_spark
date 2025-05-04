@@ -119,4 +119,27 @@ class SparkString {
   static const String bio = 'Bio';
 
   static const String updateEmail = 'Update Email';
+
+  static const String description = 'Description';
+  static const String requirement = 'Requirement';
+  static const String photos = 'Photos';
+  static const String about = 'About';
+  static const String theProblems= 'The Problems:';
+  static const String theSolutions= 'The Solutions:';
+  static const String whyItWorks= 'Why it Works?';
+  static const String theVision= 'The Vision:';
+  static const String technicalRequirements= 'Technical Requirements:';
+  static const String humanResources= 'Human Resources:';
+  static const String estimatedTeam= 'Estimated Team:';
+  static const String expectedCompletionDate= 'Expected Completion Date:';
+  static const String noImagesAvailable= 'No images available';
+  static const String noOtherIdeasFromThisUser= 'No other ideas from this user';
+  static const String close= 'Close';
+
+  static const String chatWithCreative = 'Chat With Creative';
+  static const String scheduleAMeeting = 'Schedule a meeting';
+  static const String shareCreativeProfile = 'Share Creative Profile';
+  static const String unknown = 'Unknown';
+  static const String moreFrom = 'More from';
+  static const String aboutCreative = 'About Creative';
 }

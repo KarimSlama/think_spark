@@ -78,9 +78,16 @@ class SparkHelperFunctions {
     return MediaQuery.of(context).size.width;
   }
 
-  static String getFormattedDate(DateTime date,
-      {String format = 'dd MMM yyyy'}) {
-    return DateFormat(format).format(date);
+  static String formatDateTime(String isoDate) {
+    try {
+      final dateTime = DateTime.parse(isoDate);
+      final dateFormat = DateFormat('MMMM d, y');
+      final timeFormat = DateFormat('h:mm a');
+
+      return '${dateFormat.format(dateTime)} - ${timeFormat.format(dateTime)}';
+    } catch (e) {
+      return isoDate; 
+    }
   }
 
   static List<T> removeDuplicates<T>(List<T> list) {

@@ -55,7 +55,7 @@ class SparkTextTheme {
     bodySmall: const TextStyle().copyWith(
         fontSize: 12,
         fontWeight: FontWeight.w500,
-        color: SparkColors.light.withValues(alpha: 0.5)),
+      color: SparkColors.light.withValues(alpha: 0.5)),
     labelLarge: const TextStyle().copyWith(
         fontSize: 12, fontWeight: FontWeight.normal, color: SparkColors.light),
     labelMedium: const TextStyle().copyWith(

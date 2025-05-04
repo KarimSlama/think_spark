@@ -23,7 +23,7 @@ class ImagesCountWithLocation extends StatelessWidget {
         ),
         IconWithTextInRow(
           spacing: SparkSizes.sm,
-          title: ideaResponse.location ?? 'Unknown',
+          title: ideaResponse.location,
           icon: Iconsax.location,
         ),
       ],

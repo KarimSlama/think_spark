@@ -13,4 +13,10 @@ abstract class IdeaService {
 
   @GET(IdeaConstants.ideas)
   Future<List<IdeaResponse>> fetchAllIdeas();
+
+  @GET(IdeaConstants.ideas)
+  Future<List<IdeaResponse>> fetchFavoriteIdeas(@Query("ids") List<String> ideaIds);
+
+  @GET(IdeaConstants.searchIdeas)
+  Future<List<IdeaResponse>> searchIdeas(@Query('q') String? query);
 }

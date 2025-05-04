@@ -23,6 +23,7 @@ class SparkTextFormField extends StatelessWidget {
   final double borderWidth;
   final Color borderColor;
   final Color? fillColor;
+  final int? maxLines;
   final TextStyle? textStyle;
   final Iterable<String>? autofillHints;
 
@@ -49,7 +50,7 @@ class SparkTextFormField extends StatelessWidget {
     this.borderColor = SparkColors.light,
     this.fillColor,
     this.textStyle,
-    this.autofillHints,
+    this.autofillHints, this.maxLines,
   });
 
   @override
@@ -62,6 +63,7 @@ class SparkTextFormField extends StatelessWidget {
         controller: controller,
         obscureText: isObscureText,
         maxLength: maxLength,
+        maxLines: maxLines,
         validator: (value) => validator?.call(value),
         inputFormatters: inputFormatters,
         keyboardType: inputType,

@@ -6,15 +6,15 @@ import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/think_spark/screens/verify_code/controller/code_cubit.dart';
-import 'package:think_spark/think_spark/screens/verify_code/controller/code_state.dart';
+import 'package:think_spark/think_spark/screens/forgot_password/controller/forgot_password_cubit.dart';
+import 'package:think_spark/think_spark/screens/forgot_password/controller/forgot_password_state.dart';
 
 class VerifyCodeBlocListener extends StatelessWidget {
   const VerifyCodeBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CodeCubit, CodeState>(
+    return BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Error,
       listener: (context, state) {
@@ -37,7 +37,7 @@ class VerifyCodeBlocListener extends StatelessWidget {
             );
             context.pushNamed(Routes.resetPasswordScreen);
           },
-          error: (error) {
+          failure: (error) {
             context.pop();
             Loaders.showBlurredErrorDialog(
               context: context,

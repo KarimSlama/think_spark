@@ -10,6 +10,7 @@ import 'package:think_spark/think_spark/screens/forgot_password/controller/forgo
 import 'package:think_spark/core/routing/routes.dart';
 
 class ForgotPasswordBlocListener extends StatelessWidget {
+  
   const ForgotPasswordBlocListener({super.key});
 
   @override

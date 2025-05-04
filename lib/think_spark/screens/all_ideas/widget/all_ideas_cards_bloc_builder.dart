@@ -6,8 +6,8 @@ import 'package:think_spark/core/common/widgets/cards/idea_card_row.dart';
 import 'package:think_spark/core/common/widgets/texts/section_heading.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
-import 'package:think_spark/think_spark/screens/all_ideas/controller/ideas_cubit.dart';
-import 'package:think_spark/think_spark/screens/all_ideas/controller/ideas_state.dart';
+import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
+import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_state.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 
 class AllIdeasCardsBlocBuilder extends StatelessWidget {
@@ -17,10 +17,12 @@ class AllIdeasCardsBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<IdeasCubit, IdeasState>(
+      buildWhen: (previous, current) => current is Loading || current is Success || current is Error ||current is DisplayRow,
       builder: (context, state) {
         final rowCount = (ideas.length / 2).ceil();
         return Column(
           children: [
+            
             SectionHeading(
               text: SparkString.popularClue,
               isIcon: true,
@@ -47,7 +49,7 @@ class AllIdeasCardsBlocBuilder extends StatelessWidget {
                     }),
                   )
                 : IdeaCardsColumn(
-                    ideas: ideas,
+                    ideas: ideas
                   ),
           ],
         );

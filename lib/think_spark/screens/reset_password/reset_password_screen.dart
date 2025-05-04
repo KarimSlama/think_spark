@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
+import 'package:think_spark/core/common/widgets/inputs/password_form_fields.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/gen/assets.gen.dart';
-import 'package:think_spark/think_spark/screens/reset_password/controller/reset_password_cubit.dart';
+import 'package:think_spark/think_spark/screens/forgot_password/controller/forgot_password_cubit.dart';
 import 'package:think_spark/think_spark/screens/reset_password/reset_password_bloc_listener.dart';
-import 'package:think_spark/think_spark/screens/reset_password/widget/password_form_fields.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
@@ -17,6 +17,7 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = SparkHelperFunctions.isDark(context);
+    final resetCubit = context.read<ForgotPasswordCubit>();
 
     return Scaffold(
       appBar: SparkAppBar(showBackArrow: true),
@@ -40,12 +41,15 @@ class ResetPasswordScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
-                PasswordFormFields(),
+                PasswordFormFields(
+                    resetFormKey: resetCubit.resetFormKey,
+                    newPasswordController: resetCubit.newPasswordController,
+                    confirmPasswordController:
+                        resetCubit.confirmPasswordController),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                       onPressed: () {
-                        final resetCubit = context.read<ResetPasswordCubit>();
                         if (resetCubit.resetFormKey.currentState!.validate()) {
                           resetCubit.resetPassword();
                         } else {

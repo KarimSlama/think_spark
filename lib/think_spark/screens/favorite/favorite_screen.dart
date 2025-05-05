@@ -78,7 +78,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                     child: FavoriteCard(
                                       title: idea.title,
                                       category: category,
-                                      name: idea.publisher,
+                                      name: idea.user.username,
                                       id: idea.id.toString(),
                                       onTap: () => context
                                           .read<FavoriteCubit>()

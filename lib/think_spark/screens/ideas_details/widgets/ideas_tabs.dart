@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
-import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
-import 'package:think_spark/think_spark/screens/ideas_details/widgets/idea_description_title_and_details.dart';
+import 'package:think_spark/think_spark/screens/ideas_details/widgets/about_tab.dart';
+import 'package:think_spark/think_spark/screens/ideas_details/widgets/description_tab.dart';
+import 'package:think_spark/think_spark/screens/ideas_details/widgets/photos_tab.dart';
+import 'package:think_spark/think_spark/screens/ideas_details/widgets/requirments_tab.dart';
 
 class SparkTabs extends StatelessWidget {
   final IdeaResponse ideaResponse;
@@ -12,7 +15,12 @@ class SparkTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tabs = ["Description", "Requirement", "Photos", "About"];
+    final tabs = [
+      SparkString.description,
+      SparkString.requirement,
+      SparkString.photos,
+      SparkString.about
+    ];
 
     return DefaultTabController(
       length: 4,
@@ -33,36 +41,12 @@ class SparkTabs extends StatelessWidget {
           ),
           Expanded(
             child: TabBarView(
-              children: tabs
-                  .map(
-                    (e) => SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.all(SparkSizes.ms),
-                        child: Column(
-                          spacing: 10.h,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            IdeaDescriptionTitleAndDetails(
-                                title: 'The Problems:',
-                                details: ideaResponse.problems),
-                            IdeaDescriptionTitleAndDetails(
-                              title: 'The Solutions:',
-                              details: ideaResponse.solutions,
-                            ),
-                            IdeaDescriptionTitleAndDetails(
-                              title: 'Why it Workds? ',
-                              details: ideaResponse.whyItWorks,
-                            ),
-                            IdeaDescriptionTitleAndDetails(
-                              title: 'The Vision:',
-                              details: ideaResponse.benifits,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                  .toList(),
+              children: [
+                DescriptionTab(ideaResponse: ideaResponse),
+                RequirementsTab(ideaResponse: ideaResponse),
+                PhotosTab(ideaResponse: ideaResponse),
+                AboutTab(ideaResponse: ideaResponse),
+              ],
             ),
           ),
         ],

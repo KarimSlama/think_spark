@@ -42,8 +42,8 @@ class ProfileData {
   final bool isVerified;
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
-  final String image;
-  final String bio;
+  final String? image;
+  final String? bio;
 
   const ProfileData(
       {required this.id,
@@ -53,8 +53,8 @@ class ProfileData {
       required this.userType,
       required this.isVerified,
       required this.createdAt,
-      required this.image,
-      required this.bio});
+      this.image,
+      this.bio});
 
   ProfileData copyWith({
     int? id,

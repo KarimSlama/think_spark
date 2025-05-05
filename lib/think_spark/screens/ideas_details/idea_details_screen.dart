@@ -6,6 +6,7 @@ import 'package:think_spark/core/common/widgets/curved_edges/curved_edges_widget
 import 'package:think_spark/core/common/widgets/rows/icon_with_text_in_row.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
@@ -72,18 +73,18 @@ class IdeaDetailsScreen extends StatelessWidget {
                                           color: SparkColors.white)),
                               IconWithTextInRow(
                                 spacing: SparkSizes.sm,
-                                title: ideaResponse.publisher,
-                                width: 100.w,
+                                title: ideaResponse.user.username,
                                 icon: Iconsax.profile_2user,
                               ),
                               RelatedCategories(
                                   category: ideaResponse.categories[0].name),
                               SizedBox(height: SparkSizes.spaceBtwItems / 4),
-                              ImagesCountWithLocation()
+                              ImagesCountWithLocation(
+                                  ideaResponse: ideaResponse),
                             ],
                           ),
                         ),
-                        SlideActionsIcons()
+                        SlideActionsIcons(id: ideaResponse.id.toString())
                       ],
                     ),
                   ),
@@ -93,6 +94,16 @@ class IdeaDetailsScreen extends StatelessWidget {
           ),
           Expanded(child: SparkTabs(ideaResponse: ideaResponse)),
         ],
+      ),
+      bottomNavigationBar: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SparkSizes.spaceBtwItems),
+          child: ElevatedButton(
+              onPressed: () {},
+              child: const Text(SparkString.chatWithCreative)),
+        ),
       ),
     );
   }

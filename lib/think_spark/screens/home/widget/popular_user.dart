@@ -5,41 +5,72 @@ import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 
 class PopularUser extends StatelessWidget {
-  const PopularUser({super.key});
+  final String name;
+  final Widget? widget;
+  final String bio;
+  final double? padding;
+  final VoidCallback? onPressed, onImageTapped;
+
+  const PopularUser(
+      {super.key,
+      required this.name,
+      this.widget,
+      required this.bio,
+      this.padding,
+      this.onPressed,
+      this.onImageTapped});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          spacing: 10,
-          children: [
-            CircularContainerShadow(
-              icon: Icon(Iconsax.profile_2user, color: SparkColors.doggerBlue),
-              padding: SparkSizes.md,
-            ),
-            Column(
-              spacing: SparkSizes.xs,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Karim Slama",
-                  style: Theme.of(context).textTheme.titleLarge,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            spacing: 10,
+            children: [
+              CircularContainerShadow(
+                icon: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: GestureDetector(
+                    onTap: onImageTapped,
+                    child: widget ??
+                        Icon(Iconsax.profile_2user,
+                            color: SparkColors.doggerBlue),
+                  ),
                 ),
-                Text(
-                  "Software Developer",
-                  style: Theme.of(context).textTheme.bodyMedium,
+                padding: padding ?? SparkSizes.md,
+              ),
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.55,
                 ),
-              ],
-            ),
-          ],
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(Iconsax.more),
-        )
-      ],
+                child: Column(
+                  spacing: SparkSizes.xs,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    Text(
+                      bio,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: onPressed,
+            icon: Icon(Iconsax.more),
+          )
+        ],
+      ),
     );
   }
 }

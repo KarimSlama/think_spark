@@ -49,6 +49,7 @@ dependencies:
   retrofit_generator: ^9.1.2
   shared_preferences: ^2.5.1
   shimmer: ^3.0.0
+  sidebarx: ^0.17.1
   smooth_page_indicator: ^1.2.0+3
   speech_to_text: ^7.0.0
   url_launcher: ^6.3.1

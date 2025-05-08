@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/common/local/shared_preferences.dart';
+import 'package:think_spark/core/constants/constants.dart';
 import 'package:think_spark/think_spark/screens/home/data/repository/idea_repository.dart';
 import 'package:think_spark/think_spark/screens/favorite/controller/cubit/favorite_state.dart';
 
@@ -36,11 +37,11 @@ void toggleFavoriteIdeas(String productId, context) {
 
   void saveFavoritesToStorage() {
     final encodedFavorites = json.encode(favorites);
-    SharedPreference.setData('favorites', encodedFavorites);
+    SharedPreference.setData(Constants.favorite, encodedFavorites);
   }
 
   Future<void> initFavorites() async {
-    final json = await SharedPreference.getString('favorites');
+    final json = await SharedPreference.getString(Constants.favorite);
     if (null != json) {
       final favoriteStored = jsonDecode(json) as Map<String, dynamic>;
       favorites.addAll(

@@ -25,7 +25,7 @@ class SettingsMenuTile extends StatelessWidget {
       child: ListTile(
         leading: CircularContainerShadow(
             padding: 7,
-            icon: Icon(icon,
+            widget: Icon(icon,
                 color: isLogout ? SparkColors.red : SparkColors.doggerBlue)),
         title: Text(title,
             style: Theme.of(context)

@@ -5,7 +5,7 @@ import 'package:think_spark/core/helpers/helper_functions.dart';
 class CircularContainerShadow extends StatelessWidget {
   const CircularContainerShadow({
     super.key,
-    required this.icon,
+    required this.widget,
     this.isSelected,
     this.padding = 0,
     this.width,
@@ -13,7 +13,7 @@ class CircularContainerShadow extends StatelessWidget {
     this.radius,
   });
 
-  final Widget icon;
+  final Widget widget;
   final bool? isSelected;
   final double padding;
   final double? width;
@@ -41,7 +41,7 @@ class CircularContainerShadow extends StatelessWidget {
           )
         ],
       ),
-      child: icon,
+      child: widget,
     );
   }
 }

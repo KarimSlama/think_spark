@@ -38,11 +38,11 @@ class LoginBlocListener extends StatelessWidget {
               message: registerResponse.message,
             );
             await SharedPreference.setSecureString(
-              Constants.userTokenKey,
+              Constants.userKey,
               registerResponse.user.token,
             ).then((_) async {
               await SharedPreference.setSecureString(
-                Constants.refreshTokenKey,
+                Constants.refreshKey,
                 registerResponse.user.refresh,
               );
               context.pushNamedAndRemoveUntil(Routes.navigationMenu,

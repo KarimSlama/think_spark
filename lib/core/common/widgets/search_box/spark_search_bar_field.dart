@@ -26,7 +26,7 @@ class SparkSearchBarField extends StatelessWidget {
             Expanded(
               child: CircularContainerShadow(
                 width: double.infinity,
-                icon: Padding(
+                widget: Padding(
                   padding:
                       const EdgeInsetsDirectional.only(start: SparkSizes.sm),
                   child: Row(
@@ -67,7 +67,6 @@ class SparkSearchBarField extends StatelessWidget {
                               context.read<IdeasCubit>().toggleRecording();
                             },
                           ),
-                         
                         ],
                       ),
                     ],
@@ -76,7 +75,7 @@ class SparkSearchBarField extends StatelessWidget {
               ),
             ),
             CircularContainerShadow(
-              icon: IconButton(
+              widget: IconButton(
                 icon: SvgPicture.asset(
                   Assets.icons.send,
                   width: 30.w,

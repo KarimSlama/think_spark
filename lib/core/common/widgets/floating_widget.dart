@@ -19,7 +19,7 @@ class FloatingWidget extends StatelessWidget {
           Loaders.sparkToast(message: 'floating');
         },
         child: CircularContainerShadow(
-          icon: Icon(Iconsax.messages_2, color: SparkColors.doggerBlue),
+          widget: Icon(Iconsax.messages_2, color: SparkColors.doggerBlue),
           padding: SparkSizes.md,
         ),
       ),

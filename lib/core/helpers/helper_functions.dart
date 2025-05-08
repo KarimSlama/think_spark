@@ -90,6 +90,18 @@ class SparkHelperFunctions {
     }
   }
 
+ static String extractUserName(String body) {
+  final regex = RegExp(r'"(.*?)"');
+  final matches = regex.allMatches(body);
+
+  if (matches.isNotEmpty) {
+    return matches.first.group(1) ?? 'Unknown';
+  }
+
+  return 'Unknown';
+}
+
+
   static List<T> removeDuplicates<T>(List<T> list) {
     return list.toSet().toList();
   }

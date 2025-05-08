@@ -16,35 +16,35 @@ class ProfileSettingsModifications extends StatelessWidget {
       spacing: SparkSizes.spaceBtwItems,
       children: [
         CircularContainerShadow(
-          icon: SettingsMenuTile(
+          widget: SettingsMenuTile(
             icon: Iconsax.password_check,
             title: SparkString.password,
             onTap: () => context.pushNamed(Routes.changePasswordScreen),
           ),
         ),
         CircularContainerShadow(
-          icon: SettingsMenuTile(
+          widget: SettingsMenuTile(
             icon: Iconsax.message,
             title: SparkString.email,
             onTap: () => context.pushNamed(Routes.updateEmailScreen),
           ),
         ),
         CircularContainerShadow(
-          icon: SettingsMenuTile(
+          widget: SettingsMenuTile(
             icon: Iconsax.finger_scan,
             title: SparkString.fingerPrintLock,
             onTap: () => context.pushNamed(Routes.biometricsScreen),
           ),
         ),
         CircularContainerShadow(
-          icon: SettingsMenuTile(
+          widget: SettingsMenuTile(
             icon: Iconsax.star,
             title: SparkString.impression,
             onTap: () {},
           ),
         ),
         CircularContainerShadow(
-          icon: SettingsMenuTile(
+          widget: SettingsMenuTile(
             isLogout: true,
             icon: Iconsax.logout_1,
             title: SparkString.logout,

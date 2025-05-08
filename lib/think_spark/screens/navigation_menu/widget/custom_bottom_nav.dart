@@ -47,7 +47,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     CircularContainerShadow(
-                        icon: Icon(
+                        widget: Icon(
                           icons[index],
                           color: isSelected
                               ? (dark

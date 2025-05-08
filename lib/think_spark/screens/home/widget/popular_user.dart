@@ -9,7 +9,9 @@ class PopularUser extends StatelessWidget {
   final Widget? widget;
   final String bio;
   final double? padding;
+  final Color? titleColor;
   final VoidCallback? onPressed, onImageTapped;
+  final bool showMoreIcon;
 
   const PopularUser(
       {super.key,
@@ -18,7 +20,8 @@ class PopularUser extends StatelessWidget {
       required this.bio,
       this.padding,
       this.onPressed,
-      this.onImageTapped});
+      this.onImageTapped,
+      this.showMoreIcon = true, this.titleColor});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,7 @@ class PopularUser extends StatelessWidget {
             spacing: 10,
             children: [
               CircularContainerShadow(
-                icon: ClipRRect(
+                widget: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: GestureDetector(
                     onTap: onImageTapped,
@@ -52,7 +55,9 @@ class PopularUser extends StatelessWidget {
                   children: [
                     Text(
                       name,
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: Theme.of(context).textTheme.titleLarge!.apply(
+                            color: titleColor,
+                          ),
                     ),
                     Text(
                       bio,
@@ -65,10 +70,12 @@ class PopularUser extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(
-            onPressed: onPressed,
-            icon: Icon(Iconsax.more),
-          )
+          showMoreIcon
+              ? IconButton(
+                  onPressed: onPressed,
+                  icon: Icon(Iconsax.more),
+                )
+              : Container(),
         ],
       ),
     );

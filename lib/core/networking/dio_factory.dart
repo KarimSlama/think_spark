@@ -12,7 +12,7 @@ class DioFactory {
 
   static Dio getDio() {
     _dio ??= Dio(BaseOptions(
-      connectTimeout: _timeout, 
+      connectTimeout: _timeout,
       receiveTimeout: _timeout,
       headers: {
         'Accept': 'application/json',
@@ -25,7 +25,8 @@ class DioFactory {
     _dio!.interceptors.add(QueuedInterceptorsWrapper(
       onRequest: (options, handler) async {
         if (_requiresToken(options.path)) {
-          final token = await SharedPreference.getSecureString(Constants.userTokenKey);
+          final token =
+              await SharedPreference.getSecureString(Constants.userKey);
           if (token != null) {
             options.headers['Authorization'] = 'Bearer $token';
           }
@@ -34,12 +35,13 @@ class DioFactory {
       },
       onError: (error, handler) async {
         if (error.response?.statusCode == 401) {
-          final refreshToken = await SharedPreference.getSecureString(Constants.refreshTokenKey);
+          final refreshToken =
+              await SharedPreference.getSecureString(Constants.refreshKey);
 
           if (refreshToken != null) {
             try {
               final response = await _dio!.post(
-                '${ApiConstants.apiBaseUrl}api/token/refresh/', 
+                '${ApiConstants.apiBaseUrl}api/token/refresh/',
                 data: {
                   'refresh': refreshToken,
                 },
@@ -47,12 +49,13 @@ class DioFactory {
 
               final newAccessToken = response.data['access'];
 
-          await SharedPreference.setSecureString(Constants.userTokenKey, newAccessToken);
+              await SharedPreference.setSecureString(
+                  Constants.userKey, newAccessToken);
 
-              error.requestOptions.headers['Authorization'] = 'Bearer $newAccessToken';
+              error.requestOptions.headers['Authorization'] =
+                  'Bearer $newAccessToken';
               final clonedRequest = await _dio!.fetch(error.requestOptions);
               return handler.resolve(clonedRequest);
-
             } catch (e) {
               return handler.reject(error);
             }
@@ -83,6 +86,6 @@ class DioFactory {
   }
 
   static Future<void> updateToken(String newToken) async {
-    await SharedPreference.setSecureString(Constants.userTokenKey, newToken);
+    await SharedPreference.setSecureString(Constants.userKey, newToken);
   }
 }

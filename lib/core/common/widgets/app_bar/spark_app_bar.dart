@@ -22,25 +22,28 @@ class SparkAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      leading: showBackArrow
-          ? IconButton(
-              onPressed: () => context.pop(),
-              icon: Icon(
-                Iconsax.arrow_left_24,
-                color: SparkHelperFunctions.isDark(context)
-                    ? SparkColors.white
-                    : SparkColors.black,
-              ))
-          : leadingIcon != null
-              ? IconButton(
-                  onPressed: leadingOnPressed,
-                  icon: leadingIcon ?? Icon(Iconsax.arrow_left_24),
-                )
-              : null,
-      actions: actions,
-      title: title,
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: SparkSizes.sm),
+      child: AppBar(
+        automaticallyImplyLeading: false,
+        leading: showBackArrow
+            ? IconButton(
+                onPressed: () => context.pop(),
+                icon: Icon(
+                  Iconsax.arrow_left_24,
+                  color: SparkHelperFunctions.isDark(context)
+                      ? SparkColors.white
+                      : SparkColors.black,
+                ))
+            : leadingIcon != null
+                ? IconButton(
+                    onPressed: leadingOnPressed,
+                    icon: leadingIcon ?? Icon(Iconsax.arrow_left_24),
+                  )
+                : null,
+        actions: actions,
+        title: title,
+      ),
     );
   }
 

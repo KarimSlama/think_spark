@@ -31,7 +31,7 @@ class ProfileImageCircular extends StatelessWidget {
               child: CircularContainerShadow(
                 height: height,
                 width: width,
-                icon: Image.network(
+                widget: Image.network(
                     fit: BoxFit.cover,
                     '${ApiConstants.apiBaseUrl}${profile.profile.image}'),
               ),

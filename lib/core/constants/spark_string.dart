@@ -138,8 +138,17 @@ class SparkString {
 
   static const String chatWithCreative = 'Chat With Creative';
   static const String scheduleAMeeting = 'Schedule a meeting';
+  static const String selectYourTimeForTheMeeting = 'Select your time for the meeting.';
+  static const String youCanChooseTheDateAndTimeFromTheAvailableDatesAndTimesBasedOnCreativeAvailability = 'You can choose the date and time from the available dates and times based on creative availability.';
+  static const String creativeInfo = 'Creative Info :';
+  static const String unfoundBio = 'unfound bio';
+  static const String chooseDay = 'Choose Day, ';
+  static const String selectTime = 'Select Time';
   static const String shareCreativeProfile = 'Share Creative Profile';
   static const String unknown = 'Unknown';
   static const String moreFrom = 'More from';
+  static const String pleaseSelectATimeFirst = 'Please select a time first';
   static const String aboutCreative = 'About Creative';
+  static const String allMeeting = 'All Meeting';
+  static const String chatWith= 'Chat With ';
 }

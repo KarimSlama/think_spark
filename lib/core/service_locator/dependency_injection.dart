@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:think_spark/core/networking/dio_factory.dart';
 import 'package:think_spark/core/networking/register/register_service.dart';
+import 'package:think_spark/core/notifications/firebase_messaging_service.dart';
 import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/controller/cubit/categories_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/data/network/categories_related_ideas_service.dart';
@@ -20,10 +21,15 @@ import 'package:think_spark/think_spark/screens/home/data/repository/idea_reposi
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
 import 'package:think_spark/think_spark/screens/login/data/repository/login_repository.dart';
 import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
+import 'package:think_spark/think_spark/screens/notifications/controller/cubit/notifications_cubit.dart';
 import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
 import 'package:think_spark/think_spark/screens/profile/data/network/profile_service.dart';
 import 'package:think_spark/think_spark/screens/profile/data/repository/profile_repository.dart';
 import 'package:think_spark/think_spark/screens/reset_password/data/repository/reset_password_repository.dart';
+import 'package:think_spark/think_spark/screens/schedule_meeting/controller/cubit/schedule_meeting_cubit.dart';
+import 'package:think_spark/think_spark/screens/schedule_meeting/data/network/schedule_meeting_service.dart';
+import 'package:think_spark/think_spark/screens/schedule_meeting/data/repository/save_device_token_for_scheduling_repository.dart';
+import 'package:think_spark/think_spark/screens/schedule_meeting/data/repository/schedule_meeting_repository.dart';
 import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_cubit.dart';
 import 'package:think_spark/think_spark/screens/sign_up/data/repository/register_repository.dart';
 import 'package:think_spark/think_spark/screens/verify_code/data/repository/code_repository.dart';
@@ -41,8 +47,9 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<IdeaService>(() => IdeaService(dio));
   getIt.registerLazySingleton<CategoriesRelatedIdeasService>(
       () => CategoriesRelatedIdeasService(dio));
-  getIt.registerLazySingleton<ProfileService>(
-      () => ProfileService(dio));
+  getIt.registerLazySingleton<ProfileService>(() => ProfileService(dio));
+  getIt.registerLazySingleton<ScheduleMeetingService>(
+      () => ScheduleMeetingService(dio));
 
   ///REGISTER
   getIt.registerLazySingleton<RegisterRepository>(
@@ -101,4 +108,21 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<ProfileRepository>(
       () => ProfileRepository(getIt()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  /// SCHEDULE MEETING
+  getIt.registerLazySingleton<ScheduleMeetingRepository>(
+      () => ScheduleMeetingRepository(getIt()));
+  getIt.registerFactory<ScheduleMeetingCubit>(
+      () => ScheduleMeetingCubit(getIt()));
+
+  /// NOTIFICATIONS
+  getIt.registerSingleton<SaveDeviceTokenForSchedulingRepository>(
+    SaveDeviceTokenForSchedulingRepository(getIt()),
+  );
+  getIt.registerFactory<NotificationsCubit>(() => NotificationsCubit());
+
+  // FirebaseMessagingService
+  getIt.registerSingleton<FirebaseMessagingService>(
+    FirebaseMessagingService(),
+  );
 }

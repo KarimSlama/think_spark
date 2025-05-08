@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:think_spark/core/common/widgets/circulars/circular_container.dart';
+import 'package:think_spark/core/common/widgets/icons/favorite_icon.dart';
+import 'package:think_spark/core/common/widgets/icons/meetings_icon.dart';
 import 'package:think_spark/core/common/widgets/rows/icon_with_text_in_row.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
@@ -20,7 +21,8 @@ class OliveCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-            onTap: () => context.pushNamed(Routes.ideaDetailsScreen, arguments: ideaResponse),
+      onTap: () =>
+          context.pushNamed(Routes.ideaDetailsScreen, arguments: ideaResponse),
       child: FadeIn(
         duration: const Duration(milliseconds: 800),
         child: Container(
@@ -41,29 +43,8 @@ class OliveCard extends StatelessWidget {
                 child: Row(
                   spacing: SparkSizes.sm,
                   children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: CircularContainer(
-                        width: 35.w,
-                        height: 35.h,
-                        color: SparkColors.white,
-                        child: Icon(
-                          Iconsax.calendar,
-                          color: SparkColors.anakiwa,
-                          size: 20.sp,
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: CircularContainer(
-                        width: 35.w,
-                        height: 35.h,
-                        color: SparkColors.white,
-                        child: Icon(Iconsax.heart,
-                            size: 20.sp, color: SparkColors.red),
-                      ),
-                    ),
+                    MeetingsIcon(ideaResponse: ideaResponse),
+                    FavoriteIcon(ideaId: ideaResponse.id.toString()),
                   ],
                 ),
               ),
@@ -86,7 +67,6 @@ class OliveCard extends StatelessWidget {
                                 .apply(color: SparkColors.white)),
                       ),
                       IconWithTextInRow(
-                          isBlue: false,
                           title: ideaResponse.categories[0].name,
                           icon: Iconsax.box_15)
                     ],
@@ -103,7 +83,6 @@ class OliveCard extends StatelessWidget {
                       title: ideaResponse.user.username,
                       icon: Iconsax.profile_2user),
                 ),
-
               )
             ],
           ),

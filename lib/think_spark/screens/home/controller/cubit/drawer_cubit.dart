@@ -10,8 +10,8 @@ class DrawerCubit extends Cubit<DrawerState> {
   bool isDrawerOpen = false;
 
   void logout(context) {
-    SharedPreference.removeData(Constants.userTokenKey);
-    SharedPreference.removeData(Constants.refreshTokenKey);
+    SharedPreference.removeData(Constants.userKey);
+    SharedPreference.removeData(Constants.refreshKey);
     Loaders.warningSnackBar(
         context: context,
         title: 'Logout',

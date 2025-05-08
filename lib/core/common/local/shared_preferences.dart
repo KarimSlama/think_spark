@@ -72,7 +72,6 @@ class SharedPreference {
       iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),
       aOptions: AndroidOptions(encryptedSharedPreferences: true),
     );
-    debugPrint('SharedPrefHelper : saveSecureString with key : $key');
     await flutterSecureStorage.write(key: key, value: value);
   }
 
@@ -81,7 +80,6 @@ class SharedPreference {
       iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),
       aOptions: AndroidOptions(encryptedSharedPreferences: true),
     );
-    debugPrint('SharedPrefHelper : saveSecureString with key : $key');
     return await flutterSecureStorage.read(key: key);
   }
 }

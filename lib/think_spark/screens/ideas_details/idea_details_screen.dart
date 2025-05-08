@@ -84,7 +84,7 @@ class IdeaDetailsScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SlideActionsIcons(id: ideaResponse.id.toString())
+                        SlideActionsIcons(ideaResponse: ideaResponse)
                       ],
                     ),
                   ),

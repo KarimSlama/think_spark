@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:think_spark/core/common/widgets/circulars/circular_container.dart';
 import 'package:think_spark/core/common/widgets/icons/favorite_icon.dart';
+import 'package:think_spark/core/common/widgets/icons/meetings_icon.dart';
 import 'package:think_spark/core/common/widgets/rows/icon_with_text_in_row.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
@@ -43,19 +43,7 @@ class OliveCard extends StatelessWidget {
                 child: Row(
                   spacing: SparkSizes.sm,
                   children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: CircularContainer(
-                        width: 35.w,
-                        height: 35.h,
-                        color: SparkColors.white,
-                        child: Icon(
-                          Iconsax.calendar,
-                          color: SparkColors.anakiwa,
-                          size: 20.sp,
-                        ),
-                      ),
-                    ),
+                    MeetingsIcon(ideaResponse: ideaResponse),
                     FavoriteIcon(ideaId: ideaResponse.id.toString()),
                   ],
                 ),

@@ -30,7 +30,7 @@ class FavoriteCard extends StatelessWidget {
       child: CircularContainerShadow(
         padding: 10,
         radius: 40,
-        icon: Row(
+        widget: Row(
           spacing: SparkSizes.spaceBtwItems,
           children: [
             Image.asset(
@@ -43,6 +43,8 @@ class FavoriteCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!

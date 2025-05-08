@@ -60,7 +60,7 @@ class ProfileImageWithEditProfile extends StatelessWidget {
                       context.read<ProfileCubit>().uploadUserProfilePicture(),
                   child: CircularContainerShadow(
                     padding: 10,
-                    icon: Icon(
+                    widget: Icon(
                       Iconsax.edit_2,
                       color: SparkColors.doggerBlue,
                       size: SparkSizes.iconSm,

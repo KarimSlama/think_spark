@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
@@ -8,9 +9,12 @@ bool isLoggedUser = false;
 class Constants {
   static final pageController = PageController();
   static int currentPage = 0;
-  static String userTokenKey = 'USER_TOKEN_KEY';
-  static String refreshTokenKey = 'REFRESH_TOKEN_KEY';
-  static String? userKey;
+  static String userKey = dotenv.get('USER_KEY');
+  static String refreshKey = dotenv.get('REFRESH_KEY');
+  static String favorite = dotenv.get('FAVORITES_KEY');
+  static String notification = dotenv.get('NOTIFICATION_KEY');
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
 
   static void showEnlargedImage(String image, BuildContext context) {
     showDialog(

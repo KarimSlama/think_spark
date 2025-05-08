@@ -8,7 +8,7 @@ class CategoryContainer extends StatelessWidget {
   final String title;
   final Color? textColor;
   final Color borderColor, backgroundColor;
-  final double? borderWidth;
+  final double? borderWidth, fontSize;
   final double borderRadius;
   final bool isSelected, isItemHasSmallInput;
   final VoidCallback? onTap;
@@ -22,7 +22,8 @@ class CategoryContainer extends StatelessWidget {
       this.borderRadius = 60,
       this.isSelected = false,
       this.isItemHasSmallInput = false,
-      this.onTap});
+      this.onTap,
+      this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -52,14 +53,14 @@ class CategoryContainer extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: Theme.of(context).textTheme.bodyLarge!.apply(
-                    color: isSelected
-                        ? SparkColors.white
-                        : textColor ??
-                            (SparkHelperFunctions.isDark(context)
-                                ? SparkColors.white
-                                : SparkColors.black),
-                  ),
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: isSelected
+                      ? SparkColors.white
+                      : textColor ??
+                          (SparkHelperFunctions.isDark(context)
+                              ? SparkColors.white
+                              : SparkColors.black),
+                  fontSize: fontSize),
             ),
           ),
         ),

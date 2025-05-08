@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/service_locator/dependency_injection.dart';
 import 'package:think_spark/think_spark/screens/all_ideas/all_ideas_screen.dart';
+import 'package:think_spark/think_spark/screens/all_meetings/all_meetings_screen.dart';
 import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/data/model/categoreis_with_ideas_response.dart';
 import 'package:think_spark/think_spark/screens/change_password/change_password_screen.dart';
@@ -20,8 +21,10 @@ import 'package:think_spark/think_spark/screens/forgot_password/controller/forgo
 import 'package:think_spark/think_spark/screens/forgot_password/forgot_password_screen.dart';
 import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cubit.dart';
 import 'package:think_spark/think_spark/screens/login/login_screen.dart';
+import 'package:think_spark/think_spark/screens/notifications/controller/cubit/notifications_cubit.dart';
 import 'package:think_spark/think_spark/screens/notifications/notifications_screen.dart';
 import 'package:think_spark/think_spark/screens/profile/profile_screen.dart';
+import 'package:think_spark/think_spark/screens/schedule_meeting/schedule_meeting_screen.dart';
 import 'package:think_spark/think_spark/screens/splash/splash_screen.dart';
 import 'package:think_spark/think_spark/screens/on_boarding/on_boarding_screen.dart';
 import 'package:think_spark/think_spark/screens/reset_password/reset_password_screen.dart';
@@ -142,6 +145,14 @@ class AppRouter {
       case Routes.profileScreen:
         return MaterialPageRoute(builder: (_) => ProfileScreen());
 
+      case Routes.scheduleMeetingScreen:
+        final ideaResponse = settings.arguments as IdeaResponse;
+        return MaterialPageRoute(
+            builder: (_) => ScheduleMeetingScreen(ideaResponse: ideaResponse));
+
+      case Routes.allMeetingsScreen:
+        return MaterialPageRoute(builder: (_) => AllMeetingsScreen());
+
       case Routes.changePasswordScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider.value(
@@ -158,10 +169,16 @@ class AppRouter {
 
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
+
       case Routes.updateEmailScreen:
         return MaterialPageRoute(builder: (_) => UpdateEmailScreen());
       case Routes.notificationScreen:
-        return MaterialPageRoute(builder: (_) => NotificationsScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<NotificationsCubit>(),
+            child: NotificationsScreen(),
+          ),
+        );
 
       default:
         return null;

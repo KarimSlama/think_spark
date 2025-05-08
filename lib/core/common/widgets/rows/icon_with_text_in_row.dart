@@ -4,7 +4,7 @@ import 'package:think_spark/core/constants/spark_colors.dart';
 class IconWithTextInRow extends StatelessWidget {
   final String title;
   final IconData icon;
-  final double? spacing;
+  final double? spacing, fontSize;
   final double? maxWidth;
   final bool flexibleText;
   final Color? color;
@@ -17,6 +17,7 @@ class IconWithTextInRow extends StatelessWidget {
     this.spacing,
     this.maxWidth,
     this.flexibleText = true,
+    this.fontSize,
   });
 
   @override
@@ -32,10 +33,8 @@ class IconWithTextInRow extends StatelessWidget {
                   title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .apply(color: color ??SparkColors.light),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      fontSize: fontSize, color: color ?? SparkColors.light),
                 ),
               )
             : ConstrainedBox(

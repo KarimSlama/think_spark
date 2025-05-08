@@ -11,6 +11,7 @@ import 'package:think_spark/think_spark/screens/home/controller/cubit/drawer_cub
 import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/favorite/controller/cubit/favorite_cubit.dart';
 import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
+import 'package:think_spark/think_spark/screens/schedule_meeting/controller/cubit/schedule_meeting_cubit.dart';
 
 class ThinkSparkApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -18,28 +19,30 @@ class ThinkSparkApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => getIt<ProfileCubit>()
-            ..fetchProfile(),
+            create: (context) => getIt<ProfileCubit>()..fetchProfile(),
           ),
           BlocProvider(
-            create: (context) => getIt<IdeasCubit>()
-            ..fetchAllIdeas(),
+            create: (context) => getIt<IdeasCubit>()..fetchAllIdeas(),
           ),
           BlocProvider(
             create: (context) => getIt<FavoriteCubit>(),
           ),
           BlocProvider(
+            create: (context) =>
+                getIt<ScheduleMeetingCubit>()..fetchSchedulingMeetings(),
+          ),
+          BlocProvider(
             create: (context) => getIt<DrawerCubit>(),
           ),
-          
         ],
         child: MaterialApp(
+          navigatorKey: Constants.navigatorKey,
           title: SparkString.appTitle,
           theme: SparkTheme.lightTheme,
           darkTheme: SparkTheme.darkTheme,

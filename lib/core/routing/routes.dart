@@ -21,5 +21,7 @@ class Routes {
   static const String biometricsScreen = '/biometricsScreen';
   static const String editProfileScreen = '/editProfileScreen';
   static const String updateEmailScreen = '/updateEmailScreen';
+  static const String scheduleMeetingScreen = '/scheduleMeetingScreen';
+  static const String allMeetingsScreen = '/allMeetingsScreen';
   static const String notificationScreen = '/notificationScreen';
 }

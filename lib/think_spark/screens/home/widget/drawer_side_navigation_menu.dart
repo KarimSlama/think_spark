@@ -34,39 +34,40 @@ class DrawerSideNavigationMenu extends StatelessWidget {
               children: [
                 ProfileImageCircular(width: 50.w, height: 50.h),
                 CircularContainerShadow(
-                  icon: IconButton(
+                  widget: IconButton(
                     icon: Icon(Iconsax.calendar, color: SparkColors.doggerBlue),
-                    onPressed: () {},
+                    onPressed: () =>
+                        context.pushNamed(Routes.allMeetingsScreen),
                   ),
                 ),
                 CircularContainerShadow(
-                  icon: IconButton(
+                  widget: IconButton(
                     icon: Icon(Iconsax.message, color: SparkColors.doggerBlue),
                     onPressed: () {},
                   ),
                 ),
                 CircularContainerShadow(
-                  icon: IconButton(
+                  widget: IconButton(
                     icon: Icon(Iconsax.lamp_on, color: SparkColors.doggerBlue),
                     onPressed: () {},
                   ),
                 ),
                 CircularContainerShadow(
-                  icon: IconButton(
+                  widget: IconButton(
                     icon: Icon(Iconsax.finger_scan,
                         color: SparkColors.doggerBlue),
                     onPressed: () {},
                   ),
                 ),
                 CircularContainerShadow(
-                  icon: IconButton(
+                  widget: IconButton(
                     icon: Icon(Iconsax.trash, color: SparkColors.doggerBlue),
                     onPressed: () {},
                   ),
                 ),
                 Spacer(),
                 CircularContainerShadow(
-                  icon: IconButton(
+                  widget: IconButton(
                       icon: Icon(Iconsax.logout_1, color: SparkColors.red),
                       onPressed: () {
                         context.read<DrawerCubit>().logout(context);

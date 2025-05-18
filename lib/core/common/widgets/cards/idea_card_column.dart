@@ -6,7 +6,10 @@ import 'package:think_spark/think_spark/screens/home/data/model/idea_response.da
 class IdeaCardsColumn extends StatelessWidget {
   final List<IdeaResponse> ideas;
 
-  const IdeaCardsColumn({super.key, required this.ideas});
+  const IdeaCardsColumn({
+    super.key,
+    required this.ideas,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,8 @@ class IdeaCardsColumn extends StatelessWidget {
       children: List.generate(ideas.length, (index) {
         return Padding(
             padding: EdgeInsets.only(bottom: 14.h),
-            child: BlueCard(ideaResponse: ideas[index]));
+            child:
+                BlueCard(ideaResponse: ideas[index], width: double.infinity));
       }),
     );
   }

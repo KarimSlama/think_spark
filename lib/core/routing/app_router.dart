@@ -7,13 +7,20 @@ import 'package:think_spark/think_spark/screens/all_meetings/all_meetings_screen
 import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/data/model/categoreis_with_ideas_response.dart';
 import 'package:think_spark/think_spark/screens/change_password/change_password_screen.dart';
+import 'package:think_spark/think_spark/screens/chat/chat_screen.dart';
+import 'package:think_spark/think_spark/screens/chat/data/model/conversation_args.dart';
+import 'package:think_spark/think_spark/screens/conversation/conversation_screen.dart';
+import 'package:think_spark/think_spark/screens/creative_navigation_menu/controller/cubit/creative_navigation_cubit.dart';
+import 'package:think_spark/think_spark/screens/creative_navigation_menu/creative_navigation_menu.dart';
+import 'package:think_spark/think_spark/screens/customer_service_chat/customer_service_chat_screen.dart';
 import 'package:think_spark/think_spark/screens/edit_profile_screen/edit_profile_screen.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/idea_details_screen.dart';
 import 'package:think_spark/think_spark/screens/ideas_related_to_category/ideas_related_to_category_screen.dart';
-import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
-import 'package:think_spark/think_spark/screens/navigation_menu/navigation_menu.dart';
+import 'package:think_spark/think_spark/screens/investor_navigation_menu/investor_navigation_menu.dart';
+import 'package:think_spark/think_spark/screens/login_activity/login_activity_screen.dart';
+import 'package:think_spark/think_spark/screens/investor_navigation_menu/controller/cubit/investor_navigation_cubit.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/category_preferences_screen.dart';
 import 'package:think_spark/think_spark/screens/category_preferences/controller/preferences_cubit.dart';
 import 'package:think_spark/think_spark/screens/confirmation/confirmation_screen.dart';
@@ -23,6 +30,7 @@ import 'package:think_spark/think_spark/screens/login/controller/cubit/login_cub
 import 'package:think_spark/think_spark/screens/login/login_screen.dart';
 import 'package:think_spark/think_spark/screens/notifications/controller/cubit/notifications_cubit.dart';
 import 'package:think_spark/think_spark/screens/notifications/notifications_screen.dart';
+import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
 import 'package:think_spark/think_spark/screens/profile/profile_screen.dart';
 import 'package:think_spark/think_spark/screens/schedule_meeting/schedule_meeting_screen.dart';
 import 'package:think_spark/think_spark/screens/splash/splash_screen.dart';
@@ -113,11 +121,19 @@ class AppRouter {
               child: CategoryPreferencesScreen()),
         );
 
-      case Routes.navigationMenu:
+      case Routes.investorNavigationMenu:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<NavigationCubit>(),
-            child: NavigationMenu(),
+            create: (context) => getIt<InvestorNavigationCubit>(),
+            child: InvestorNavigationMenu(),
+          ),
+        );
+
+      case Routes.creativeNavigationMenu:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<CreativeNavigationCubit>(),
+            child: CreativeNavigationMenu(),
           ),
         );
 
@@ -147,6 +163,7 @@ class AppRouter {
 
       case Routes.scheduleMeetingScreen:
         final ideaResponse = settings.arguments as IdeaResponse;
+
         return MaterialPageRoute(
             builder: (_) => ScheduleMeetingScreen(ideaResponse: ideaResponse));
 
@@ -170,13 +187,34 @@ class AppRouter {
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
 
+      case Routes.loginActivityScreen:
+        return MaterialPageRoute(builder: (_) => LoginActivityScreen());
+
       case Routes.updateEmailScreen:
         return MaterialPageRoute(builder: (_) => UpdateEmailScreen());
+
       case Routes.notificationScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<NotificationsCubit>(),
             child: NotificationsScreen(),
+          ),
+        );
+
+      case Routes.chatScreen:
+        return MaterialPageRoute(builder: (_) => ChatScreen());
+
+      case Routes.conversationScreen:
+        final conversations = settings.arguments as ConversationArgs;
+        return MaterialPageRoute(
+            builder: (_) =>
+                ConversationScreen(conversationsArgs: conversations));
+
+      case Routes.customerServiceChatScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ProfileCubit>(),
+            child: CustomerServiceScreen(),
           ),
         );
 

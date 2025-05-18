@@ -18,7 +18,10 @@ class RegisterBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
+          current is Loading ||
+          current is Success ||
+          current is Error ||
+          current is Changed,
       listener: (context, state) {
         state.whenOrNull(
           loading: () => showDialog(
@@ -45,6 +48,13 @@ class RegisterBlocListener extends StatelessWidget {
                 Constants.refreshKey,
                 registerResponse.user.refresh,
               );
+              await SharedPreference.setData(
+                Constants.userTypeKey,
+                registerResponse.user.userType.toLowerCase(),
+              );
+              Constants.userRole = registerResponse.user.userType.toLowerCase();
+              isLoggedUser = true;
+
               context.pushNamedAndRemoveUntil(Routes.categoryPreferencesScreen,
                   predicate: (Route<dynamic> route) {
                 return false;

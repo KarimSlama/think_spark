@@ -21,8 +21,9 @@ mixin _$ProfileState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ProfileResponse profile) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isDark) modeChanged,
     required TResult Function(int stepIndex) stepChanged,
-    required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,8 +31,9 @@ mixin _$ProfileState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ProfileResponse profile)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isDark)? modeChanged,
     TResult? Function(int stepIndex)? stepChanged,
-    TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,36 +41,40 @@ mixin _$ProfileState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ProfileResponse profile)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isDark)? modeChanged,
     TResult Function(int stepIndex)? stepChanged,
-    TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(StepChanged value) stepChanged,
     required TResult Function(Error value) error,
+    required TResult Function(ModeChanged value) modeChanged,
+    required TResult Function(StepChanged value) stepChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(StepChanged value)? stepChanged,
     TResult? Function(Error value)? error,
+    TResult? Function(ModeChanged value)? modeChanged,
+    TResult? Function(StepChanged value)? stepChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(StepChanged value)? stepChanged,
     TResult Function(Error value)? error,
+    TResult Function(ModeChanged value)? modeChanged,
+    TResult Function(StepChanged value)? stepChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,7 +122,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl implements Initial {
   const _$InitialImpl();
 
   @override
@@ -139,8 +145,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ProfileResponse profile) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isDark) modeChanged,
     required TResult Function(int stepIndex) stepChanged,
-    required TResult Function(String error) error,
   }) {
     return initial();
   }
@@ -151,8 +158,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ProfileResponse profile)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isDark)? modeChanged,
     TResult? Function(int stepIndex)? stepChanged,
-    TResult? Function(String error)? error,
   }) {
     return initial?.call();
   }
@@ -163,8 +171,9 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ProfileResponse profile)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isDark)? modeChanged,
     TResult Function(int stepIndex)? stepChanged,
-    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -176,11 +185,12 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(StepChanged value) stepChanged,
     required TResult Function(Error value) error,
+    required TResult Function(ModeChanged value) modeChanged,
+    required TResult Function(StepChanged value) stepChanged,
   }) {
     return initial(this);
   }
@@ -188,11 +198,12 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(StepChanged value)? stepChanged,
     TResult? Function(Error value)? error,
+    TResult? Function(ModeChanged value)? modeChanged,
+    TResult? Function(StepChanged value)? stepChanged,
   }) {
     return initial?.call(this);
   }
@@ -200,11 +211,12 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(StepChanged value)? stepChanged,
     TResult Function(Error value)? error,
+    TResult Function(ModeChanged value)? modeChanged,
+    TResult Function(StepChanged value)? stepChanged,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -214,8 +226,8 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements ProfileState {
-  const factory _Initial() = _$InitialImpl;
+abstract class Initial implements ProfileState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -262,8 +274,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ProfileResponse profile) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isDark) modeChanged,
     required TResult Function(int stepIndex) stepChanged,
-    required TResult Function(String error) error,
   }) {
     return loading();
   }
@@ -274,8 +287,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ProfileResponse profile)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isDark)? modeChanged,
     TResult? Function(int stepIndex)? stepChanged,
-    TResult? Function(String error)? error,
   }) {
     return loading?.call();
   }
@@ -286,8 +300,9 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ProfileResponse profile)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isDark)? modeChanged,
     TResult Function(int stepIndex)? stepChanged,
-    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -299,11 +314,12 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(StepChanged value) stepChanged,
     required TResult Function(Error value) error,
+    required TResult Function(ModeChanged value) modeChanged,
+    required TResult Function(StepChanged value) stepChanged,
   }) {
     return loading(this);
   }
@@ -311,11 +327,12 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(StepChanged value)? stepChanged,
     TResult? Function(Error value)? error,
+    TResult? Function(ModeChanged value)? modeChanged,
+    TResult? Function(StepChanged value)? stepChanged,
   }) {
     return loading?.call(this);
   }
@@ -323,11 +340,12 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(StepChanged value)? stepChanged,
     TResult Function(Error value)? error,
+    TResult Function(ModeChanged value)? modeChanged,
+    TResult Function(StepChanged value)? stepChanged,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -412,8 +430,9 @@ class _$SuccessImpl implements Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ProfileResponse profile) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isDark) modeChanged,
     required TResult Function(int stepIndex) stepChanged,
-    required TResult Function(String error) error,
   }) {
     return success(profile);
   }
@@ -424,8 +443,9 @@ class _$SuccessImpl implements Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ProfileResponse profile)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isDark)? modeChanged,
     TResult? Function(int stepIndex)? stepChanged,
-    TResult? Function(String error)? error,
   }) {
     return success?.call(profile);
   }
@@ -436,8 +456,9 @@ class _$SuccessImpl implements Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ProfileResponse profile)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isDark)? modeChanged,
     TResult Function(int stepIndex)? stepChanged,
-    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -449,11 +470,12 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(StepChanged value) stepChanged,
     required TResult Function(Error value) error,
+    required TResult Function(ModeChanged value) modeChanged,
+    required TResult Function(StepChanged value) stepChanged,
   }) {
     return success(this);
   }
@@ -461,11 +483,12 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(StepChanged value)? stepChanged,
     TResult? Function(Error value)? error,
+    TResult? Function(ModeChanged value)? modeChanged,
+    TResult? Function(StepChanged value)? stepChanged,
   }) {
     return success?.call(this);
   }
@@ -473,11 +496,12 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(StepChanged value)? stepChanged,
     TResult Function(Error value)? error,
+    TResult Function(ModeChanged value)? modeChanged,
+    TResult Function(StepChanged value)? stepChanged,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -496,6 +520,334 @@ abstract class Success implements ProfileState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ErrorImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ProfileState.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(ProfileResponse profile) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isDark) modeChanged,
+    required TResult Function(int stepIndex) stepChanged,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ProfileResponse profile)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isDark)? modeChanged,
+    TResult? Function(int stepIndex)? stepChanged,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(ProfileResponse profile)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isDark)? modeChanged,
+    TResult Function(int stepIndex)? stepChanged,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(ModeChanged value) modeChanged,
+    required TResult Function(StepChanged value) stepChanged,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(ModeChanged value)? modeChanged,
+    TResult? Function(StepChanged value)? stepChanged,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(ModeChanged value)? modeChanged,
+    TResult Function(StepChanged value)? stepChanged,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Error implements ProfileState {
+  const factory Error(final String message) = _$ErrorImpl;
+
+  String get message;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ModeChangedImplCopyWith<$Res> {
+  factory _$$ModeChangedImplCopyWith(
+          _$ModeChangedImpl value, $Res Function(_$ModeChangedImpl) then) =
+      __$$ModeChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isDark});
+}
+
+/// @nodoc
+class __$$ModeChangedImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ModeChangedImpl>
+    implements _$$ModeChangedImplCopyWith<$Res> {
+  __$$ModeChangedImplCopyWithImpl(
+      _$ModeChangedImpl _value, $Res Function(_$ModeChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isDark = null,
+  }) {
+    return _then(_$ModeChangedImpl(
+      null == isDark
+          ? _value.isDark
+          : isDark // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ModeChangedImpl implements ModeChanged {
+  const _$ModeChangedImpl(this.isDark);
+
+  @override
+  final bool isDark;
+
+  @override
+  String toString() {
+    return 'ProfileState.modeChanged(isDark: $isDark)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ModeChangedImpl &&
+            (identical(other.isDark, isDark) || other.isDark == isDark));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isDark);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ModeChangedImplCopyWith<_$ModeChangedImpl> get copyWith =>
+      __$$ModeChangedImplCopyWithImpl<_$ModeChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(ProfileResponse profile) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isDark) modeChanged,
+    required TResult Function(int stepIndex) stepChanged,
+  }) {
+    return modeChanged(isDark);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ProfileResponse profile)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isDark)? modeChanged,
+    TResult? Function(int stepIndex)? stepChanged,
+  }) {
+    return modeChanged?.call(isDark);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(ProfileResponse profile)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isDark)? modeChanged,
+    TResult Function(int stepIndex)? stepChanged,
+    required TResult orElse(),
+  }) {
+    if (modeChanged != null) {
+      return modeChanged(isDark);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(ModeChanged value) modeChanged,
+    required TResult Function(StepChanged value) stepChanged,
+  }) {
+    return modeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(ModeChanged value)? modeChanged,
+    TResult? Function(StepChanged value)? stepChanged,
+  }) {
+    return modeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(ModeChanged value)? modeChanged,
+    TResult Function(StepChanged value)? stepChanged,
+    required TResult orElse(),
+  }) {
+    if (modeChanged != null) {
+      return modeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ModeChanged implements ProfileState {
+  const factory ModeChanged(final bool isDark) = _$ModeChangedImpl;
+
+  bool get isDark;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ModeChangedImplCopyWith<_$ModeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -571,8 +923,9 @@ class _$StepChangedImpl implements StepChanged {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ProfileResponse profile) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isDark) modeChanged,
     required TResult Function(int stepIndex) stepChanged,
-    required TResult Function(String error) error,
   }) {
     return stepChanged(stepIndex);
   }
@@ -583,8 +936,9 @@ class _$StepChangedImpl implements StepChanged {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(ProfileResponse profile)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isDark)? modeChanged,
     TResult? Function(int stepIndex)? stepChanged,
-    TResult? Function(String error)? error,
   }) {
     return stepChanged?.call(stepIndex);
   }
@@ -595,8 +949,9 @@ class _$StepChangedImpl implements StepChanged {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ProfileResponse profile)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isDark)? modeChanged,
     TResult Function(int stepIndex)? stepChanged,
-    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (stepChanged != null) {
@@ -608,11 +963,12 @@ class _$StepChangedImpl implements StepChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(StepChanged value) stepChanged,
     required TResult Function(Error value) error,
+    required TResult Function(ModeChanged value) modeChanged,
+    required TResult Function(StepChanged value) stepChanged,
   }) {
     return stepChanged(this);
   }
@@ -620,11 +976,12 @@ class _$StepChangedImpl implements StepChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(StepChanged value)? stepChanged,
     TResult? Function(Error value)? error,
+    TResult? Function(ModeChanged value)? modeChanged,
+    TResult? Function(StepChanged value)? stepChanged,
   }) {
     return stepChanged?.call(this);
   }
@@ -632,11 +989,12 @@ class _$StepChangedImpl implements StepChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(StepChanged value)? stepChanged,
     TResult Function(Error value)? error,
+    TResult Function(ModeChanged value)? modeChanged,
+    TResult Function(StepChanged value)? stepChanged,
     required TResult orElse(),
   }) {
     if (stepChanged != null) {
@@ -655,163 +1013,5 @@ abstract class StepChanged implements ProfileState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StepChangedImplCopyWith<_$StepChangedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProfileState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ErrorImpl implements Error {
-  const _$ErrorImpl(this.error);
-
-  @override
-  final String error;
-
-  @override
-  String toString() {
-    return 'ProfileState.error(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  /// Create a copy of ProfileState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(ProfileResponse profile) success,
-    required TResult Function(int stepIndex) stepChanged,
-    required TResult Function(String error) error,
-  }) {
-    return error(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(ProfileResponse profile)? success,
-    TResult? Function(int stepIndex)? stepChanged,
-    TResult? Function(String error)? error,
-  }) {
-    return error?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(ProfileResponse profile)? success,
-    TResult Function(int stepIndex)? stepChanged,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this.error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
-    required TResult Function(StepChanged value) stepChanged,
-    required TResult Function(Error value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
-    TResult? Function(StepChanged value)? stepChanged,
-    TResult? Function(Error value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
-    TResult Function(StepChanged value)? stepChanged,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Error implements ProfileState {
-  const factory Error(final String error) = _$ErrorImpl;
-
-  String get error;
-
-  /// Create a copy of ProfileState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

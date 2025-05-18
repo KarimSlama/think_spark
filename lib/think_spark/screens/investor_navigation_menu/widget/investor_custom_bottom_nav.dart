@@ -7,13 +7,13 @@ import 'package:think_spark/core/common/widgets/circulars/circular_container_sha
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
-import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
-import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_state.dart';
+import 'package:think_spark/think_spark/screens/investor_navigation_menu/controller/cubit/investor_navigation_cubit.dart';
+import 'package:think_spark/think_spark/screens/investor_navigation_menu/controller/cubit/investor_navigation_state.dart';
 
-class CustomBottomNavBar extends StatelessWidget {
+class InvestorCustomBottomNavBar extends StatelessWidget {
   final Function(int index)? onTap;
 
-  const CustomBottomNavBar({
+  const InvestorCustomBottomNavBar({
     super.key,
     required this.onTap,
   });
@@ -29,7 +29,7 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = SparkHelperFunctions.isDark(context);
-    return BlocSelector<NavigationCubit, NavigationState, int>(
+    return BlocSelector<InvestorNavigationCubit, InvestorNavigationState, int>(
       selector: (state) => state is Changed ? state.index : 0,
       builder: (context, currentInex) {
         return CircularContainer(

@@ -53,7 +53,7 @@ class ScheduleMeetingScreen extends StatelessWidget {
                 text: SparkString.creativeInfo, isActionButton: false),
             PopularUser(
               name: ideaResponse.user.username,
-              bio: ideaResponse.user.bio ?? SparkString.unfoundBio,
+              text: ideaResponse.user.bio ?? SparkString.unfoundBio,
               padding: 2,
               onPressed: () => showModalBottomSheet(
                 context: context,

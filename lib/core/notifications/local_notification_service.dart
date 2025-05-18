@@ -28,8 +28,6 @@ class LocalNotificationService {
     await _plugin.initialize(initializationSettings,
         onDidReceiveNotificationResponse:
             (NotificationResponse response) async {
-      
-
       if (response.payload != null) {
         Constants.navigatorKey.currentState?.pushNamedAndRemoveUntil(
             Routes.notificationScreen, (route) => false,

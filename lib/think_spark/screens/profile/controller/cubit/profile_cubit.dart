@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:think_spark/core/common/local/shared_preferences.dart';
 import 'package:think_spark/core/common/widgets/loaders/popus.dart';
+import 'package:think_spark/core/constants/constants.dart';
 import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_state.dart';
 import 'package:think_spark/think_spark/screens/profile/data/model/profile_request_body.dart';
 import 'package:think_spark/think_spark/screens/profile/data/model/profile_response.dart';
@@ -21,6 +23,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   final newEmailController = TextEditingController();
   final newEmailFormKey = GlobalKey<FormState>();
   int emailUpdateStep = 0;
+  bool isDark = false;
 
   void handleEmailUpdate(BuildContext context) {
     switch (emailUpdateStep) {
@@ -68,6 +71,8 @@ class ProfileCubit extends Cubit<ProfileState> {
 
     result.when(success: (profile) {
       profileResponse = profile;
+      Constants.userRole = profile.profile.userType;
+      SharedPreference.setData(Constants.userTypeKey, profile.profile.userType);
       initializeFields(
           profile.profile.userName, profile.profile.phone, profile.profile.bio);
       emit(ProfileState.success(profile));
@@ -117,5 +122,16 @@ class ProfileCubit extends Cubit<ProfileState> {
         imageFile.deleteSync();
       }
     }
+  }
+
+  void changeMode(bool? value) {
+    if (value != null) {
+      isDark = value;
+    } else {
+      isDark = !isDark;
+    }
+
+    SharedPreference.setData(Constants.darkModeKey, isDark);
+    emit(ProfileState.modeChanged(isDark));
   }
 }

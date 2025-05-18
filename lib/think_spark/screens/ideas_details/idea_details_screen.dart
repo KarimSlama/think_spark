@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
@@ -8,12 +9,16 @@ import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/gen/assets.gen.dart';
+import 'package:think_spark/think_spark/screens/chat/controller/cubit/chat_cubit.dart';
+import 'package:think_spark/think_spark/screens/chat/data/model/conversation_args.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/widgets/ideas_tabs.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/widgets/images_count_with_location.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/widgets/related_categories.dart';
 import 'package:think_spark/think_spark/screens/ideas_details/widgets/slide_actions_icons.dart';
+import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
 
 class IdeaDetailsScreen extends StatelessWidget {
   final IdeaResponse ideaResponse;
@@ -101,8 +106,33 @@ class IdeaDetailsScreen extends StatelessWidget {
           padding: const EdgeInsetsDirectional.symmetric(
               horizontal: SparkSizes.spaceBtwItems),
           child: ElevatedButton(
-              onPressed: () {},
-              child: const Text(SparkString.chatWithCreative)),
+            ///NOT COMPLETED I'LL MODIFY IT LATER
+            onPressed: () async {
+              final chatCubit = context.read<ChatCubit>();
+              final currentUserId =
+                  context.read<ProfileCubit>().profileResponse.profile.id;
+              final recipientId = ideaResponse.user.id;
+              final recipientName = ideaResponse.user.username;
+              final recipientImage = ideaResponse.user.image;
+
+              final existingConv = chatCubit.findExistingConversation(
+                  currentUserId, recipientId);
+
+              if (existingConv != null) {
+                context.pushNamed(
+                  Routes.conversationScreen,
+                  arguments: ConversationArgs(
+                    currentUserId: currentUserId,
+                    conversationId: existingConv.id,
+                    recipientName: recipientName,
+                    recipientImage: recipientImage,
+                    index: 1,
+                  ),
+                );
+              }
+            },
+            child: const Text(SparkString.chatWithCreative),
+          ),
         ),
       ),
     );

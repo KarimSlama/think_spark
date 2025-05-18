@@ -77,5 +77,4 @@ class IdeasCubit extends Cubit<IdeasState> {
     });
   }
 
-  
 }

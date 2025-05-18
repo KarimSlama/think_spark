@@ -14,7 +14,7 @@ class SignUpFormFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<RegisterCubit>();
+    final cubit = context.watch<RegisterCubit>();
 
     return Form(
       key: isInvestor ? cubit.investorFormKey : cubit.creativeFormKey,
@@ -60,9 +60,12 @@ class SignUpFormFields extends StatelessWidget {
             inputType: TextInputType.visiblePassword,
             controller: cubit.passwordController,
             prefixIcon: Iconsax.password_check,
-            suffixPressed: () => print('pressed'),
-            suffixIcon: Iconsax.eye3,
-            isObscureText: true,
+            suffixPressed: () {
+              cubit.changePasswordIcon();
+            },
+            suffixIcon: cubit.isPassword ? Iconsax.eye3 : Iconsax.eye_slash,
+            maxLines: 1,
+            isObscureText: cubit.isPassword,
             label: SparkString.password,
             validator: (value) => Validator.validatePassword(value),
           ),

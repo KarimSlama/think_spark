@@ -20,6 +20,7 @@ void main() async {
   );
 
   setUpGetIt();
+  Constants.isDark = await SharedPreference.getBool(Constants.darkModeKey);
   await LocalNotificationService.initialize();
   await FirebaseMessagingService.initialize(
     getIt<SaveDeviceTokenForSchedulingRepository>(),
@@ -29,19 +30,24 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
 
   runApp(
-    ThinkSparkApp(appRouter: AppRouter()),
+    ThinkSparkApp(
+      appRouter: AppRouter(),
+      isDark: Constants.isDark,
+    ),
   );
 }
 
 Future<bool> checkIfUserLoggedIn() async {
   try {
     String? userKey = await SharedPreference.getSecureString(Constants.userKey);
+    String userType = await SharedPreference.getString(Constants.userTypeKey);
     if (userKey != null && userKey.isNotEmpty) {
       isLoggedUser = true;
       Constants.userKey = userKey;
+      Constants.userRole = userType; 
       return true;
     } else {
-      isLoggedUser = false; 
+      isLoggedUser = false;
       return false;
     }
   } catch (e) {

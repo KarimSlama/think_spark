@@ -77,8 +77,13 @@ class SparkString {
   static const String creativityEffortlesslyCommunication =
       'Creativity, Effortlessly\ncommunication.';
   static const String searchForCreativeIdea = 'search for creative idea....';
+  static const String searchForChat = 'search for chat....';
+  static const String searchForNotification = 'search for pivotal Notification....';
+  static const String searchForFavoriteIdeas = 'search for favorite ideas....';
+  static const String searchForCategory = 'search for category....';
 
   static const String popularClue = 'Popular Clue';
+  static const String latestClue = 'Latest Clue';
   static const String popularUsers = 'Popular Users';
   static const String popularCategories = 'Popular Categories';
   static const String noIdeasInThisCategory = 'No Ideas in this category';
@@ -151,4 +156,8 @@ class SparkString {
   static const String aboutCreative = 'About Creative';
   static const String allMeeting = 'All Meeting';
   static const String chatWith= 'Chat With ';
+  static const String allChats= 'All chats';
+  static const String chats= 'Chats';
+  static const String unread= 'Unread';
+  static const String typeMessageHere= 'type message here....';
 }

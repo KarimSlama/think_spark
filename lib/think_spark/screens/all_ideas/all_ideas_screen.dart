@@ -4,8 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
 import 'package:think_spark/core/common/widgets/circulars/profile_image_circular.dart';
 import 'package:think_spark/core/common/widgets/floating_widget.dart';
-import 'package:think_spark/core/common/widgets/search_box/spark_search_bar_field.dart';
+import 'package:think_spark/core/common/widgets/search_box/spark_bar_input_field.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/gen/assets.gen.dart';
 import 'package:think_spark/think_spark/screens/all_ideas/widget/all_ideas_cards_bloc_builder.dart';
@@ -29,7 +30,8 @@ class AllIdeasScreen extends StatelessWidget {
           actions: [
             Padding(
               padding: const EdgeInsets.all(SparkSizes.xs),
-              child:  ProfileImageCircular(width: 45.w, height: 45.h),),
+              child: ProfileImageCircular(width: 45.w, height: 45.h),
+            ),
           ],
         ),
         body: FloatingWidget(
@@ -43,7 +45,9 @@ class AllIdeasScreen extends StatelessWidget {
                     child: Column(
                       spacing: 14.h,
                       children: [
-                        SparkSearchBarField(),
+                        SparkBarInputField(
+                          controller: TextEditingController(),
+                            hintText: SparkString.searchForCreativeIdea),
                         AllIdeasCardsBlocBuilder(ideas: ideas),
                       ],
                     ),

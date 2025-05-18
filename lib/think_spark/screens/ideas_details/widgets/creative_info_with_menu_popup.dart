@@ -18,7 +18,7 @@ class CreativeInfoWithMenuPopup extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopularUser(
       name: ideaResponse.user.username,
-      bio: ideaResponse.user.bio ?? '',
+      text: ideaResponse.user.bio ?? '',
       padding: 2,
       widget: Image.network(
         width: 65.w,

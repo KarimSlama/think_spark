@@ -11,7 +11,7 @@ class LoginCubit extends Cubit<LoginState> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final loginFormKey = GlobalKey<FormState>();
-
+  bool isPassword = true;
   void loginUser() async {
     emit(LoginState.loading());
     final result = await loginRepository.login(LoginRequestBody(
@@ -22,5 +22,10 @@ class LoginCubit extends Cubit<LoginState> {
     }, failure: (errorHandler) {
       emit(LoginState.error(errors: errorHandler.apiErrorModel.errors));
     });
+  }
+
+  changePasswordIcon() {
+    isPassword = !isPassword;
+    emit(LoginState.passwordChanged(isPassword: isPassword));
   }
 }

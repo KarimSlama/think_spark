@@ -28,7 +28,7 @@ class UserInfoBottomSheet extends StatelessWidget {
             Text('${SparkString.moreFrom} ${ideaResponse.user.username}',
                 style: Theme.of(context).textTheme.bodyLarge),
             AssociatedIdeasWithCreative(
-                allIdeas: allIdeas, ideaResponse: ideaResponse),
+                allIdeas: allIdeas, userId: ideaResponse.user.id),
           ],
         ),
       ),

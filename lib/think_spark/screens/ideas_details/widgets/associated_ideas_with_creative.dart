@@ -7,22 +7,24 @@ import 'package:think_spark/think_spark/screens/home/data/model/idea_response.da
 
 class AssociatedIdeasWithCreative extends StatelessWidget {
   final List<IdeaResponse> allIdeas;
-  final IdeaResponse ideaResponse;
+  final int userId;
+  final int? excludedIdeaId;
   const AssociatedIdeasWithCreative(
-      {super.key, required this.allIdeas, required this.ideaResponse});
+      {super.key,
+      required this.allIdeas,
+      required this.userId,
+      this.excludedIdeaId});
 
   @override
   Widget build(BuildContext context) {
-    List<IdeaResponse> getRelatedIdeas() {
-      return allIdeas
-          .where((idea) =>
-              idea.user.id == ideaResponse.user.id &&
-              idea.id != ideaResponse.id)
-          .toList();
-    }
+    final relatedIdeas = allIdeas.where((idea) {
+      final isSameUser = idea.user.id == userId;
+      final isNotExcluded = excludedIdeaId == null || idea.id != excludedIdeaId;
+      return isSameUser && isNotExcluded;
+    }).toList();
 
-    return getRelatedIdeas().isNotEmpty
-        ? CardsOfIdeasList(ideas: getRelatedIdeas())
+    return relatedIdeas.isNotEmpty
+        ? CardsOfIdeasList(ideas: relatedIdeas)
         : Padding(
             padding: EdgeInsets.symmetric(vertical: SparkSizes.md),
             child: Text(

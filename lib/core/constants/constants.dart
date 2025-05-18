@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 bool isLoggedUser = false;
 
@@ -13,14 +14,27 @@ class Constants {
   static String refreshKey = dotenv.get('REFRESH_KEY');
   static String favorite = dotenv.get('FAVORITES_KEY');
   static String notification = dotenv.get('NOTIFICATION_KEY');
+  static String darkModeKey = 'IS_DARK';
+  static String userTypeKey = 'USER_TYPE_KEY';
+  static String? userRole;
+
+  static var isDark;
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
+
+  static Future<void> launchUrlLink(url) async {
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
 
   static void showEnlargedImage(String image, BuildContext context) {
     showDialog(
       context: context,
       builder: (context) {
         return Dialog.fullscreen(
+          insetAnimationDuration: Duration(milliseconds: 500),
+          insetAnimationCurve: Curves.easeInOut,
           backgroundColor: SparkColors.black.withValues(alpha: 0.8),
           child: Stack(
             alignment: Alignment.center,

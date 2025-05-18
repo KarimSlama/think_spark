@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:think_spark/core/common/widgets/circulars/circular_container_shadow.dart';
-import 'package:think_spark/core/constants/spark_colors.dart';
+import 'package:think_spark/core/common/widgets/circulars/circular_image_with_shadow.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 
 class PopularUser extends StatelessWidget {
   final String name;
   final Widget? widget;
-  final String bio;
+  final String text;
   final double? padding;
   final Color? titleColor;
+  final String? timeText;
   final VoidCallback? onPressed, onImageTapped;
-  final bool showMoreIcon;
+  final bool showMoreIcon, showBorder, isLargeBio;
 
   const PopularUser(
       {super.key,
       required this.name,
       this.widget,
-      required this.bio,
+      required this.text,
       this.padding,
       this.onPressed,
       this.onImageTapped,
-      this.showMoreIcon = true, this.titleColor});
+      this.showMoreIcon = true,
+      this.titleColor,
+      this.timeText,
+      this.showBorder = false,
+      this.isLargeBio = false});
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +37,7 @@ class PopularUser extends StatelessWidget {
           Row(
             spacing: 10,
             children: [
-              CircularContainerShadow(
-                widget: ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: GestureDetector(
-                    onTap: onImageTapped,
-                    child: widget ??
-                        Icon(Iconsax.profile_2user,
-                            color: SparkColors.doggerBlue),
-                  ),
-                ),
-                padding: padding ?? SparkSizes.md,
-              ),
+              CircularImageWithShadow(showBorder: showBorder, onImageTapped: onImageTapped, widget: widget, padding: padding),
               ConstrainedBox(
                 constraints: BoxConstraints(
                   maxWidth: MediaQuery.of(context).size.width * 0.55,
@@ -60,10 +53,12 @@ class PopularUser extends StatelessWidget {
                           ),
                     ),
                     Text(
-                      bio,
+                      text,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: isLargeBio
+                          ? Theme.of(context).textTheme.bodyLarge
+                          : Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -75,7 +70,7 @@ class PopularUser extends StatelessWidget {
                   onPressed: onPressed,
                   icon: Icon(Iconsax.more),
                 )
-              : Container(),
+              : Text(timeText ?? ''),
         ],
       ),
     );

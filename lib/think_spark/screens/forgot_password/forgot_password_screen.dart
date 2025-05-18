@@ -38,6 +38,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                       title: SparkString.forgotPassword,
                       subTitl: SparkString.enterYourEmailOrPhoneToResetNewOne),
                   ButtonTabsBar(
+                      bottomEndRadius: 20,
+                      topStartRadius: 20,
+                      isLinear: true,
                       tabTitle1: SparkString.phone,
                       tabTitle2: SparkString.email),
                   SizedBox(

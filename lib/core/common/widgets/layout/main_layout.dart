@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/common/widgets/app_bar/custom_spark_app_bar.dart';
+import 'package:think_spark/core/constants/constants.dart';
+import 'package:think_spark/think_spark/screens/creative_navigation_menu/controller/cubit/creative_navigation_cubit.dart';
+import 'package:think_spark/think_spark/screens/creative_navigation_menu/widget/creative_custom_bottom_nav.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/drawer_cubit.dart';
-import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_cubit.dart';
-import 'package:think_spark/think_spark/screens/navigation_menu/widget/custom_bottom_nav.dart';
+import 'package:think_spark/think_spark/screens/investor_navigation_menu/controller/cubit/investor_navigation_cubit.dart';
+import 'package:think_spark/think_spark/screens/investor_navigation_menu/widget/investor_custom_bottom_nav.dart';
 
 class MainLayout extends StatelessWidget {
   final Widget child;
@@ -19,20 +22,24 @@ class MainLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final navCubit = context.read<NavigationCubit>();
+    print('main layout user role printed ${Constants.userRole}');
 
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
-      key: scaffoldKey,
-      appBar: showAppBar
-          ? CustomSparkAppBar(onPressed: () {
-              context.read<DrawerCubit>().changeDrawerState();
-            })
-          : null,
-      body: child,
-      bottomNavigationBar: CustomBottomNavBar(
-          onTap: (index) => navCubit.changeNavigationScreen(index)),
-    );
+        key: scaffoldKey,
+        appBar: showAppBar
+            ? CustomSparkAppBar(onPressed: () {
+                context.read<DrawerCubit>().changeDrawerState();
+              })
+            : null,
+        body: child,
+        bottomNavigationBar: Constants.userRole?.toLowerCase() == 'creative'
+            ? CreativeCustomBottomNavBar(
+                onTap: (index) =>
+                    context.read<CreativeNavigationCubit>().changeNavigationScreen(index))
+            : InvestorCustomBottomNavBar(
+                onTap: (index) =>
+                    context.read<InvestorNavigationCubit>().changeNavigationScreen(index)));
   }
 }

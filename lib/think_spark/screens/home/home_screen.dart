@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/common/widgets/floating_widget.dart';
-import 'package:think_spark/core/common/widgets/search_box/spark_search_bar_field.dart';
+import 'package:think_spark/core/common/widgets/search_box/spark_bar_input_field.dart';
 import 'package:think_spark/core/common/widgets/texts/section_heading.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
@@ -35,7 +35,9 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ScreenTitleWithSubTitle(),
-                          SparkSearchBarField(),
+                          SparkBarInputField(
+                              controller: TextEditingController(),
+                              hintText: SparkString.searchForCreativeIdea),
                           SectionHeading(
                             text: SparkString.popularClue,
                             onPressed: () => context.pushNamed(
@@ -48,7 +50,8 @@ class HomeScreen extends StatelessWidget {
                               text: SparkString.popularUsers, onPressed: () {}),
                           PopularUser(
                             name: 'Karim Slama',
-                            bio: 'Software Developer',
+                            text: 'Software Developer',
+                            showMoreIcon: true,
                             onPressed: () {},
                           ),
                         ],

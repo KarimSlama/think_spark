@@ -5,6 +5,8 @@ import 'package:think_spark/core/common/widgets/circulars/circular_container_sha
 import 'package:think_spark/core/common/widgets/loaders/popus.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/helpers/extensions.dart';
+import 'package:think_spark/core/routing/routes.dart';
 
 class FloatingWidget extends StatelessWidget {
   final Widget mainScreenWidget;
@@ -16,6 +18,7 @@ class FloatingWidget extends StatelessWidget {
       mainScreenWidget: mainScreenWidget,
       floatingWidget: GestureDetector(
         onTap: () {
+          context.pushNamed(Routes.customerServiceChatScreen);
           Loaders.sparkToast(message: 'floating');
         },
         child: CircularContainerShadow(

@@ -10,6 +10,7 @@ class SparkColors {
   static const Color olive = Color(0xff8FA60B);
   static const Color red = Color(0xffFF0004);
   static const Color pink = Color(0xffFFCDCD);
+  static const Color coralPink = Color(0xffFF6F76);
 
   static const Color black = Color(0xff1C1C1C);
   static const Color grey = Color(0xffF9FAFB);
@@ -18,4 +19,5 @@ class SparkColors {
   static const Color darkGrey = Color(0xff6C737F);
   static const Color white = Color(0xffFFFFFF);
   static const List<Color> linear = [Color(0xff356899), Color(0xff1A334C)];
+  static const List<Color> storyLinear = [Color(0xffFF6F76), Color(0xffFFA947)];
 }

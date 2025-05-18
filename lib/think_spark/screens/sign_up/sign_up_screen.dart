@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:think_spark/core/common/local/shared_preferences.dart';
 import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
 import 'package:think_spark/core/common/widgets/texts/span_text.dart';
+import 'package:think_spark/core/constants/constants.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
@@ -38,6 +41,9 @@ class SignUpScreen extends StatelessWidget {
                   subTitl: SparkString.letsRegisterInvestWithCreative,
                 ),
                 ButtonTabsBar(
+                  bottomEndRadius: 20,
+                  topStartRadius: 20,
+                  isLinear: true,
                   tabTitle1: SparkString.creative,
                   tabTitle2: SparkString.investor,
                 ),
@@ -58,6 +64,7 @@ class SignUpScreen extends StatelessWidget {
                         final tabIndex =
                             DefaultTabController.of(tabContext).index;
                         validateThenDoRegister(tabContext, tabIndex);
+                        SharedPreference.setData(Constants.userTypeKey, tabIndex);
                       },
                       child: Text(
                         SparkString.save,
@@ -81,8 +88,10 @@ class SignUpScreen extends StatelessWidget {
                     SpanText(
                       text: SparkString.byContinuingYouAgree,
                       actionText: SparkString.termsOfServicesPrivacyPolicy,
-                      actionTextOnTap: () =>
-                          context.pushNamed(Routes.loginScreen),
+                      actionTextOnTap: () => Constants.launchUrlLink(
+                        Uri.parse(
+                            'https://sites.google.com/view/thinksparkpolicy/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9'),
+                      ),
                       isSmall: true,
                     ),
                   ],

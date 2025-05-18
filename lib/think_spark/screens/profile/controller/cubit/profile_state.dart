@@ -4,9 +4,12 @@ part 'profile_state.freezed.dart';
 
 @freezed
 class ProfileState with _$ProfileState {
-  const factory ProfileState.initial() = _Initial;
+  const factory ProfileState.initial() = Initial;
   const factory ProfileState.loading() = Loading;
-  const factory ProfileState.success(ProfileResponse profile) = Success;
-  const factory ProfileState.stepChanged({required int stepIndex}) = StepChanged;
-  const factory ProfileState.error(String error) = Error;
+  const factory ProfileState.success(ProfileResponse profile) =
+      Success;
+  const factory ProfileState.error(String message) = Error;
+  const factory ProfileState.modeChanged(bool isDark) = ModeChanged;
+  const factory ProfileState.stepChanged({required int stepIndex}) =
+      StepChanged;
 }

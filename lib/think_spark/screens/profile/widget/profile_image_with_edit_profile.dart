@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:think_spark/core/common/widgets/circulars/circular_container_shadow.dart';
+import 'package:think_spark/core/constants/constants.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/helpers/helper_functions.dart';
@@ -28,21 +29,26 @@ class ProfileImageWithEditProfile extends StatelessWidget {
               BlocBuilder<ProfileCubit, ProfileState>(
                 builder: (context, state) {
                   return state.maybeWhen(
-                    success: (profile) => Container(
-                      width: 150.w,
-                      height: 150.h,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: SparkHelperFunctions.isDark(context)
-                              ? SparkColors.black
-                              : SparkColors.white,
-                          width: 5,
-                        ),
-                        image: DecorationImage(
-                          image: NetworkImage(
-                              '${ApiConstants.apiBaseUrl}${profile.profile.image}'),
-                          fit: BoxFit.cover,
+                    success: (profile) => GestureDetector(
+                      onLongPress: () => Constants.showEnlargedImage(
+                          '${ApiConstants.apiBaseUrlWithoutSlash}${profile.profile.image}',
+                          context),
+                      child: Container(
+                        width: 150.w,
+                        height: 150.h,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: SparkHelperFunctions.isDark(context)
+                                ? SparkColors.black
+                                : SparkColors.white,
+                            width: 5,
+                          ),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                '${ApiConstants.apiBaseUrlWithoutSlash}${profile.profile.image}'),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:think_spark/core/constants/constants.dart';
 import 'package:think_spark/core/routing/app_router.dart';
 
 import 'package:think_spark/think_spark_app.dart';
@@ -14,7 +15,10 @@ import 'package:think_spark/think_spark_app.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(ThinkSparkApp(appRouter: AppRouter()));
+    await tester.pumpWidget(ThinkSparkApp(
+      appRouter: AppRouter(),
+      isDark: Constants.isDark,
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

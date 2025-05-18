@@ -23,6 +23,7 @@ class FirebaseMessagingService {
       await _saveTokenToServer(repository, token);
     }
 
+
     messaging.onTokenRefresh.listen((newToken) async {
       await _saveTokenToServer(repository, newToken);
     });
@@ -31,6 +32,9 @@ class FirebaseMessagingService {
       LocalNotificationService.show(message);
       final body = message.notification?.body ?? '';
       final userName = SparkHelperFunctions.extractUserName(body);
+
+      print('Notification: ${message.notification?.title}');
+      print('Notification: ${message.notification?.body}');
 
       await NotificationLocalData.saveNotification({
         'title': message.notification?.title,
@@ -45,10 +49,13 @@ class FirebaseMessagingService {
     );
   }
 
+  
+
   static Future<void> _saveTokenToServer(
       SaveDeviceTokenForSchedulingRepository repository, String token) async {
     try {
       final request = SaveDeviceNotificationTokenRequest(deviceToken: token);
+      print('Token $token');
       await repository.saveDeviceToken(request);
     } catch (e) {
       throw Exception(e);

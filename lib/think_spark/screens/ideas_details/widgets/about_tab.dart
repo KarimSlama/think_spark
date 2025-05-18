@@ -27,7 +27,7 @@ class AboutTab extends StatelessWidget {
             ),
             PopularUser(
               name: ideaResponse.user.username,
-              bio: ideaResponse.user.bio ?? SparkString.unknown,
+              text: ideaResponse.user.bio ?? SparkString.unknown,
               padding: 2,
               widget: Image.network(
                   width: 65.w,

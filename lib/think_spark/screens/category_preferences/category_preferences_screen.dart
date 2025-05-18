@@ -122,7 +122,7 @@ class CategoryPreferencesScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () => context.pushNamed(Routes.navigationMenu),
+            onPressed: () => context.pushNamed(Routes.investorNavigationMenu),
             child: Text(
               SparkString.next,
               style: Theme.of(context).textTheme.titleMedium?.apply(

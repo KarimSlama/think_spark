@@ -12,7 +12,7 @@ class LoginTextFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final loginCubit = context.read<LoginCubit>();
+    final loginCubit = context.watch<LoginCubit>();
 
     return Column(
       spacing: 16.h,
@@ -24,17 +24,19 @@ class LoginTextFormWidget extends StatelessWidget {
           label: SparkString.email,
           validator: (value) => Validator.validateEmail(value),
         ),
-        SparkTextFormField(
-          inputType: TextInputType.visiblePassword,
-          controller: loginCubit.passwordController,
-          prefixIcon: Iconsax.password_check,
-          suffixPressed: () => print('pressed'),
-          suffixIcon: Iconsax.eye3,
-          isObscureText: true,
-          maxLines: 1,
-          label: SparkString.password,
-          validator: (value) => Validator.validatePassword(value),
-        ),
+         SparkTextFormField(
+            inputType: TextInputType.visiblePassword,
+            controller: loginCubit.passwordController,
+            prefixIcon: Iconsax.password_check,
+            suffixPressed: () {
+              loginCubit.changePasswordIcon();
+            },
+            suffixIcon: loginCubit.isPassword ? Iconsax.eye3 : Iconsax.eye_slash,
+            maxLines: 1,
+            isObscureText: loginCubit.isPassword,
+            label: SparkString.password,
+            validator: (value) => Validator.validatePassword(value),
+          ),
       ],
     );
   }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'navigation_state.dart';
+part of 'creative_navigation_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,65 +15,67 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$NavigationState<T> {
+mixin _$CreativeNavigationState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(int index) changed,
+    required TResult Function(int index) navigationChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(int index)? changed,
+    TResult? Function(int index)? navigationChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(int index)? changed,
+    TResult Function(int index)? navigationChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Changed<T> value) changed,
+    required TResult Function(NavigationChanged<T> value) navigationChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Changed<T> value)? changed,
+    TResult? Function(NavigationChanged<T> value)? navigationChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Changed<T> value)? changed,
+    TResult Function(NavigationChanged<T> value)? navigationChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NavigationStateCopyWith<T, $Res> {
-  factory $NavigationStateCopyWith(
-          NavigationState<T> value, $Res Function(NavigationState<T>) then) =
-      _$NavigationStateCopyWithImpl<T, $Res, NavigationState<T>>;
+abstract class $CreativeNavigationStateCopyWith<T, $Res> {
+  factory $CreativeNavigationStateCopyWith(CreativeNavigationState<T> value,
+          $Res Function(CreativeNavigationState<T>) then) =
+      _$CreativeNavigationStateCopyWithImpl<T, $Res,
+          CreativeNavigationState<T>>;
 }
 
 /// @nodoc
-class _$NavigationStateCopyWithImpl<T, $Res, $Val extends NavigationState<T>>
-    implements $NavigationStateCopyWith<T, $Res> {
-  _$NavigationStateCopyWithImpl(this._value, this._then);
+class _$CreativeNavigationStateCopyWithImpl<T, $Res,
+        $Val extends CreativeNavigationState<T>>
+    implements $CreativeNavigationStateCopyWith<T, $Res> {
+  _$CreativeNavigationStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of NavigationState
+  /// Create a copy of CreativeNavigationState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -86,13 +88,13 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$NavigationStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$CreativeNavigationStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of NavigationState
+  /// Create a copy of CreativeNavigationState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -103,7 +105,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'NavigationState<$T>.initial()';
+    return 'CreativeNavigationState<$T>.initial()';
   }
 
   @override
@@ -119,7 +121,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(int index) changed,
+    required TResult Function(int index) navigationChanged,
   }) {
     return initial();
   }
@@ -128,7 +130,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(int index)? changed,
+    TResult? Function(int index)? navigationChanged,
   }) {
     return initial?.call();
   }
@@ -137,7 +139,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(int index)? changed,
+    TResult Function(int index)? navigationChanged,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -150,7 +152,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Changed<T> value) changed,
+    required TResult Function(NavigationChanged<T> value) navigationChanged,
   }) {
     return initial(this);
   }
@@ -159,7 +161,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Changed<T> value)? changed,
+    TResult? Function(NavigationChanged<T> value)? navigationChanged,
   }) {
     return initial?.call(this);
   }
@@ -168,7 +170,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Changed<T> value)? changed,
+    TResult Function(NavigationChanged<T> value)? navigationChanged,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -178,35 +180,36 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements NavigationState<T> {
+abstract class _Initial<T> implements CreativeNavigationState<T> {
   const factory _Initial() = _$InitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ChangedImplCopyWith<T, $Res> {
-  factory _$$ChangedImplCopyWith(
-          _$ChangedImpl<T> value, $Res Function(_$ChangedImpl<T>) then) =
-      __$$ChangedImplCopyWithImpl<T, $Res>;
+abstract class _$$NavigationChangedImplCopyWith<T, $Res> {
+  factory _$$NavigationChangedImplCopyWith(_$NavigationChangedImpl<T> value,
+          $Res Function(_$NavigationChangedImpl<T>) then) =
+      __$$NavigationChangedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangedImplCopyWithImpl<T, $Res>
-    extends _$NavigationStateCopyWithImpl<T, $Res, _$ChangedImpl<T>>
-    implements _$$ChangedImplCopyWith<T, $Res> {
-  __$$ChangedImplCopyWithImpl(
-      _$ChangedImpl<T> _value, $Res Function(_$ChangedImpl<T>) _then)
+class __$$NavigationChangedImplCopyWithImpl<T, $Res>
+    extends _$CreativeNavigationStateCopyWithImpl<T, $Res,
+        _$NavigationChangedImpl<T>>
+    implements _$$NavigationChangedImplCopyWith<T, $Res> {
+  __$$NavigationChangedImplCopyWithImpl(_$NavigationChangedImpl<T> _value,
+      $Res Function(_$NavigationChangedImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of NavigationState
+  /// Create a copy of CreativeNavigationState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangedImpl<T>(
+    return _then(_$NavigationChangedImpl<T>(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -217,63 +220,65 @@ class __$$ChangedImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ChangedImpl<T> implements Changed<T> {
-  const _$ChangedImpl(this.index);
+class _$NavigationChangedImpl<T> implements NavigationChanged<T> {
+  const _$NavigationChangedImpl(this.index);
 
   @override
   final int index;
 
   @override
   String toString() {
-    return 'NavigationState<$T>.changed(index: $index)';
+    return 'CreativeNavigationState<$T>.navigationChanged(index: $index)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangedImpl<T> &&
+            other is _$NavigationChangedImpl<T> &&
             (identical(other.index, index) || other.index == index));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, index);
 
-  /// Create a copy of NavigationState
+  /// Create a copy of CreativeNavigationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangedImplCopyWith<T, _$ChangedImpl<T>> get copyWith =>
-      __$$ChangedImplCopyWithImpl<T, _$ChangedImpl<T>>(this, _$identity);
+  _$$NavigationChangedImplCopyWith<T, _$NavigationChangedImpl<T>>
+      get copyWith =>
+          __$$NavigationChangedImplCopyWithImpl<T, _$NavigationChangedImpl<T>>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(int index) changed,
+    required TResult Function(int index) navigationChanged,
   }) {
-    return changed(index);
+    return navigationChanged(index);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(int index)? changed,
+    TResult? Function(int index)? navigationChanged,
   }) {
-    return changed?.call(index);
+    return navigationChanged?.call(index);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(int index)? changed,
+    TResult Function(int index)? navigationChanged,
     required TResult orElse(),
   }) {
-    if (changed != null) {
-      return changed(index);
+    if (navigationChanged != null) {
+      return navigationChanged(index);
     }
     return orElse();
   }
@@ -282,42 +287,42 @@ class _$ChangedImpl<T> implements Changed<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Changed<T> value) changed,
+    required TResult Function(NavigationChanged<T> value) navigationChanged,
   }) {
-    return changed(this);
+    return navigationChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Changed<T> value)? changed,
+    TResult? Function(NavigationChanged<T> value)? navigationChanged,
   }) {
-    return changed?.call(this);
+    return navigationChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Changed<T> value)? changed,
+    TResult Function(NavigationChanged<T> value)? navigationChanged,
     required TResult orElse(),
   }) {
-    if (changed != null) {
-      return changed(this);
+    if (navigationChanged != null) {
+      return navigationChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class Changed<T> implements NavigationState<T> {
-  const factory Changed(final int index) = _$ChangedImpl<T>;
+abstract class NavigationChanged<T> implements CreativeNavigationState<T> {
+  const factory NavigationChanged(final int index) = _$NavigationChangedImpl<T>;
 
   int get index;
 
-  /// Create a copy of NavigationState
+  /// Create a copy of CreativeNavigationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChangedImplCopyWith<T, _$ChangedImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$NavigationChangedImplCopyWith<T, _$NavigationChangedImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

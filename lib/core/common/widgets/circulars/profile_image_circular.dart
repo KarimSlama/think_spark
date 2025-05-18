@@ -24,21 +24,24 @@ class ProfileImageCircular extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => ImageShimmerShimmerEffect(width: 50.w, height: 50.h),
-          success: (profile) => GestureDetector(
-            onTap: () => context.pushNamed(Routes.profileScreen),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(radius ?? 50),
-              child: CircularContainerShadow(
-                height: height,
-                width: width,
-                widget: Image.network(
+          success: (profile) {
+            return GestureDetector(
+              onTap: () => context.pushNamed(Routes.profileScreen),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(radius ?? 50),
+                child: CircularContainerShadow(
+                  height: height,
+                  width: width,
+                  widget: Image.network(
                     fit: BoxFit.cover,
-                    '${ApiConstants.apiBaseUrl}${profile.profile.image}'),
+                    '${ApiConstants.apiBaseUrlWithoutSlash}${profile.profile.image}',
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
           error: (error) => const SizedBox(),
-          orElse: () => SizedBox(),
+          orElse: () => const SizedBox(),
         );
       },
     );

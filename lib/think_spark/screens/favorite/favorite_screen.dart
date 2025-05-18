@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:think_spark/core/common/widgets/floating_widget.dart';
-import 'package:think_spark/core/common/widgets/search_box/spark_search_bar_field.dart';
+import 'package:think_spark/core/common/widgets/search_box/spark_bar_input_field.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
+import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/think_spark/screens/favorite/controller/cubit/favorite_cubit.dart';
 import 'package:think_spark/think_spark/screens/favorite/controller/cubit/favorite_state.dart';
 import 'package:think_spark/think_spark/screens/favorite/widget/favorite_card.dart';
@@ -32,7 +33,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-       const DrawerSideNavigationMenu(),
+        const DrawerSideNavigationMenu(),
         Expanded(
           child: FloatingWidget(
             mainScreenWidget: Padding(
@@ -41,7 +42,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               child: Column(
                 spacing: SparkSizes.defaultSpace,
                 children: [
-                  SparkSearchBarField(),
+                  SparkBarInputField(
+                      controller: TextEditingController(),
+                      hintText: SparkString.searchForFavoriteIdeas),
                   Expanded(
                     child: BlocBuilder<FavoriteCubit, FavoriteState>(
                         builder: (context, state) {

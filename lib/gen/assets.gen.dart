@@ -52,6 +52,13 @@ class $AssetsImagesGen {
   AssetGenImage get background =>
       const AssetGenImage('assets/images/background.png');
 
+  /// File path: assets/images/chat_bg.png
+  AssetGenImage get chatBg => const AssetGenImage('assets/images/chat_bg.png');
+
+  /// File path: assets/images/chat_bg_dark.png
+  AssetGenImage get chatBgDark =>
+      const AssetGenImage('assets/images/chat_bg_dark.png');
+
   /// File path: assets/images/circle_bg.svg
   String get circleBg => 'assets/images/circle_bg.svg';
 
@@ -106,6 +113,8 @@ class $AssetsImagesGen {
   List<dynamic> get values => [
         animation1744759242249,
         background,
+        chatBg,
+        chatBgDark,
         circleBg,
         confirmation,
         darkThinkSpark,
@@ -128,8 +137,12 @@ class $AssetsImagesGen {
 class Assets {
   Assets._();
 
+  static const String aEnv = '.env';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+
+  /// List of all assets
+  static List<String> get values => [aEnv];
 }
 
 class AssetGenImage {

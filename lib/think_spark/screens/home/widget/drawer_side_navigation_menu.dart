@@ -11,6 +11,7 @@ import 'package:think_spark/core/helpers/helper_functions.dart';
 import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/drawer_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/controller/cubit/drawer_state.dart';
+import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
 
 class DrawerSideNavigationMenu extends StatelessWidget {
   const DrawerSideNavigationMenu({super.key});
@@ -43,13 +44,19 @@ class DrawerSideNavigationMenu extends StatelessWidget {
                 CircularContainerShadow(
                   widget: IconButton(
                     icon: Icon(Iconsax.message, color: SparkColors.doggerBlue),
-                    onPressed: () {},
+                    onPressed: () => context.pushNamed(Routes.chatScreen),
                   ),
                 ),
                 CircularContainerShadow(
                   widget: IconButton(
-                    icon: Icon(Iconsax.lamp_on, color: SparkColors.doggerBlue),
-                    onPressed: () {},
+                    icon: Icon(
+                        context.read<ProfileCubit>().isDark
+                            ? Iconsax.lamp_on5
+                            : Iconsax.lamp_on,
+                        color: SparkColors.doggerBlue),
+                    onPressed: () => context
+                        .read<ProfileCubit>()
+                        .changeMode(!context.read<ProfileCubit>().isDark),
                   ),
                 ),
                 CircularContainerShadow(
@@ -59,12 +66,12 @@ class DrawerSideNavigationMenu extends StatelessWidget {
                     onPressed: () {},
                   ),
                 ),
-                CircularContainerShadow(
-                  widget: IconButton(
-                    icon: Icon(Iconsax.trash, color: SparkColors.doggerBlue),
-                    onPressed: () {},
-                  ),
-                ),
+                // CircularContainerShadow(
+                //   widget: IconButton(
+                //     icon: Icon(Iconsax.trash, color: SparkColors.doggerBlue),
+                //     onPressed: () {},
+                //   ),
+                // ),
                 Spacer(),
                 CircularContainerShadow(
                   widget: IconButton(

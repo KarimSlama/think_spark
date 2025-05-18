@@ -110,7 +110,7 @@ class AllMeetingsScreen extends StatelessWidget {
                                           width: 60.w,
                                           height: 60.h,
                                           fit: BoxFit.cover,
-                                          '${ApiConstants.apiBaseUrl}${response.schedule[index].image}'),
+                                          '${ApiConstants.apiBaseUrlWithoutSlash}${response.schedule[index].image}'),
                                     ),
                                     Row(
                                       children: [

@@ -8,4 +8,6 @@ class RegisterState<T> with _$RegisterState<T> {
   const factory RegisterState.loading() = Loading;
   const factory RegisterState.success(RegisterResponse data) = Success;
   const factory RegisterState.error({required Map<String, List<String>?>? errors}) = Error;
+  const factory RegisterState.passwordChanged({required bool isPassword}) =
+      Changed;
 }

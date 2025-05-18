@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/think_spark/screens/sign_up/controller/cubit/register_state.dart';
 import 'package:think_spark/think_spark/screens/sign_up/data/model/register_request_body.dart';
 import 'package:think_spark/think_spark/screens/sign_up/data/repository/register_repository.dart';
@@ -14,10 +14,10 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   String countryCode = '+20';
-
+  bool isPassword = true;
   final GlobalKey<FormState> creativeFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> investorFormKey = GlobalKey<FormState>();
-  
+
   void createNewUser(int tabIndex) async {
     emit(RegisterState.loading());
     final response = await _registerRepository.register(RegisterRequestBody(
@@ -35,5 +35,10 @@ class RegisterCubit extends Cubit<RegisterState> {
         emit(RegisterState.error(errors: errorHandler.apiErrorModel.errors));
       },
     );
+  }
+
+  changePasswordIcon() {
+    isPassword = !isPassword;
+    emit(RegisterState.passwordChanged(isPassword: isPassword));
   }
 }

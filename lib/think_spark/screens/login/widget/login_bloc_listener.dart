@@ -18,7 +18,10 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
+          current is Loading ||
+          current is Success ||
+          current is Error ||
+          current is Changed,
       listener: (context, state) {
         state.whenOrNull(
           loading: () => showDialog(
@@ -45,10 +48,20 @@ class LoginBlocListener extends StatelessWidget {
                 Constants.refreshKey,
                 registerResponse.user.refresh,
               );
-              context.pushNamedAndRemoveUntil(Routes.navigationMenu,
-                  predicate: (Route<dynamic> route) {
-                return false;
-              });
+              await SharedPreference.setData(
+                Constants.userTypeKey,
+                registerResponse.user.userType,
+              );
+              Constants.userRole = registerResponse.user.userType;
+              isLoggedUser = true;
+
+              final route = registerResponse.user.userType.toLowerCase() == 'creative'
+                  ? Routes.creativeNavigationMenu
+                  : Routes.investorNavigationMenu;
+                context.pushNamedAndRemoveUntil(route,
+                    predicate: (Route<dynamic> route) {
+                  return false;
+                });
             });
           },
           error: (error) {

@@ -11,7 +11,8 @@ class Routes {
   static const String splashConfirmScreen = '/splashConfirmScreen';
   static const String categoryPreferencesScreen = '/categoryPreferencesScreen';
   static const String homeScreen = '/homeScreen';
-  static const String navigationMenu = '/navigationMenu';
+  static const String investorNavigationMenu = '/investorNavigationMenu';
+  static const String creativeNavigationMenu = '/creativeNavigationMenu';
   static const String allIdeasScreen = '/allIdeasScreen';
   static const String ideaDetailsScreen = '/ideaDetailsScreen';
   static const String ideasRelatedToCategoryScreen =
@@ -24,4 +25,8 @@ class Routes {
   static const String scheduleMeetingScreen = '/scheduleMeetingScreen';
   static const String allMeetingsScreen = '/allMeetingsScreen';
   static const String notificationScreen = '/notificationScreen';
+  static const String chatScreen = '/chatScreen';
+  static const String conversationScreen = '/conversationScreen';
+  static const String loginActivityScreen = '/loginActivityScreen';
+  static const String customerServiceChatScreen = '/customerServiceChatScreen';
 }

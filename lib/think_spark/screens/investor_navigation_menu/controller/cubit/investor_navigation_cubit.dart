@@ -4,13 +4,13 @@ import 'package:think_spark/core/service_locator/dependency_injection.dart';
 import 'package:think_spark/think_spark/screens/categories/categories_screen.dart';
 import 'package:think_spark/think_spark/screens/categories/controller/cubit/categories_cubit.dart';
 import 'package:think_spark/think_spark/screens/home/home_screen.dart';
-import 'package:think_spark/think_spark/screens/navigation_menu/controller/cubit/navigation_state.dart';
+import 'package:think_spark/think_spark/screens/investor_navigation_menu/controller/cubit/investor_navigation_state.dart';
 import 'package:think_spark/think_spark/screens/settings/settings_screen.dart';
 import 'package:think_spark/think_spark/screens/upload_clue/upload_clue_screen.dart';
 import 'package:think_spark/think_spark/screens/favorite/favorite_screen.dart';
 
-class NavigationCubit extends Cubit<NavigationState> {
-  NavigationCubit() : super(NavigationState.initial());
+class InvestorNavigationCubit extends Cubit<InvestorNavigationState> {
+  InvestorNavigationCubit() : super(InvestorNavigationState.initial());
 
   int currentIndex = 0;
 
@@ -30,7 +30,7 @@ class NavigationCubit extends Cubit<NavigationState> {
   void changeNavigationScreen(int index) {
     if (currentIndex != index) {
       currentIndex = index;
-      emit(NavigationState.changed(currentIndex));
+      emit(InvestorNavigationState.changed(currentIndex));
     }
   }
 }

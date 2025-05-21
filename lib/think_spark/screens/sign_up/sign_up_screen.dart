@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:think_spark/core/common/local/shared_preferences.dart';
 import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
 import 'package:think_spark/core/common/widgets/texts/span_text.dart';

@@ -3,6 +3,8 @@ import 'package:get_it/get_it.dart';
 import 'package:think_spark/core/networking/dio_factory.dart';
 import 'package:think_spark/core/networking/register/register_service.dart';
 import 'package:think_spark/core/notifications/firebase_messaging_service.dart';
+import 'package:think_spark/think_spark/creative/creative_home_screen/controller/cubit/idea_investors_cubit.dart';
+import 'package:think_spark/think_spark/creative/creative_home_screen/data/network/ideas_investors_service.dart';
 import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/controller/cubit/categories_cubit.dart';
 import 'package:think_spark/think_spark/screens/categories/data/network/categories_related_ideas_service.dart';
@@ -18,7 +20,6 @@ import 'package:think_spark/think_spark/screens/chat/data/network/web_socket/we_
 import 'package:think_spark/think_spark/screens/chat/data/network/web_socket/web_socket_service_impl.dart';
 import 'package:think_spark/think_spark/screens/chat/data/repository/conversations_repository.dart';
 import 'package:think_spark/think_spark/screens/chat/data/repository/send_message_repository.dart';
-import 'package:think_spark/think_spark/screens/conversation/conversation_screen.dart';
 import 'package:think_spark/think_spark/screens/creative_navigation_menu/controller/cubit/creative_navigation_cubit.dart';
 import 'package:think_spark/think_spark/screens/forgot_password/controller/forgot_password_cubit.dart';
 import 'package:think_spark/think_spark/screens/forgot_password/data/repository/forgot_password_repository.dart';
@@ -32,6 +33,7 @@ import 'package:think_spark/think_spark/screens/investor_navigation_menu/control
 import 'package:think_spark/think_spark/screens/notifications/controller/cubit/notifications_cubit.dart';
 import 'package:think_spark/think_spark/screens/profile/controller/cubit/profile_cubit.dart';
 import 'package:think_spark/think_spark/screens/profile/data/network/profile_service.dart';
+import 'package:think_spark/think_spark/creative/creative_home_screen/data/repository/investors_repository.dart';
 import 'package:think_spark/think_spark/screens/profile/data/repository/profile_repository.dart';
 import 'package:think_spark/think_spark/screens/reset_password/data/repository/reset_password_repository.dart';
 import 'package:think_spark/think_spark/screens/schedule_meeting/controller/cubit/schedule_meeting_cubit.dart';
@@ -59,6 +61,7 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<ScheduleMeetingService>(
       () => ScheduleMeetingService(dio));
   getIt.registerLazySingleton<ChatService>(() => ChatService(dio));
+  getIt.registerLazySingleton<IdeasInvestorsService>(() => IdeasInvestorsService(dio));
   getIt.registerLazySingleton<WebSocketService>(() => WebSocketServiceImpl());
 
   ///REGISTER
@@ -123,6 +126,10 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<ProfileRepository>(
       () => ProfileRepository(getIt()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  /// INVESTORS
+  getIt.registerLazySingleton<InvestorsRepository>(() => InvestorsRepository(getIt()));
+  getIt.registerFactory<IdeaInvestorsCubit>(() => IdeaInvestorsCubit(getIt()));
 
   /// SCHEDULE MEETING
   getIt.registerLazySingleton<ScheduleMeetingRepository>(

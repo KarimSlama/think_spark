@@ -6,7 +6,8 @@ import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubi
 import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_state.dart';
 
 class IdeasListCards extends StatelessWidget {
-  const IdeasListCards({super.key});
+  final VoidCallback? onCardPressed;
+  const IdeasListCards({super.key, this.onCardPressed});
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<IdeasCubit, IdeasState>(
@@ -16,7 +17,7 @@ class IdeasListCards extends StatelessWidget {
         return state.maybeWhen(
             loading: () => const IdeaShimmerLoading(),
             success: (ideas) {
-              return CardsOfIdeasList(ideas: ideas!);
+              return CardsOfIdeasList(ideas: ideas!, onCardPressed: onCardPressed,);
             },
             orElse: () => const IdeaShimmerLoading());
       },

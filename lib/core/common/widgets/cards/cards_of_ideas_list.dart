@@ -9,10 +9,14 @@ import 'package:think_spark/think_spark/screens/home/data/model/idea_response.da
 
 class CardsOfIdeasList extends StatelessWidget {
   final List<IdeaResponse> ideas;
-  const CardsOfIdeasList({
-    super.key,
-    required this.ideas,
-  });
+  final bool canEdit, canRemove;
+  final VoidCallback? onCardPressed;
+  const CardsOfIdeasList(
+      {super.key,
+      required this.ideas,
+      this.canEdit = false,
+      this.canRemove = false,
+      this.onCardPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -30,18 +34,34 @@ class CardsOfIdeasList extends StatelessWidget {
               Expanded(
                 child: rowIndex % 2 == 0
                     ? BlueCard(
+                        canEdit: canEdit,
+                        canRemove: canRemove,
                         ideaResponse: ideas[firstIndex],
                         isExpanded: context.read<DrawerCubit>().isDrawerOpen,
+                        onCardPressed: onCardPressed,
                       )
-                    : OliveCard(ideaResponse: ideas[firstIndex]),
+                    : OliveCard(
+                        ideaResponse: ideas[firstIndex],
+                        canEdit: canEdit,
+                        canRemove: canRemove,
+                        onCardPressed: onCardPressed,
+                      ),
               ),
             if (secondIndex < ideas.length)
               Expanded(
                 child: rowIndex % 2 == 0
-                    ? OliveCard(ideaResponse: ideas[secondIndex])
+                    ? OliveCard(
+                        ideaResponse: ideas[secondIndex],
+                        canEdit: canEdit,
+                        canRemove: canRemove,
+                        onCardPressed: onCardPressed,
+                      )
                     : BlueCard(
                         ideaResponse: ideas[secondIndex],
                         isExpanded: context.read<DrawerCubit>().isDrawerOpen,
+                        canEdit: canEdit,
+                        canRemove: canRemove,
+                        onCardPressed: onCardPressed,
                       ),
               ),
           ].whereType<Widget>().toList(),

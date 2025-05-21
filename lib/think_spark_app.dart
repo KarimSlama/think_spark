@@ -60,8 +60,7 @@ class ThinkSparkApp extends StatelessWidget {
                   : SparkTheme.lightTheme,
               themeMode: ThemeMode.system,
               debugShowCheckedModeBanner: false,
-              initialRoute:
-               isLoggedUser
+              initialRoute: isLoggedUser
                   ? Routes.creativeNavigationMenu
                   //  (Constants.userRole == 'creative'
                   //     ? Routes.creativeNavigationMenu

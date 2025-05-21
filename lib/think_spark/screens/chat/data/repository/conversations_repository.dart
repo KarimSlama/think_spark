@@ -11,10 +11,8 @@ class ConversationsRepository {
   Future<ApiResult<ConversationsResponse>> fetchConversations() async {
     try {
       final response = await chatService.getConversations();
-      print('response with conversations repo ${response.message}');
       return ApiResult.success(response);
     } catch (error) {
-      print('error with conversations repo ${ErrorHandler.handle(error).apiErrorModel.message}');
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

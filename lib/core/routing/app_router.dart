@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/routing/routes.dart';
 import 'package:think_spark/core/service_locator/dependency_injection.dart';
+import 'package:think_spark/think_spark/creative/edit_clue/edit_clue_screen.dart';
 import 'package:think_spark/think_spark/screens/all_ideas/all_ideas_screen.dart';
 import 'package:think_spark/think_spark/screens/all_meetings/all_meetings_screen.dart';
 import 'package:think_spark/think_spark/screens/biometrics/controller/cubit/biometrics_cubit.dart';
@@ -217,6 +218,11 @@ class AppRouter {
             child: CustomerServiceScreen(),
           ),
         );
+
+      case Routes.editClueScreen:
+        final ideaResponse = settings.arguments as IdeaResponse;
+        return MaterialPageRoute(
+            builder: (_) => EditClueScreen(ideaResponse: ideaResponse));
 
       default:
         return null;

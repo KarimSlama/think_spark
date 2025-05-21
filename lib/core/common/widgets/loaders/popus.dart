@@ -151,7 +151,7 @@ class Loaders {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha:0.2),
+                        color: Colors.black.withValues(alpha: 0.2),
                         blurRadius: 24,
                         offset: Offset(0, 8),
                       ),
@@ -201,8 +201,11 @@ class Loaders {
   }) {
     Fluttertoast.showToast(
       msg: message,
-      backgroundColor: Colors.transparent,
+      backgroundColor: SparkColors.darkBlue,
+      textColor: SparkColors.white,
+      fontSize: 16.0,
       toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
     );
   }
 }

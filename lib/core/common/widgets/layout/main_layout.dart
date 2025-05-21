@@ -22,7 +22,6 @@ class MainLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('main layout user role printed ${Constants.userRole}');
 
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 

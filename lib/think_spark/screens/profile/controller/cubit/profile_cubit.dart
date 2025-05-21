@@ -13,7 +13,8 @@ import 'package:think_spark/think_spark/screens/profile/data/repository/profile_
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepository profileRepository;
-  ProfileCubit(this.profileRepository) : super(ProfileState.initial());
+  ProfileCubit(this.profileRepository)
+      : super(ProfileState.initial());
 
   ProfileResponse profileResponse = ProfileResponse.empty();
   final fullNameController = TextEditingController();

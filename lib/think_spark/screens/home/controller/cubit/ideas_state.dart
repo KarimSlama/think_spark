@@ -7,6 +7,7 @@ class IdeasState with _$IdeasState {
   const factory IdeasState.initial() = _Initial;
   const factory IdeasState.loading() = Loading;
   const factory IdeasState.success(List<IdeaResponse>? data) = Success;
+  const factory IdeasState.updateSuccess(IdeaResponse? data) = UpdateSuccess;
   const factory IdeasState.error({required String error}) = Error;
 
   const factory IdeasState.dsplayRow({required bool isRow}) = DisplayRow;

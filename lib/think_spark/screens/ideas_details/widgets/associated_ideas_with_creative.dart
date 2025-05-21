@@ -9,11 +9,16 @@ class AssociatedIdeasWithCreative extends StatelessWidget {
   final List<IdeaResponse> allIdeas;
   final int userId;
   final int? excludedIdeaId;
+  final bool canEdit, canRemove;
+  final VoidCallback? onCardPressed;
   const AssociatedIdeasWithCreative(
       {super.key,
       required this.allIdeas,
       required this.userId,
-      this.excludedIdeaId});
+      this.excludedIdeaId,
+      this.canEdit = false,
+      this.canRemove = false,
+      this.onCardPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,11 @@ class AssociatedIdeasWithCreative extends StatelessWidget {
     }).toList();
 
     return relatedIdeas.isNotEmpty
-        ? CardsOfIdeasList(ideas: relatedIdeas)
+        ? CardsOfIdeasList(
+            ideas: relatedIdeas,
+            canEdit: canEdit,
+            canRemove: canRemove,
+            onCardPressed: onCardPressed)
         : Padding(
             padding: EdgeInsets.symmetric(vertical: SparkSizes.md),
             child: Text(

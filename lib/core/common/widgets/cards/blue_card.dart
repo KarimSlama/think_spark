@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:think_spark/core/common/widgets/icons/edit_icon.dart';
 import 'package:think_spark/core/common/widgets/icons/favorite_icon.dart';
 import 'package:think_spark/core/common/widgets/icons/meetings_icon.dart';
+import 'package:think_spark/core/common/widgets/icons/remove_icon.dart';
 import 'package:think_spark/core/common/widgets/rows/icon_with_text_in_row.dart';
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
@@ -19,15 +21,24 @@ import 'package:think_spark/think_spark/screens/favorite/controller/cubit/favori
 class BlueCard extends StatelessWidget {
   final IdeaResponse ideaResponse;
   final bool? isExpanded;
-  const BlueCard({super.key, required this.ideaResponse, this.isExpanded});
+  final bool canEdit, canRemove;
+  final VoidCallback? onCardPressed;
+  const BlueCard(
+      {super.key,
+      required this.ideaResponse,
+      this.isExpanded,
+      this.canEdit = false,
+      this.canRemove = false,
+      this.onCardPressed});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FavoriteCubit, FavoriteState>(
       builder: (context, state) {
         return GestureDetector(
-          onTap: () => context.pushNamed(Routes.ideaDetailsScreen,
-              arguments: ideaResponse),
+          onTap: onCardPressed ??
+              () => context.pushNamed(Routes.ideaDetailsScreen,
+                  arguments: ideaResponse),
           child: LayoutBuilder(
             builder: (context, constraints) {
               return FadeIn(
@@ -63,9 +74,17 @@ class BlueCard extends StatelessWidget {
                             Row(
                               spacing: SparkSizes.sm,
                               children: [
-                                MeetingsIcon(ideaResponse: ideaResponse),
-                                FavoriteIcon(
-                                    ideaId: ideaResponse.id.toString()),
+                                canEdit
+                                    ? EditIcon(
+                                        ideaResponse: ideaResponse,
+                                      )
+                                    : MeetingsIcon(ideaResponse: ideaResponse),
+                                canRemove
+                                    ? RemoveIcon(
+                                        ideaId: ideaResponse.id.toString(),
+                                        onTap: () => onCardPressed?.call())
+                                    : FavoriteIcon(
+                                        ideaId: ideaResponse.id.toString()),
                               ],
                             )
                           ],

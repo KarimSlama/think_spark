@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:think_spark/core/common/widgets/app_bar/spark_app_bar.dart';
 import 'package:think_spark/core/common/widgets/circulars/profile_image_circular.dart';
 import 'package:think_spark/core/common/widgets/search_box/spark_bar_input_field.dart';
@@ -7,7 +6,6 @@ import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/core/constants/spark_string.dart';
 import 'package:think_spark/core/helpers/extensions.dart';
 import 'package:think_spark/core/routing/routes.dart';
-import 'package:think_spark/think_spark/screens/notifications/controller/cubit/notifications_cubit.dart';
 import 'package:think_spark/think_spark/screens/notifications/widget/list_of_cards_with_scrollbar.dart';
 
 class NotificationsScreen extends StatefulWidget {

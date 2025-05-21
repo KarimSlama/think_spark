@@ -34,36 +34,40 @@ class PopularUser extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            spacing: 10,
-            children: [
-              CircularImageWithShadow(showBorder: showBorder, onImageTapped: onImageTapped, widget: widget, padding: padding),
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width * 0.55,
+          Expanded(
+            child: Row(
+              spacing: 10,
+              children: [
+                CircularImageWithShadow(
+                    showBorder: showBorder,
+                    onImageTapped: onImageTapped,
+                    widget: widget,
+                    padding: padding),
+                Expanded(
+                  child: Column(
+                    spacing: SparkSizes.xs,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: Theme.of(context).textTheme.titleLarge!.apply(
+                              color: titleColor,
+                            ),
+                      ),
+                      Text(
+                        text,
+                        softWrap: true,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: isLargeBio
+                            ? Theme.of(context).textTheme.bodyLarge
+                            : Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
                 ),
-                child: Column(
-                  spacing: SparkSizes.xs,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      name,
-                      style: Theme.of(context).textTheme.titleLarge!.apply(
-                            color: titleColor,
-                          ),
-                    ),
-                    Text(
-                      text,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: isLargeBio
-                          ? Theme.of(context).textTheme.bodyLarge
-                          : Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           showMoreIcon
               ? IconButton(

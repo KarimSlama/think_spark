@@ -21,6 +21,7 @@ mixin _$IdeasState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -35,6 +36,7 @@ mixin _$IdeasState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -49,6 +51,7 @@ mixin _$IdeasState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -64,6 +67,7 @@ mixin _$IdeasState {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -78,6 +82,7 @@ mixin _$IdeasState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -92,6 +97,7 @@ mixin _$IdeasState {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -169,6 +175,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -186,6 +193,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -203,6 +211,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -224,6 +233,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -241,6 +251,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -258,6 +269,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -322,6 +334,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -339,6 +352,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -356,6 +370,7 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -377,6 +392,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -394,6 +410,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -411,6 +428,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -510,6 +528,7 @@ class _$SuccessImpl implements Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -527,6 +546,7 @@ class _$SuccessImpl implements Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -544,6 +564,7 @@ class _$SuccessImpl implements Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -565,6 +586,7 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -582,6 +604,7 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -599,6 +622,7 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -624,6 +648,200 @@ abstract class Success implements IdeasState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateSuccessImplCopyWith<$Res> {
+  factory _$$UpdateSuccessImplCopyWith(
+          _$UpdateSuccessImpl value, $Res Function(_$UpdateSuccessImpl) then) =
+      __$$UpdateSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({IdeaResponse? data});
+}
+
+/// @nodoc
+class __$$UpdateSuccessImplCopyWithImpl<$Res>
+    extends _$IdeasStateCopyWithImpl<$Res, _$UpdateSuccessImpl>
+    implements _$$UpdateSuccessImplCopyWith<$Res> {
+  __$$UpdateSuccessImplCopyWithImpl(
+      _$UpdateSuccessImpl _value, $Res Function(_$UpdateSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of IdeasState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$UpdateSuccessImpl(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as IdeaResponse?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateSuccessImpl implements UpdateSuccess {
+  const _$UpdateSuccessImpl(this.data);
+
+  @override
+  final IdeaResponse? data;
+
+  @override
+  String toString() {
+    return 'IdeasState.updateSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateSuccessImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of IdeasState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateSuccessImplCopyWith<_$UpdateSuccessImpl> get copyWith =>
+      __$$UpdateSuccessImplCopyWithImpl<_$UpdateSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
+    required TResult Function(String error) error,
+    required TResult Function(bool isRow) dsplayRow,
+    required TResult Function() showRecordingUI,
+    required TResult Function() recordingInProgress,
+    required TResult Function(String recognizedText) recordingComplete,
+    required TResult Function() recordingStopped,
+    required TResult Function(String errorMessage) speechError,
+  }) {
+    return updateSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
+    TResult? Function(String error)? error,
+    TResult? Function(bool isRow)? dsplayRow,
+    TResult? Function()? showRecordingUI,
+    TResult? Function()? recordingInProgress,
+    TResult? Function(String recognizedText)? recordingComplete,
+    TResult? Function()? recordingStopped,
+    TResult? Function(String errorMessage)? speechError,
+  }) {
+    return updateSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
+    TResult Function(String error)? error,
+    TResult Function(bool isRow)? dsplayRow,
+    TResult Function()? showRecordingUI,
+    TResult Function()? recordingInProgress,
+    TResult Function(String recognizedText)? recordingComplete,
+    TResult Function()? recordingStopped,
+    TResult Function(String errorMessage)? speechError,
+    required TResult orElse(),
+  }) {
+    if (updateSuccess != null) {
+      return updateSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
+    required TResult Function(Error value) error,
+    required TResult Function(DisplayRow value) dsplayRow,
+    required TResult Function(ShowRecordingUI value) showRecordingUI,
+    required TResult Function(RecordingInProgress value) recordingInProgress,
+    required TResult Function(RecordingComplete value) recordingComplete,
+    required TResult Function(RecordingStopped value) recordingStopped,
+    required TResult Function(SpeechError value) speechError,
+  }) {
+    return updateSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
+    TResult? Function(Error value)? error,
+    TResult? Function(DisplayRow value)? dsplayRow,
+    TResult? Function(ShowRecordingUI value)? showRecordingUI,
+    TResult? Function(RecordingInProgress value)? recordingInProgress,
+    TResult? Function(RecordingComplete value)? recordingComplete,
+    TResult? Function(RecordingStopped value)? recordingStopped,
+    TResult? Function(SpeechError value)? speechError,
+  }) {
+    return updateSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
+    TResult Function(Error value)? error,
+    TResult Function(DisplayRow value)? dsplayRow,
+    TResult Function(ShowRecordingUI value)? showRecordingUI,
+    TResult Function(RecordingInProgress value)? recordingInProgress,
+    TResult Function(RecordingComplete value)? recordingComplete,
+    TResult Function(RecordingStopped value)? recordingStopped,
+    TResult Function(SpeechError value)? speechError,
+    required TResult orElse(),
+  }) {
+    if (updateSuccess != null) {
+      return updateSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSuccess implements IdeasState {
+  const factory UpdateSuccess(final IdeaResponse? data) = _$UpdateSuccessImpl;
+
+  IdeaResponse? get data;
+
+  /// Create a copy of IdeasState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateSuccessImplCopyWith<_$UpdateSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -698,6 +916,7 @@ class _$ErrorImpl implements Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -715,6 +934,7 @@ class _$ErrorImpl implements Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -732,6 +952,7 @@ class _$ErrorImpl implements Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -753,6 +974,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -770,6 +992,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -787,6 +1010,7 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -886,6 +1110,7 @@ class _$DisplayRowImpl implements DisplayRow {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -903,6 +1128,7 @@ class _$DisplayRowImpl implements DisplayRow {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -920,6 +1146,7 @@ class _$DisplayRowImpl implements DisplayRow {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -941,6 +1168,7 @@ class _$DisplayRowImpl implements DisplayRow {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -958,6 +1186,7 @@ class _$DisplayRowImpl implements DisplayRow {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -975,6 +1204,7 @@ class _$DisplayRowImpl implements DisplayRow {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -1047,6 +1277,7 @@ class _$ShowRecordingUIImpl implements ShowRecordingUI {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -1064,6 +1295,7 @@ class _$ShowRecordingUIImpl implements ShowRecordingUI {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -1081,6 +1313,7 @@ class _$ShowRecordingUIImpl implements ShowRecordingUI {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -1102,6 +1335,7 @@ class _$ShowRecordingUIImpl implements ShowRecordingUI {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -1119,6 +1353,7 @@ class _$ShowRecordingUIImpl implements ShowRecordingUI {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -1136,6 +1371,7 @@ class _$ShowRecordingUIImpl implements ShowRecordingUI {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -1201,6 +1437,7 @@ class _$RecordingInProgressImpl implements RecordingInProgress {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -1218,6 +1455,7 @@ class _$RecordingInProgressImpl implements RecordingInProgress {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -1235,6 +1473,7 @@ class _$RecordingInProgressImpl implements RecordingInProgress {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -1256,6 +1495,7 @@ class _$RecordingInProgressImpl implements RecordingInProgress {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -1273,6 +1513,7 @@ class _$RecordingInProgressImpl implements RecordingInProgress {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -1290,6 +1531,7 @@ class _$RecordingInProgressImpl implements RecordingInProgress {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -1383,6 +1625,7 @@ class _$RecordingCompleteImpl implements RecordingComplete {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -1400,6 +1643,7 @@ class _$RecordingCompleteImpl implements RecordingComplete {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -1417,6 +1661,7 @@ class _$RecordingCompleteImpl implements RecordingComplete {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -1438,6 +1683,7 @@ class _$RecordingCompleteImpl implements RecordingComplete {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -1455,6 +1701,7 @@ class _$RecordingCompleteImpl implements RecordingComplete {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -1472,6 +1719,7 @@ class _$RecordingCompleteImpl implements RecordingComplete {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -1545,6 +1793,7 @@ class _$RecordingStoppedImpl implements RecordingStopped {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -1562,6 +1811,7 @@ class _$RecordingStoppedImpl implements RecordingStopped {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -1579,6 +1829,7 @@ class _$RecordingStoppedImpl implements RecordingStopped {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -1600,6 +1851,7 @@ class _$RecordingStoppedImpl implements RecordingStopped {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -1617,6 +1869,7 @@ class _$RecordingStoppedImpl implements RecordingStopped {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -1634,6 +1887,7 @@ class _$RecordingStoppedImpl implements RecordingStopped {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,
@@ -1726,6 +1980,7 @@ class _$SpeechErrorImpl implements SpeechError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<IdeaResponse>? data) success,
+    required TResult Function(IdeaResponse? data) updateSuccess,
     required TResult Function(String error) error,
     required TResult Function(bool isRow) dsplayRow,
     required TResult Function() showRecordingUI,
@@ -1743,6 +1998,7 @@ class _$SpeechErrorImpl implements SpeechError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<IdeaResponse>? data)? success,
+    TResult? Function(IdeaResponse? data)? updateSuccess,
     TResult? Function(String error)? error,
     TResult? Function(bool isRow)? dsplayRow,
     TResult? Function()? showRecordingUI,
@@ -1760,6 +2016,7 @@ class _$SpeechErrorImpl implements SpeechError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<IdeaResponse>? data)? success,
+    TResult Function(IdeaResponse? data)? updateSuccess,
     TResult Function(String error)? error,
     TResult Function(bool isRow)? dsplayRow,
     TResult Function()? showRecordingUI,
@@ -1781,6 +2038,7 @@ class _$SpeechErrorImpl implements SpeechError {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(UpdateSuccess value) updateSuccess,
     required TResult Function(Error value) error,
     required TResult Function(DisplayRow value) dsplayRow,
     required TResult Function(ShowRecordingUI value) showRecordingUI,
@@ -1798,6 +2056,7 @@ class _$SpeechErrorImpl implements SpeechError {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(UpdateSuccess value)? updateSuccess,
     TResult? Function(Error value)? error,
     TResult? Function(DisplayRow value)? dsplayRow,
     TResult? Function(ShowRecordingUI value)? showRecordingUI,
@@ -1815,6 +2074,7 @@ class _$SpeechErrorImpl implements SpeechError {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(UpdateSuccess value)? updateSuccess,
     TResult Function(Error value)? error,
     TResult Function(DisplayRow value)? dsplayRow,
     TResult Function(ShowRecordingUI value)? showRecordingUI,

@@ -29,4 +29,5 @@ class Routes {
   static const String conversationScreen = '/conversationScreen';
   static const String loginActivityScreen = '/loginActivityScreen';
   static const String customerServiceChatScreen = '/customerServiceChatScreen';
+  static const String editClueScreen = '/editClueScreen';
 }

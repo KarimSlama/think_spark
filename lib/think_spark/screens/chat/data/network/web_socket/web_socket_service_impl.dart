@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:think_spark/core/networking/api_constants.dart';
 import 'package:think_spark/core/networking/api_error_handler.dart';
 import 'package:think_spark/core/networking/api_result.dart';
-import 'package:think_spark/think_spark/screens/chat/data/model/conversations_response.dart';
 import 'package:think_spark/think_spark/screens/chat/data/model/send_message_request_body.dart';
 import 'package:think_spark/think_spark/screens/chat/data/model/send_message_response.dart';
 import 'package:think_spark/think_spark/screens/chat/data/network/web_socket/we_socket_service.dart';
@@ -35,20 +34,17 @@ class WebSocketServiceImpl implements WebSocketService {
 
       _isConnected = true;
     } catch (e) {
-      print('Connection error: $e');
       _handleError(e);
     }
   }
 
   void _handleIncomingMessage(dynamic message) {
     try {
-      print('Raw WebSocket message: $message');
       final json = jsonDecode(message) as Map<String, dynamic>;
 
       if (json['success'] == true &&
           json['data'] != null &&
           json['conversation_id'] != null) {
-        final newMessage = Messages.fromJson(json['data']);
         _streamController.add(jsonEncode({
           'type': 'message',
           'data': json['data'],
@@ -61,7 +57,7 @@ class WebSocketServiceImpl implements WebSocketService {
         _handleRequestResponse(json);
       }
     } catch (e) {
-      print('Error processing message: $e');
+      throw Exception('Error processing message: $e');
     }
   }
 
@@ -80,13 +76,11 @@ class WebSocketServiceImpl implements WebSocketService {
   }
 
   void _handleError(dynamic error) {
-    print('WebSocket error: $error');
     _streamController.addError(error);
     _cleanupPendingRequests(error);
   }
 
   void _handleDisconnection() {
-    print('WebSocket connection closed');
     _cleanupPendingRequests(Exception('Connection closed'));
     disconnect();
   }
@@ -112,7 +106,6 @@ class WebSocketServiceImpl implements WebSocketService {
         'user_id': request.userId,
       };
 
-      print('Sending message: ${jsonEncode(messageToSend)}');
       _channel!.sink.add(jsonEncode(messageToSend));
 
       await Future.delayed(const Duration(milliseconds: 300));
@@ -161,7 +154,6 @@ class WebSocketServiceImpl implements WebSocketService {
         'user_id': userId,
       };
 
-      print('Creating conversation: ${jsonEncode(messageToSend)}');
       _channel!.sink.add(jsonEncode(messageToSend));
 
       final response = await completer.future.timeout(

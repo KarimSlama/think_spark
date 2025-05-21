@@ -58,7 +58,6 @@ class ChatScreen extends StatelessWidget {
                 buildWhen: (previous, current) =>
                     current is Loading || current is Loaded || current is Error,
                 builder: (context, state) {
-                  print('chat screen $state');
                   if (context.read<ChatCubit>().conversationsList.isEmpty) {
                     return Center(
                         child:

@@ -1,5 +1,6 @@
 import 'package:think_spark/core/networking/api_error_handler.dart';
 import 'package:think_spark/core/networking/api_result.dart';
+import 'package:think_spark/think_spark/screens/home/data/model/idea_request_body.dart';
 import 'package:think_spark/think_spark/screens/home/data/model/idea_response.dart';
 import 'package:think_spark/think_spark/screens/home/data/network/service/idea_service.dart';
 
@@ -24,6 +25,16 @@ class IdeaRepository {
     try {
       final response = await _ideaService.searchIdeas(query);
 
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<IdeaResponse>> updateIdea(
+      ideaId, IdeaRequestBody ideaRequest) async {
+    try {
+      final response = await _ideaService.updateIdea(ideaId, ideaRequest);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

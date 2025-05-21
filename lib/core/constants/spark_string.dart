@@ -78,9 +78,11 @@ class SparkString {
       'Creativity, Effortlessly\ncommunication.';
   static const String searchForCreativeIdea = 'search for creative idea....';
   static const String searchForChat = 'search for chat....';
-  static const String searchForNotification = 'search for pivotal Notification....';
+  static const String searchForNotification =
+      'search for pivotal Notification....';
   static const String searchForFavoriteIdeas = 'search for favorite ideas....';
   static const String searchForCategory = 'search for category....';
+  static const String searchForEverything = 'search for everything....';
 
   static const String popularClue = 'Popular Clue';
   static const String latestClue = 'Latest Clue';
@@ -129,22 +131,26 @@ class SparkString {
   static const String requirement = 'Requirement';
   static const String photos = 'Photos';
   static const String about = 'About';
-  static const String theProblems= 'The Problems:';
-  static const String theSolutions= 'The Solutions:';
-  static const String whyItWorks= 'Why it Works?';
-  static const String theVision= 'The Vision:';
-  static const String technicalRequirements= 'Technical Requirements:';
-  static const String humanResources= 'Human Resources:';
-  static const String estimatedTeam= 'Estimated Team:';
-  static const String expectedCompletionDate= 'Expected Completion Date:';
-  static const String noImagesAvailable= 'No images available';
-  static const String noOtherIdeasFromThisUser= 'No other ideas from this user';
-  static const String close= 'Close';
+  static const String theProblems = 'The Problems:';
+  static const String theSolutions = 'The Solutions:';
+  static const String whyItWorks = 'Why it Works?';
+  static const String theVision = 'The Vision:';
+  static const String technicalRequirements = 'Technical Requirements:';
+  static const String humanResources = 'Human Resources:';
+  static const String estimatedTeam = 'Estimated Team:';
+  static const String expectedCompletionDate = 'Expected Completion Date:';
+  static const String noImagesAvailable = 'No images available';
+  static const String noOtherIdeasFromThisUser =
+      'No other ideas from this user';
+  static const String close = 'Close';
 
   static const String chatWithCreative = 'Chat With Creative';
   static const String scheduleAMeeting = 'Schedule a meeting';
-  static const String selectYourTimeForTheMeeting = 'Select your time for the meeting.';
-  static const String youCanChooseTheDateAndTimeFromTheAvailableDatesAndTimesBasedOnCreativeAvailability = 'You can choose the date and time from the available dates and times based on creative availability.';
+  static const String selectYourTimeForTheMeeting =
+      'Select your time for the meeting.';
+  static const String
+      youCanChooseTheDateAndTimeFromTheAvailableDatesAndTimesBasedOnCreativeAvailability =
+      'You can choose the date and time from the available dates and times based on creative availability.';
   static const String creativeInfo = 'Creative Info :';
   static const String unfoundBio = 'unfound bio';
   static const String chooseDay = 'Choose Day, ';
@@ -155,9 +161,10 @@ class SparkString {
   static const String pleaseSelectATimeFirst = 'Please select a time first';
   static const String aboutCreative = 'About Creative';
   static const String allMeeting = 'All Meeting';
-  static const String chatWith= 'Chat With ';
-  static const String allChats= 'All chats';
-  static const String chats= 'Chats';
-  static const String unread= 'Unread';
-  static const String typeMessageHere= 'type message here....';
+  static const String chatWith = 'Chat With ';
+  static const String allChats = 'All chats';
+  static const String chats = 'Chats';
+  static const String unread = 'Unread';
+  static const String typeMessageHere = 'type message here....';
+  static const String editClue = 'Edit Clue';
 }

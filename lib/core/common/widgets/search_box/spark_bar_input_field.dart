@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
@@ -7,8 +6,6 @@ import 'package:think_spark/core/common/widgets/circulars/circular_container_sha
 import 'package:think_spark/core/constants/spark_colors.dart';
 import 'package:think_spark/core/constants/spark_sizes.dart';
 import 'package:think_spark/gen/assets.gen.dart';
-import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_cubit.dart';
-import 'package:think_spark/think_spark/screens/home/controller/cubit/ideas_state.dart';
 
 class SparkBarInputField extends StatelessWidget {
   final String hintText;
